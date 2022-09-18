@@ -4,20 +4,39 @@
 
 using namespace std;
 
-vector3D::vector3D(float i, float j, float k){
+vector3D::vector3D(float i, float j, float k)
+{
     x = i;
     y = j;
     z = k;
 }
 
-void vector3D::show(){
-cout << "(" << this->x << "," << this->y << "," << this->z << ")\n";
+void vector3D::show()
+{
+cout << "(" << x << "," << y << "," << z << ")\n";
 }
 
-float vector3D::norme(){
+float vector3D::norme()
+{
     float res = sqrt(pow(x,2)+pow(y,2)+pow(z,2));
     return res;
 }
+
+float vector3D::getX()
+{
+    return x; 
+}
+
+float vector3D::getY()
+{
+    return y; 
+}
+
+float vector3D::getZ()
+{
+    return z;
+}
+
 
 vector3D addition(vector3D v1, vector3D v2){
     return vector3D((v1.x+v2.x),(v1.y+v2.y),(v1.z+v2.z));

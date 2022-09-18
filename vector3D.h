@@ -1,18 +1,21 @@
 class vector3D {
 
-    private :
+    public :
         float x;
         float y;
         float z;
-   
-   
-   public :
    
         vector3D(float i, float j, float k);
 
         void show();
 
         float norme();
+
+        float getX();
+
+        float getY();
+
+        float getZ();
 
 };
 
