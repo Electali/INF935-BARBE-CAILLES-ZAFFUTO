@@ -9,72 +9,75 @@ using namespace std;
 class particle
 {
 
-private:
-    vector3D Position;
-    vector3D Velocity;
-    vector3D Acceleration;
-
-    float InverseMass;
-    float Damping;
-
 public:
+    vector3D position;
+    vector3D velocity;
+    vector3D acceleration;
+
+    float inverseMass;
+    float damping;
+
+
     // Neutral constructor
 
     particle()
     {
-        Position = vector3D(0, 0, 0);
-        Velocity = vector3D(0, 0, 0);
-        Acceleration = vector3D(0, 0, 0);
+        position = vector3D(0, 0, 0);
+        velocity = vector3D(0, 0, 0);
+        acceleration = vector3D(0, 0, 0);
 
-        InverseMass = 1;
-        Damping = 0;
+        inverseMass = 1;
+        damping = 0;
     }
 
     // constructor with arguments
     particle(vector3D p, vector3D v, vector3D a, float m, float d)
     {
-        Position = p;
-        Velocity = v;
-        Acceleration = a;
+        position = p;
+        velocity = v;
+        acceleration = a;
 
-        InverseMass = 1 / m;
-        Damping = d;
+        inverseMass = 1 / m;
+        damping = d;
     }
+
+    /*   IF WE CHANGE OUR MINDS ^^
 
     vector3D getPosition()
     {
-        return Position;
+        return position;
     }
 
     vector3D getVelocity()
     {
-        return Velocity;
+        return velocity;
     }
 
     vector3D getAcceleration()
     {
-        return Acceleration;
+        return acceleration;
     }
 
     float getMass()
     {
-        return 1 / InverseMass;
+        return 1 / inverseMass;
     }
 
     float getDamping()
     {
-        return Damping;
+        return damping;
     }
+    */
 
     void show()
     {
-        cout << "Position : ";
-        Position.show();
-        cout << "Velocity : ";
-        Velocity.show();
-        cout << "Acceleration : ";
-        Acceleration.show();
-        cout << "Mass : " << (1 / InverseMass) << "\n";
-        cout << "Damping : " << Damping << "\n";
+        cout << "position : ";
+        position.show();
+        cout << "velocity : ";
+        velocity.show();
+        cout << "acceleration : ";
+        acceleration.show();
+        cout << "Mass : " << (1 / inverseMass) << "\n";
+        cout << "damping : " << damping << "\n";
     }
 };

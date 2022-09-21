@@ -1,5 +1,6 @@
 #include <iostream>
 #include "vector3D.hpp"
+#include "integrator.hpp"
 
 using namespace std;
 
