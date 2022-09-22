@@ -31,9 +31,9 @@ class integrator
         if (approx) p->position = addition(&p->position, &m1) ;
 
         else {
-            vector3D m2 = multiplication(p->acceleration,0.5*t*t);
+            vector3D m2 = multiplication(&p->acceleration,0.5*t*t);
             vector3D a1 = addition(&m1,&m2);
-            p->position = addition(p->position,&a1);
+            p->position = addition(&p->position,&a1);
         }
         
     }
