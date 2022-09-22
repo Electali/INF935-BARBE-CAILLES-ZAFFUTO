@@ -31,13 +31,13 @@ public:
     }
 
     // constructor with arguments
-    particle(vector3D p, vector3D v, vector3D a, float m, float d)
+    particle(vector3D p, vector3D v, vector3D a, float invm, float d)
     {
         position = p;
         velocity = v;
         acceleration = a;
 
-        inverseMass = 1 / m;
+        inverseMass =  invm;
         damping = d;
     }
 
@@ -77,7 +77,7 @@ public:
         velocity.show();
         cout << "acceleration : ";
         acceleration.show();
-        cout << "Mass : " << (1 / inverseMass) << "\n";
+        cout << "Mass : " << (inverseMass) << "\n";
         cout << "damping : " << damping << "\n";
     }
 };

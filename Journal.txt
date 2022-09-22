@@ -1,0 +1,14 @@
+12-18 Septembre : 
+
+- Création du projet (structure projet + git)
+- Fichiers .bat et compilation
+- Ecriture des classses "vector3D" et "particle"
+
+
+19-25 Septembre : 
+
+- Ecriture classe "integrator"
+- installation et mise en place sur les 3 PCs d'OpenGL, 
+chose qui ne fut pas aisée mais nous y sommes arrivé au bout de 2-3 jours de recherche.
+
+
