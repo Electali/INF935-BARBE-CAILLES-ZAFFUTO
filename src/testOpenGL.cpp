@@ -3,41 +3,61 @@
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
+
 #include <iostream>
+
+#include "window.hpp"
+#include "shader.hpp"
+#include "triangle.hpp"
+#include "vector3.hpp"
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
-    glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    Window ctx;
 
-    auto *window = glfwCreateWindow(800, 600, "Bonjour", nullptr, nullptr);
+    Shader shader;
 
-    if (window == nullptr)
-    {
-        cout << "Erreur initialisation fenêtre" << endl;
-        glfwTerminate();
-        exit(1);
+    Triangle triangle;
+
+    triangle.model.setPosition(Vector3(1, 1, 0));
+    glUseProgram(shader.program);
+    shader.setUniform("model", triangle.model);
+
+    for(int i = 0; i < 4; i++) {
+        for(int j = 0; j < 4; j++) {
+            cout << triangle.model.data[i].data[j];
+        }
+        cout << endl;
     }
 
-    glfwMakeContextCurrent(window);
-    glewInit();
-
-    while (!glfwWindowShouldClose(window))
+    while (!glfwWindowShouldClose(ctx.window))
     {
-        glfwSwapBuffers(window);
+        glfwSwapBuffers(ctx.window);
         glfwPollEvents();
 
-        if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        if (glfwGetKey(ctx.window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         {
-            glfwSetWindowShouldClose(window, true);
+            glfwSetWindowShouldClose(ctx.window, true);
         }
-    }
+    
+        if (glfwGetKey(ctx.window, GLFW_KEY_UP) == GLFW_PRESS)
+        {
+            triangle.model.translate(Vector3(0, 0.1, 0));
+            glUseProgram(shader.program);
+            shader.setUniform("model", triangle.model);
+        }
 
-    glfwTerminate();
+        if (glfwGetKey(ctx.window, GLFW_KEY_DOWN) == GLFW_PRESS)
+        {
+            triangle.model.translate(Vector3(0, -0.1, 0));
+            glUseProgram(shader.program);
+            shader.setUniform("model", triangle.model);
+        }
+
+        triangle.draw(shader);
+    }
 
     return 0;
 }
