@@ -41,7 +41,12 @@ public:
         damping = d;
     }
 
-    /*   IF WE CHANGE OUR MINDS ^^
+    ~particule()
+    {
+        cout << "Particle Destroyed";
+    }
+
+    /*   IF WE CHANGE OUR MINDS 
 
     vector3D getPosition()
     {
