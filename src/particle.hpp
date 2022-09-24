@@ -41,10 +41,12 @@ public:
         damping = d;
     }
 
+    /*
     ~particule()
     {
         cout << "Particle Destroyed";
     }
+    */
 
     /*   IF WE CHANGE OUR MINDS 
 
@@ -85,4 +87,6 @@ public:
         cout << "Mass : " << (inverseMass) << "\n";
         cout << "damping : " << damping << "\n";
     }
+
+    
 };
