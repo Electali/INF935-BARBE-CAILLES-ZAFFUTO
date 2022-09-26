@@ -1,6 +1,6 @@
 #include <iostream>
-#include "vector3D.hpp"
-#include "integrator.hpp"
+#include "../utils/vector3D.hpp"
+#include "../utils/integrator.hpp"
 
 using namespace std;
 
