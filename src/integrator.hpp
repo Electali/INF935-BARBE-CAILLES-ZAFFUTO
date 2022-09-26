@@ -14,12 +14,11 @@ class integrator
 
     ~integrator()
     {
-        cout << "Integrator Destroyed";
     }
 
     void update(particle &p, float t)
     {
-        updatePosition(p,t,true);
+        updatePosition(p,t,false);
         updateVelocity(p,t);
     }
 
@@ -27,6 +26,7 @@ class integrator
 
     void updatePosition(particle &p, float t, bool approx)
     {   
+
         vector3D m1 = multiplication(p.velocity,t);
         if (approx) p.position = addition(p.position,m1) ;
 

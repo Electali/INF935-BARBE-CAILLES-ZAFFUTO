@@ -1,5 +1,1 @@
-- Refaire un main propre
-
-- Refactor le code pour voir si on est obligé de garder les "&p->vel...." 
-
 - Bosser sur l'interface graphique

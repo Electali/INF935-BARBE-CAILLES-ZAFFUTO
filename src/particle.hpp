@@ -48,7 +48,6 @@ public:
     }
     */
 
-    /*   IF WE CHANGE OUR MINDS 
 
     vector3D getPosition()
     {
@@ -74,7 +73,7 @@ public:
     {
         return damping;
     }
-    */
+
 
     void show()
     {

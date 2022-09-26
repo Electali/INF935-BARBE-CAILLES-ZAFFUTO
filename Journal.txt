@@ -1,6 +1,6 @@
 12-18 Septembre : 
 
-- Création du projet (structure projet + git)
+- Creation du projet (structure projet + git)
 - Fichiers .bat et compilation
 - Ecriture des classses "vector3D" et "particle"
 
@@ -8,7 +8,44 @@
 19-25 Septembre : 
 
 - Ecriture classe "integrator"
-- installation et mise en place sur les 3 PCs d'OpenGL, 
-chose qui ne fut pas aisée mais nous y sommes arrivé au bout de 2-3 jours de recherche.
+- Installation et mise en place sur les 3 PCs d'OpenGL,
+chose qui ne fut pas aisee mais nous y sommes arrive au bout de 2-3 jours de recherche.
+- Ecriture de main.cpp , permettant de verifier les fonctions de vector3D.cpp. 
+- Ecriture de apple.cpp, petit jeu permettant de montrer que l'integrateur fonctionne.
+- Debut de creation du moteur graphique sur OpenGL pour afficher et faire bouger nos particules.
+
+
+Choix techniques :
+
+- Nous avons mis toutes les variables composants un "vector3D" ou une "particle" en public, nous voulions au depart utiliser des
+getters et setters mais nous n'avons pas compris l'interet si ces derniers etaient mis en public.
+Nous avons cependant laisser les getters.
+
+- Dans vector3D, les fonctions de calculs sont disponibles en deux exemplaires. 
+La premiere est appelee par un vector3D et va changer ce dernier. 
+La deuxieme est appelee et necessite les 2 vecteurs en parametres.
+( ex: v1 += v2  est equivalent a addition(v1,v2) )
+
+- L'integrateur utilise l'integration Euler explicit comme vu en cours. Le premier ordre nous suffira puisque nous n'aurons pas besoin d'une extreme precision.
+
+- Dans le jeu Apple.exe, deux versions de la gestion du delta time sont implementes (delta time fixe 60Hz et delta time libre).
+La versions non commentee est celle de delta time fixe mais peut facilement etre change.
+
+
+Difficultes rencontrees :
+
+- Installation capricieuse d'OpenGL
+- Essai d'inplementation d'une troisieme version de la gestion du delta time, approche mixe du site "https://gafferongames.com/post/fix_your_timestep/" sans grand succes.
+
+Sites utilises : 
+https://stackoverflow.com/questions/3220477/how-to-use-clock-in-c
+https://gafferongames.com/post/fix_your_timestep/
+
+Livres :
+https://ebookcentral.proquest.com/lib/uqac-ebooks/reader.action?docID=4205386
+
+
+
+
 
 

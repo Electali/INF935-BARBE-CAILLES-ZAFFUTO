@@ -99,23 +99,6 @@ int main()
     Arbre.show();
     Pomme.show();
     Branche.show();
-
-
-/* TESTS DES PARTICULES */
-    particle Projectile = particle(Pomme,VitesseChute,Gravite,10,0.999);
-    Projectile.show();
-    
-    integrator Integr = integrator();
-
-    clock_t start;
-    double duration = 0; 
-   for(int j =0; j< 1000; j++){
-    start = clock();
-    Integr.update(Projectile,duration);
-    cout<<endl;
-    Projectile.show();
-    duration = ( clock() - start ) / (double) CLOCKS_PER_SEC;
-   } 
     
     return 0;
 }

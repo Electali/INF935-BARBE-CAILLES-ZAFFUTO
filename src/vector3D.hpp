@@ -27,9 +27,8 @@ public:
         z = k;
     }
 
-    ~vector3D()
+    ~vector3D()  // Destructeur
     {
-        cout << "Vector 3D Destroyed";
     }
 
     float getX()
@@ -52,7 +51,9 @@ public:
         cout << "(" << x << "," << y << "," << z << ")\n";
     }
 
-    float normeCarre()
+    // NORMALISATION
+
+     float normeCarre()
     {
         float res = pow(x, 2) + pow(y, 2) + pow(z, 2);
         return res;
@@ -63,8 +64,6 @@ public:
         float res = sqrt(this->normeCarre());
         return res;
     }
-
-    // NORMALISATION
 
     void normalise()
     {
