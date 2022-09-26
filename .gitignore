@@ -35,5 +35,6 @@
 .vscode/
 
 # exe
-main.exe
+Main.exe
 testOpenGL.exe
+Apple.exe
