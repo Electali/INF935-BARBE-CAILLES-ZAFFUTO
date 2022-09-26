@@ -21,6 +21,8 @@ int main(int argc, char **argv)
 
     Triangle triangle;
 
+    Vector3 particleCoords(0, 0, 0);
+
     triangle.model.setPosition(Vector3(1, 1, 0));
     glUseProgram(shader.program);
     shader.setUniform("model", triangle.model);
@@ -34,6 +36,9 @@ int main(int argc, char **argv)
 
     while (!glfwWindowShouldClose(ctx.window))
     {
+        particleCoords.x += 0.0000001;
+        particleCoords.y -= 0.000001;
+        
         glfwSwapBuffers(ctx.window);
         glfwPollEvents();
 
@@ -56,7 +61,7 @@ int main(int argc, char **argv)
             shader.setUniform("model", triangle.model);
         }
 
-        triangle.draw(shader);
+        triangle.draw(shader, particleCoords);
     }
 
     return 0;
