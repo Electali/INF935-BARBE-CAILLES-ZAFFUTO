@@ -13,6 +13,7 @@ public:
     vector3D position;
     vector3D velocity;
     vector3D acceleration;
+    vector3D totalForce;
 
     float inverseMass;
     float damping;
