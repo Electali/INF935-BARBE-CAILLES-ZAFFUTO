@@ -18,7 +18,6 @@ public:
     float inverseMass;
     float damping;
 
-
     // Neutral constructor
 
     particle()
@@ -38,7 +37,7 @@ public:
         velocity = v;
         acceleration = a;
 
-        inverseMass =  invm;
+        inverseMass = invm;
         damping = d;
     }
 
@@ -48,7 +47,6 @@ public:
         cout << "Particle Destroyed";
     }
     */
-
 
     vector3D getPosition()
     {
@@ -75,7 +73,6 @@ public:
         return damping;
     }
 
-
     void show()
     {
         cout << "position : ";
@@ -87,6 +84,4 @@ public:
         cout << "Mass : " << (inverseMass) << "\n";
         cout << "damping : " << damping << "\n";
     }
-
-    
 };
