@@ -25,4 +25,4 @@ public:
             p.totalForce += totalbuoy;
         }        
     }
-}
+};
