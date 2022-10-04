@@ -9,9 +9,18 @@ class vector3D
 {
 
 public:
-    float x;
-    float y;
-    float z;
+
+    union
+    {
+
+        struct
+        {
+            float x, y, z;   
+        };
+
+        float data[3]; 
+    };
+    
 
     vector3D()
     {
