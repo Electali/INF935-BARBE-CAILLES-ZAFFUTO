@@ -421,17 +421,17 @@
 #		define GLM_INLINE __forceinline
 #		define GLM_NEVER_INLINE __declspec((noinline))
 #	elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG)
-#		define GLM_INLINE inline __attribute__((__always_inline__))
+#		define GLM_INLINE __attribute__((__always_inline__))
 #		define GLM_NEVER_INLINE __attribute__((__noinline__))
 #	elif GLM_COMPILER & GLM_COMPILER_CUDA
 #		define GLM_INLINE __forceinline__
 #		define GLM_NEVER_INLINE __noinline__
 #	else
-#		define GLM_INLINE inline
+#		define GLM_INLINE
 #		define GLM_NEVER_INLINE
 #	endif//GLM_COMPILER
 #else
-#	define GLM_INLINE inline
+#	define GLM_INLINE
 #	define GLM_NEVER_INLINE
 #endif//defined(GLM_FORCE_INLINE)
 
@@ -605,7 +605,7 @@ namespace glm
 	namespace glm
 	{
 		template<typename T, std::size_t N>
-		constexpr std::size_t countof(T const (&)[N])
+		std::size_t countof(T const (&)[N])
 		{
 			return N;
 		}

@@ -43,7 +43,7 @@ If GLFW is crashing or triggering asserts, make sure that all your object
 handles and other pointers are valid.
 
 For bugs where it makes sense, a short, self contained example is absolutely
-invaluable.  Just put it inline in the body text.  Note that if the bug is
+invaluable.  Just put it in the body text.  Note that if the bug is
 reproducible with one of the test programs that come with GLFW, just mention
 that instead.
 
