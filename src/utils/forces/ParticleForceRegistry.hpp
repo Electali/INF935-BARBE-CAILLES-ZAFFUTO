@@ -1,46 +1,54 @@
 #pragma once
+#include "../particle.hpp"
+#include "ParticleForceGenerator.hpp"
+#include <vector>
 
-class ParticleForceRegistry 
+using namespace std;
+
+class ParticleForceRegistry
 {
 private:
 	struct ParticleForceEntry
 	{
-		particle& particle;
-		ParticleForceGenerator& forceGenerator;
+		particle &particle;
+		ParticleForceGenerator &fg;
 	};
 
-	using Registry = std::vector<ParticleForceEntry>;
+	using Registry = vector<ParticleForceEntry>;
 	Registry registry;
 
+	// ParticleForceEntry
 
 public:
-
-	void add(particle& p,ParticleForceGenerator& fg){
-		ParticleForceEntry newForce = ParticleForceEntry(p,fg);
+	void add(particle &p, ParticleForceGenerator &fg)
+	{
+		ParticleForceEntry newForce = ParticleForceEntry{p, fg};
 		registry.push_back(newForce);
 	}
 
-	void remove(particle& p,ParticleForceGenerator& fg){
-		Registry::iterator i = registratry.begin();	
-		for(; i!=registratry.end();i++){
-			if((i->particle == *p) && (i->fg == fg))
-			{	
+	void remove(particle &p, ParticleForceGenerator &fg)
+	{
+		Registry::iterator i = registry.begin();
+		for (; i != registry.end(); i++)
+		{
+			if ((&(i->particle) == &p) && (&(i->fg) == &fg))
+			{
 				registry.erase(i);
 			}
 		}
-
 	}
 
-	void clear(){
+	void clear()
+	{
 		registry.clear();
 	}
 
 	void UpdateForce(float duration)
 	{
-		Registry::iterator i = registratry.begin();	
-		for(; i!=registratry.end();i++){
-			i->fg.updateForce(i->particle,duration);
+		Registry::iterator i = registry.begin();
+		for (; i != registry.end(); i++)
+		{
+			i->fg.UpdateForce(i->particle, duration);
 		}
 	}
-
 };

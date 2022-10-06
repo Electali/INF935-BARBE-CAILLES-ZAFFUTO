@@ -14,7 +14,8 @@ public:
     void UpdateForce(particle &p, float duration)
     {
         vector3D force = p.getPosition();
-        force -= m_other.getPosition();
+        vector3D vec = m_other.getPosition();
+        force -= vec;
         float norme = force.norme();
         float coeff = -m_k * (norme - m_restlength);
         vector3D hooke = multiplication(force, coeff);

@@ -14,7 +14,7 @@ private:
 
 public: 
     void UpdateForce(particle &p, float duration){
-        float d =(p.getY() - waterHeight - maxDepth) / (2* maxDepth);
+        float d =(p.position.getY() - waterHeight - maxDepth) / (2* maxDepth);
 
         if(d>=1){
             vector3D totalbuoy = vector3D(0,volume*liquidDensity,0);

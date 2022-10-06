@@ -19,6 +19,7 @@ public:
         if (p.getMass() == 0)
             return; // Masse infinie
 
-        p.totalForce += multiplication(m_gravity, p.getMass());
+        vector3D vec = multiplication(m_gravity, p.getMass());
+        p.totalForce += vec;
     }
 };
