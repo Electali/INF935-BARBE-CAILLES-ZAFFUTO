@@ -153,7 +153,7 @@
 // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2253.html
 
 // #define GLM_CXX11_INLINE_NAMESPACES
-// Inline namespaces	N2535	GCC 4.4
+// namespaces	N2535	GCC 4.4
 // http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2535.htm
 
 // #define GLM_CXX11_UNRESTRICTED_UNIONS

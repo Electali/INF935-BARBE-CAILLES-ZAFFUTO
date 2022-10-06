@@ -387,7 +387,7 @@ div.classindex ul {
 }
 
 div.classindex span.ai {
-        display: inline-block;
+        display:-block;
 }
 
 div.groupHeader {
@@ -664,7 +664,7 @@ table.memberdecls {
 .permalink
 {
         font-size: 65%;
-        display: inline-block;
+        display:-block;
         vertical-align: middle;
 }
 
@@ -924,7 +924,7 @@ div.directory {
     user-select: none;
     cursor: pointer;
     font-size: 80%;
-    display: inline-block;
+    display:-block;
     width: 16px;
     height: 22px;
 }
@@ -935,7 +935,7 @@ div.directory {
     font-size: 12px;
     height: 14px;
     width: 16px;
-    display: inline-block;
+    display:-block;
     background-color: #728DC1;
     color: white;
     text-align: center;
@@ -947,7 +947,7 @@ div.directory {
 .icona {
     width: 24px;
     height: 22px;
-    display: inline-block;
+    display:-block;
 }
 
 .iconfopen {
@@ -958,7 +958,7 @@ div.directory {
     background-position: 0px -4px;
     background-repeat: repeat-y;
     vertical-align:top;
-    display: inline-block;
+    display:-block;
 }
 
 .iconfclosed {
@@ -969,7 +969,7 @@ div.directory {
     background-position: 0px -4px;
     background-repeat: repeat-y;
     vertical-align:top;
-    display: inline-block;
+    display:-block;
 }
 
 .icondoc {
@@ -980,7 +980,7 @@ div.directory {
     background-position: 0px -4px;
     background-repeat: repeat-y;
     vertical-align:top;
-    display: inline-block;
+    display:-block;
 }
 
 table.directory {
@@ -1816,7 +1816,7 @@ table.DocNodeLTR {
 
 tt, code, kbd, samp
 {
-  display: inline-block;
+  display:-block;
   direction:ltr; 
 }
 /* @end */

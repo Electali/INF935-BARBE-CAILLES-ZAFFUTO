@@ -249,9 +249,9 @@ extern "C" {
 #ifndef NK_API
   #ifdef NK_PRIVATE
     #if (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199409L))
-      #define NK_API static inline
+      #define NK_API static
     #elif defined(__cplusplus)
-      #define NK_API static inline
+      #define NK_API static
     #else
       #define NK_API static
     #endif
