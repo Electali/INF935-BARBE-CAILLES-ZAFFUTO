@@ -10,8 +10,8 @@ class ParticleForceRegistry
 private:
 	struct ParticleForceEntry
 	{
-		particle &particle;
-		ParticleForceGenerator &fg;
+		particle *particle;
+		ParticleForceGenerator *fg;
 	};
 
 	using Registry = vector<ParticleForceEntry>;
@@ -20,9 +20,17 @@ private:
 	// ParticleForceEntry
 
 public:
+	ParticleForceRegistry() {
+
+	}
+
+	~ParticleForceRegistry() {
+		
+	}
+
 	void add(particle &p, ParticleForceGenerator &fg)
 	{
-		ParticleForceEntry newForce = ParticleForceEntry{p, fg};
+		ParticleForceEntry newForce = ParticleForceEntry{&p, &fg};
 		registry.push_back(newForce);
 	}
 
@@ -31,7 +39,7 @@ public:
 		Registry::iterator i = registry.begin();
 		for (; i != registry.end(); i++)
 		{
-			if ((&(i->particle) == &p) && (&(i->fg) == &fg))
+			if (((i->particle) == &p) && ((i->fg) == &fg))
 			{
 				registry.erase(i);
 			}
@@ -48,7 +56,7 @@ public:
 		Registry::iterator i = registry.begin();
 		for (; i != registry.end(); i++)
 		{
-			i->fg.UpdateForce(i->particle, duration);
+			(*i->fg).UpdateForce(*i->particle, duration);
 		}
 	}
 };

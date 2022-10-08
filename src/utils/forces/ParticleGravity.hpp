@@ -1,15 +1,15 @@
 #pragma once
-#include "ParticleForceGenerator.hpp";
-#include "../utils/vector3D.hpp"
-#include "../utils/integrator.hpp"
+#include "ParticleForceGenerator.hpp"
+#include "../OpenGl/vector3.hpp"
+#include "../particle.hpp"
 
 class ParticleGravity : public ParticleForceGenerator
 {
 private:
-    vector3D m_gravity;
+    vec3 m_gravity;
 
 public:
-    ParticleGravity(vector3D &grav)
+    ParticleGravity(vec3 &grav)
     {
         m_gravity = grav;
     }
@@ -19,7 +19,7 @@ public:
         if (p.getMass() == 0)
             return; // Masse infinie
 
-        vector3D vec = multiplication(m_gravity, p.getMass());
+        vec3 vec = multiplication(m_gravity, p.getMass());
         p.totalForce += vec;
     }
 };

@@ -18,6 +18,10 @@ class integrator
 
     void update(particle &p, float t)
     {
+        vec3 vec = p.totalForce;
+        vec *= p.inverseMass;
+        p.acceleration = vec;
+
         updatePosition(p,t,false);
         updateVelocity(p,t);
     }

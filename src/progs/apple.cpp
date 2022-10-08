@@ -12,6 +12,11 @@
 #include "../utils/OpenGl/transform.hpp"
 #include "../utils/OpenGl/point.hpp"
 #include "../utils/integrator.hpp"
+#include "../utils/Engine.hpp"
+#include "../utils/forces/ParticleGravity.hpp"
+#include "../utils/forces/ParticleAnchoredSpring.hpp"
+
+using namespace std;
 
 int main(int argc, char **argv)
 {
@@ -21,6 +26,7 @@ int main(int argc, char **argv)
         cout << "Pour utiliser le programme, il suffit de rentrer en parametre une hauteur (en metres)." << endl;
         return 0;
     }
+    Engine engine = Engine();
 
     // Creation des elements d'OpenGl
     Window window;
@@ -33,19 +39,33 @@ int main(int argc, char **argv)
 
     Transform trans1;
 
+    Point meshSpring;
+
+    Transform transSpring;
 
     float hauteur = (float)strtod(argv[1], NULL);
 
-
     vec3 Pomme = vec3(0, hauteur, 0);
     vec3 VitesseChute = vec3(0, 0, 0);
-    vec3 Gravite = vec3(0, -5, 0);
+    vec3 AccelPomme = vec3(0, 0, 0);
+    vec3 GraviteVec = vec3(0, -10, 0);
     vec3 Newton = vec3(0, 1.63, 0);
 
-    particle Projectile = particle(Pomme, VitesseChute, Gravite, 10, 0.999);
+    particle Projectile = particle(Pomme, VitesseChute, AccelPomme, 0.5, 0.999);
+
+    ParticleGravity Gravity = ParticleGravity(GraviteVec);
+
+    vec3 springPoint = vec3(0.001, hauteur - 0.001, 0);
+
+    ParticleAnchoredSpring anchoredSpring = ParticleAnchoredSpring(springPoint, 10, 0.0001);
+
     Projectile.show();
 
-    integrator Integr = integrator();
+    engine.addParticle(Projectile);
+
+    engine.registry.add(Projectile, Gravity);
+
+    engine.registry.add(Projectile, anchoredSpring);
 
     // Delta Time fixe
 
@@ -61,22 +81,27 @@ int main(int argc, char **argv)
         if (window.isKeyDown(ESCAPE))
             window.closeWindow();
 
-        float oldY = Projectile.getPosition().getY();
         float oldX = Projectile.getPosition().getX();
+        float oldY = Projectile.getPosition().getY();
+        float oldZ = Projectile.getPosition().getZ();
 
-        Integr.update(Projectile, dt);
+        engine.Update(dt);
         if (Projectile.getPosition().getY() <= Newton.getY())
             falling = false;
         Projectile.show();
         chrono += dt;
 
-        trans1.moveY(Projectile.getPosition().getY() - oldY);
         trans1.moveX(Projectile.getPosition().getX() - oldX);
+        trans1.moveY(Projectile.getPosition().getY() - oldY);
+        trans1.moveZ(Projectile.getPosition().getZ() - oldZ);
+
+        transSpring.move(springPoint.getX(), springPoint.getY(), springPoint.getZ());
 
         // Affichage
         window.clear();
         shader1.setUniform("color", vec4(1, 0.5, 0, 1));
         window.draw(mesh1, shader1, trans1);
+        window.draw(mesh1, shader1, transSpring);
         window.display();
     }
 
