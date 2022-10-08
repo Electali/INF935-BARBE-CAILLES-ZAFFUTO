@@ -37,10 +37,10 @@ int main(int argc, char **argv)
     float hauteur = (float)strtod(argv[1], NULL);
 
 
-    vector3D Pomme = vector3D(0, hauteur, 0);
-    vector3D VitesseChute = vector3D(0, 0, 0);
-    vector3D Gravite = vector3D(0, -5, 0);
-    vector3D Newton = vector3D(0, 1.63, 0);
+    vec3 Pomme = vec3(0, hauteur, 0);
+    vec3 VitesseChute = vec3(0, 0, 0);
+    vec3 Gravite = vec3(0, -5, 0);
+    vec3 Newton = vec3(0, 1.63, 0);
 
     particle Projectile = particle(Pomme, VitesseChute, Gravite, 10, 0.999);
     Projectile.show();

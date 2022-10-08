@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include "math.h"
-#include "vector3D.hpp"
 
 using namespace std;
 
@@ -10,10 +9,10 @@ class particle
 {
 
 public:
-    vector3D position;
-    vector3D velocity;
-    vector3D acceleration;
-    vector3D totalForce;
+    vec3 position;
+    vec3 velocity;
+    vec3 acceleration;
+    vec3 totalForce;
 
     float inverseMass;
     float damping;
@@ -22,16 +21,16 @@ public:
 
     particle()
     {
-        position = vector3D(0, 0, 0);
-        velocity = vector3D(0, 0, 0);
-        acceleration = vector3D(0, 0, 0);
+        position = vec3(0.f, 0.f, 0.f);
+        velocity = vec3(0.f, 0.f, 0.f);
+        acceleration = vec3(0.f, 0.f, 0.f);
 
         inverseMass = 1;
         damping = 0;
     }
 
     // constructor with arguments
-    particle(vector3D p, vector3D v, vector3D a, float invm, float d)
+    particle(vec3 p, vec3 v, vec3 a, float invm, float d)
     {
         position = p;
         velocity = v;
@@ -48,17 +47,17 @@ public:
     }
     */
 
-    vector3D getPosition()
+    vec3 getPosition()
     {
         return position;
     }
 
-    vector3D getVelocity()
+    vec3 getVelocity()
     {
         return velocity;
     }
 
-    vector3D getAcceleration()
+    vec3 getAcceleration()
     {
         return acceleration;
     }

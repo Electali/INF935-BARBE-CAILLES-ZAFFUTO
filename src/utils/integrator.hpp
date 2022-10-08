@@ -27,12 +27,12 @@ class integrator
     void updatePosition(particle &p, float t, bool approx)
     {   
 
-        vector3D m1 = multiplication(p.velocity,t);
+        vec3 m1 = multiplication(p.velocity,t);
         if (approx) p.position = addition(p.position,m1) ;
 
         else {
-            vector3D m2 = multiplication(p.acceleration,0.5*t*t);
-            vector3D a1 = addition(m1,m2);
+            vec3 m2 = multiplication(p.acceleration,0.5*t*t);
+            vec3 a1 = addition(m1,m2);
             p.position = addition(p.position,a1);
         }
         
@@ -40,8 +40,8 @@ class integrator
 
     void updateVelocity(particle &p, float t)
     {   
-        vector3D m1 = multiplication(p.velocity,p.damping);
-        vector3D m2 = multiplication(p.acceleration,t);
+        vec3 m1 = multiplication(p.velocity,p.damping);
+        vec3 m2 = multiplication(p.acceleration,t);
         p.velocity = addition(m1,m2);
     }
 

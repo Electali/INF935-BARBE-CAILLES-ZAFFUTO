@@ -5,7 +5,7 @@
 class ParticleAnchoredSpring : public ParticleForceGenerator
 {
 private:
-    vector3D &m_anchor;
+    vec3 &m_anchor;
 
     float m_k;
     float m_restlength;
@@ -13,11 +13,11 @@ private:
 public:
     void UpdateForce(particle &p, float duration)
     {
-        vector3D force = p.getPosition();
+        vec3 force = p.getPosition();
         force -= m_anchor;
         float norme = force.norme();
         float coeff = -m_k * (norme - m_restlength);
-        vector3D hooke = multiplication(force, coeff);
+        vec3 hooke = multiplication(force, coeff);
         p.totalForce += hooke;
     }
 };
