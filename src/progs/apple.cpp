@@ -15,6 +15,8 @@
 #include "../utils/Engine.hpp"
 #include "../utils/forces/ParticleGravity.hpp"
 #include "../utils/forces/ParticleAnchoredSpring.hpp"
+#include "../utils/forces/ParticleSpring.hpp"
+#include "../utils/forces/ParticleBuoyancy.hpp"
 
 using namespace std;
 
@@ -38,6 +40,7 @@ int main(int argc, char **argv)
     Point mesh1;
 
     Transform trans1;
+    Transform trans2;
 
     Point meshSpring;
 
@@ -45,27 +48,42 @@ int main(int argc, char **argv)
 
     float hauteur = (float)strtod(argv[1], NULL);
 
-    vec3 Pomme = vec3(0, hauteur, 0);
+    vec3 Pomme = vec3(0.1, hauteur, 0);
     vec3 VitesseChute = vec3(0, 0, 0);
     vec3 AccelPomme = vec3(0, 0, 0);
     vec3 GraviteVec = vec3(0, -10, 0);
     vec3 Newton = vec3(0, 1.63, 0);
 
-    particle Projectile = particle(Pomme, VitesseChute, AccelPomme, 0.5, 0.999);
+    vec3 PommeVolante = (0.25, hauteur, 0);
+    vec3 VitessePommeVolante = vec3(0, 0, 0);
+    vec3 AccelPommeVolante = vec3(0, 0, 0);
+
+    particle Projectile = particle(Pomme, VitesseChute, AccelPomme, 0.5, 0.97);
+    particle Projectile2 = particle(PommeVolante, VitessePommeVolante, AccelPommeVolante, 0.5, 0.999);
 
     ParticleGravity Gravity = ParticleGravity(GraviteVec);
 
-    vec3 springPoint = vec3(0.001, hauteur - 0.001, 0);
+    vec3 springPoint = vec3(0, hauteur, 0);
 
-    ParticleAnchoredSpring anchoredSpring = ParticleAnchoredSpring(springPoint, 10, 0.0001);
+    ParticleAnchoredSpring anchoredSpring = ParticleAnchoredSpring(springPoint, 200, 0.1);
+    ParticleSpring PommeSpring = ParticleSpring(&Projectile2, 200, 0.5);
+    ParticleSpring PommeSpring2 = ParticleSpring(&Projectile, 200, 0.5);
 
+    //ParticleBuoyancy Buoyancy = ParticleBuoyancy(0.5, 50, 0, 2);
+
+    //transSpring.setPos(springPoint.x, springPoint.y, 0);
     Projectile.show();
 
     engine.addParticle(Projectile);
+    engine.addParticle(Projectile2);
 
     engine.registry.add(Projectile, Gravity);
 
     engine.registry.add(Projectile, anchoredSpring);
+    engine.registry.add(Projectile, PommeSpring);
+    engine.registry.add(Projectile2, PommeSpring2);
+
+    //engine.registry.add(Projectile, Buoyancy);
 
     // Delta Time fixe
 
@@ -85,23 +103,32 @@ int main(int argc, char **argv)
         float oldY = Projectile.getPosition().getY();
         float oldZ = Projectile.getPosition().getZ();
 
+        float oldX2 = Projectile2.getPosition().getX();
+        float oldY2 = Projectile2.getPosition().getY();
+        float oldZ2 = Projectile2.getPosition().getZ();
+
         engine.Update(dt);
         if (Projectile.getPosition().getY() <= Newton.getY())
-            falling = false;
-        Projectile.show();
-        chrono += dt;
+            // falling = false;
+            Projectile.show();
+            chrono += dt;
 
         trans1.moveX(Projectile.getPosition().getX() - oldX);
         trans1.moveY(Projectile.getPosition().getY() - oldY);
         trans1.moveZ(Projectile.getPosition().getZ() - oldZ);
 
-        transSpring.move(springPoint.getX(), springPoint.getY(), springPoint.getZ());
+        trans2.moveX(Projectile2.getPosition().getX() - oldX2);
+        trans2.moveY(Projectile2.getPosition().getY() - oldY2);
+        trans2.moveZ(Projectile2.getPosition().getZ() - oldZ2);
 
         // Affichage
         window.clear();
         shader1.setUniform("color", vec4(1, 0.5, 0, 1));
         window.draw(mesh1, shader1, trans1);
+        shader1.setUniform("color", vec4(0.5, 1, 0, 1));
         window.draw(mesh1, shader1, transSpring);
+        shader1.setUniform("color", vec4(1, 0.3, 1, 1));
+        window.draw(mesh1, shader1, trans2);
         window.display();
     }
 

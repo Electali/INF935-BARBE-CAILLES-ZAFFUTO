@@ -6,22 +6,29 @@
 class ParticleBuoyancy : public ParticleForceGenerator
 {
 private:
-    float maxDepth;
-    float volume;
+    float m_maxDepth;
+    float m_volume;
 
-    float waterHeight;
-    float liquidDensity;
+    float m_waterHeight;
+    float m_liquidDensity;
 
 public: 
+    ParticleBuoyancy(float maxDepth, float volume, float waterHeight, float liquidDensity) {
+        m_maxDepth = maxDepth;
+        m_volume = volume;
+        m_waterHeight = waterHeight;
+        m_liquidDensity = liquidDensity;
+    }
+
     void UpdateForce(particle &p, float duration){
-        float d =(p.position.getY() - waterHeight - maxDepth) / (2* maxDepth);
+        float d =(p.position.getY() - m_waterHeight - m_maxDepth) / (2* m_maxDepth);
 
         if(d>=1){
-            vec3 totalbuoy = vec3(0,volume*liquidDensity,0);
+            vec3 totalbuoy = vec3(0,m_volume*m_liquidDensity,0);
              p.totalForce += totalbuoy;
         }
         else if (d<1 && d>0){
-            vec3 totalbuoy = vec3(0,d*volume*liquidDensity,0);
+            vec3 totalbuoy = vec3(0,d*m_volume*m_liquidDensity,0);
             p.totalForce += totalbuoy;
         }        
     }
