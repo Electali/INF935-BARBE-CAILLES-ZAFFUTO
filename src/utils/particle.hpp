@@ -62,9 +62,14 @@ public:
         return acceleration;
     }
 
+    float getInvMass()
+    {
+        return inverseMass;
+    }
+
     float getMass()
     {
-        return 1 / inverseMass;
+        return 1/inverseMass;
     }
 
     float getDamping()
