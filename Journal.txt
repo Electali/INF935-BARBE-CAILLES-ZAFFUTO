@@ -55,4 +55,14 @@ Phase 2 :
 26 Septembre- 2 Octobre
 
 - creation des forces
+- debut du force registry
 
+3 - 9 octobre :
+- implementation complete du force registry et du force generator
+- creation d'une classe "engine.hpp" qui contient la gestion de l'integrateur, des particules, du force registry et donc des forces. Ainsi, le programme principal (le main) n'a qu'a instancier et appeler un objet de la classe Engine
+
+10 - 16 octobre :
+- debut d'implementation du gestionnaire de collisions
+
+17 - 23 octobre :
+- 
