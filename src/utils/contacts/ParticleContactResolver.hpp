@@ -1,6 +1,8 @@
 #pragma once
 #include <limits>
 
+#include "ParticleContact.hpp"
+
 using namespace std;
 
 class ParticleContactResolver
@@ -22,7 +24,7 @@ protected:
             unsigned int maxIndex = nbContacts;
             for(unsigned int i = 0; i < nbContacts; i++)
             {
-                float sepVel = contacts[i].calculateSeparatingVeloxity();
+                float sepVel = contacts[i].calculateSeparatingVelocity();
                 if (sepVel < max && (sepVel < 0 || contacts[i].penetration > 0))
                 {
                     max = sepVel;

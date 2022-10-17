@@ -3,6 +3,8 @@
 #include "../particle.hpp"
 #include "ParticleContactGenerator.hpp"
 #include "ParticleContact.hpp"
+#include "ParticleLink.hpp"
+
 
 class ParticleRod : public ParticleLink
 {
