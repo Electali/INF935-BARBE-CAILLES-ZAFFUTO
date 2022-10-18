@@ -1,22 +1,27 @@
 #pragma once
+
 #include <vector>
+
+#include "particle.hpp"
+#include "integrator.hpp"
+#include "utils/contacts/ParticleContactGenerator.hpp"
+#include "utils/contacts/ParticleContactResolver.hpp"
+#include "utils/forces/ParticleForceRegistry.hpp"
 
 class ParticleWorld
 {
 public:
-
     /// Definitions ///
 
     using ParticleList = vector<particle *>;
-    using ContactGenerators = vector<ParticleContactGenerators *>;
+    using ContactGenerators = vector<ParticleContactGenerator *>;
 
-protected: 
+protected:
     ParticleList particles;
-    
-public: 
 
+public:
     unsigned maxContacts;
-    
+
     ParticleForceRegistry registry;
 
     ParticleContactResolver resolver;
@@ -25,60 +30,59 @@ public:
 
     ParticleContact *contacts;
 
-public: 
+public:
     ParticleWorld(unsigned maxContacts, unsigned iterations = 0);
 
 public:
-
     unsigned generateContacts()
     {
         unsigned limit = maxContacts;
         ParticleContact *nextContact = contacts;
 
-        for(ContactGenerators::iterator g = contactGenerators.begin();g != contactGenerators.end();g++)
+        for (ContactGenerators::iterator g = contactGenerators.begin(); g != contactGenerators.end(); g++)
         {
-            unsigned used = (*g)->addContact(nextContact,limit);
+            unsigned used = (*g)->addContact(nextContact, limit);
             limit -= used;
-            nextContact+=used;
+            nextContact += used;
 
-            if (limit <= 0) break;
+            if (limit <= 0)
+                break;
         }
 
-        return maxContact - limit;
-
+        return maxContacts - limit;
     }
 
     void integrate(float duration)
     {
-        for(particles::iterator p = particles.begin(); p!= particles.end(); p++)
+        integrator integr = integrator();
+        for (ParticleList::iterator p = particles.begin(); p != particles.end(); p++)
         {
-            p->integrate(duration);
+            integr.update(**p, duration);
+            //(*p)->integrate(duration);
         }
     }
 
-
     void runPhysics(float duration)
     {
-        registry.updateForces(duration);
-    
+        registry.UpdateForce(duration);
+
         integrate(duration);
 
         unsigned usedContacts = generateContacts();
 
-        if(usedContacts)
+        if (usedContacts)
         {
-            resolver.setIterations(usedContacts*2);
-            resolver.resolveContacts(contacts,usedContacts,duration)
+            resolver.setIterations(usedContacts * 2);
+            resolver.resolveContacts(contacts, usedContacts, duration);
         }
     }
 
     void startFrame()
     {
-        vec3 zero = (0,0,0);
-        for(particles::iterator p = particles.begin(); p!= particles.end(); p++)
+        vec3 zero = (0, 0, 0);
+        for (ParticleList::iterator p = particles.begin(); p != particles.end(); p++)
         {
-            p->totalForce = zero;
+            (*p)->totalForce = zero;
         }
     }
-
 };
