@@ -6,15 +6,13 @@
 
 class ParticleLink : public ParticleContactGenerator
 {
-private:
-    float length;
-    
 public:
-    float currentLength() const
-    {
-        return length;
+    particle* particles[2];
+    
+    float currentLength() const {
+        vec3 relativePos = particles[0]->getPosition() - particles[1]->getPosition();
+        return relativePos.norme();
     }
 
     unsigned int addContact(ParticleContact* contact, unsigned int limit) const = 0;
 };
-
