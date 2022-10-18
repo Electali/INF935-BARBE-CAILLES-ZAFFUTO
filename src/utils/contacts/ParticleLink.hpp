@@ -6,10 +6,14 @@
 
 class ParticleLink : public ParticleContactGenerator
 {
-public:
+private:
     float length;
-
-    float currentLength() const;
+    
+public:
+    float currentLength() const
+    {
+        return length;
+    }
 
     unsigned int addContact(ParticleContact* contact, unsigned int limit) const = 0;
 };
