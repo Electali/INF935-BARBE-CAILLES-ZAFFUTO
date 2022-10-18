@@ -15,6 +15,13 @@ protected:
         m_iterations = iterations;
     }
 
+public:
+
+    void setIterations(unsigned it)
+    {
+        m_iterations = it;
+    }
+
     void resolveContacts(ParticleContact* contacts, unsigned int nbContacts, float duration)
     {
         unsigned int iterations = 0;
