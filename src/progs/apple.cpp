@@ -17,6 +17,10 @@
 #include "../utils/forces/ParticleAnchoredSpring.hpp"
 #include "../utils/forces/ParticleSpring.hpp"
 #include "../utils/forces/ParticleBuoyancy.hpp"
+#include "particleWorld.hpp"
+#include "../utils/contacts/ParticleRod.hpp"
+#include "../utils/contacts/ParticleCable.hpp"
+
 
 using namespace std;
 
@@ -29,6 +33,8 @@ int main(int argc, char **argv)
         return 0;
     }
     Engine engine = Engine();
+
+    particleWorld world = particleWorld(10, 10);
 
     // Creation des elements d'OpenGl
     Window window;
@@ -82,6 +88,26 @@ int main(int argc, char **argv)
     engine.registry.add(Projectile, anchoredSpring);
     engine.registry.add(Projectile, PommeSpring);
     engine.registry.add(Projectile2, PommeSpring2);
+
+    // Creation de particules pour collisions
+    vec3 pos1 = vec3(0, 0, 0);
+    vec3 pos2 = vec3(1, 0, 0);
+    vec3 pos3 = vec3(0, 1, 0);
+
+    vec3 vitesse = vec3(1, 0, 0);
+    vec3 accel = vec3(0, 0, 0);
+
+    particle particule1 = particle(pos1, vitesse, accel, 0.5, 0.999);
+    particle particule2 = particle(pos2, vitesse, accel, 0.5, 0.999);
+    particle particule3 = particle(pos3, vitesse, accel, 0.5, 0.999);
+
+    ParticleCable cable1 = ParticleCable(2, 3, particule1, particule2);
+    ParticleCable cable2 = ParticleCable(2, 3, particule2, particule3);
+    ParticleCable cable3 = ParticleCable(2, 3, particule3, particule1);
+
+    ParticleContact* contacts[3] = {&cable1, &cable2, &cable3};
+
+
 
     //engine.registry.add(Projectile, Buoyancy);
 

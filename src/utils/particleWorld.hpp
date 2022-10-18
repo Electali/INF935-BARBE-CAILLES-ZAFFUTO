@@ -8,7 +8,7 @@
 #include "utils/contacts/ParticleContactResolver.hpp"
 #include "utils/forces/ParticleForceRegistry.hpp"
 
-class ParticleWorld
+class particleWorld
 {
 public:
     /// Definitions ///
@@ -16,11 +16,10 @@ public:
     using ParticleList = vector<particle *>;
     using ContactGenerators = vector<ParticleContactGenerator *>;
 
-protected:
+public:
     ParticleList particles;
 
-public:
-    unsigned maxContacts;
+    unsigned int maxContacts;
 
     ParticleForceRegistry registry;
 
@@ -31,7 +30,12 @@ public:
     ParticleContact *contacts;
 
 public:
-    ParticleWorld(unsigned maxContacts, unsigned iterations = 0);
+    particleWorld(unsigned int newMaxContacts, unsigned int iterations = 0) {
+        maxContacts = newMaxContacts;
+        registry = ParticleForceRegistry();
+        resolver = ParticleContactResolver(iterations);
+        contactGenerators = ContactGenerators();
+    }
 
 public:
     unsigned generateContacts()
@@ -77,6 +81,7 @@ public:
         }
     }
 
+    /*
     void startFrame()
     {
         vec3 zero = (0, 0, 0);
@@ -85,4 +90,5 @@ public:
             (*p)->totalForce = zero;
         }
     }
+    */
 };

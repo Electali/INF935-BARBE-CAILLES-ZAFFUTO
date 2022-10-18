@@ -10,12 +10,13 @@ class ParticleContactResolver
 protected:
     unsigned int m_iterations;
 
+public:
+    ParticleContactResolver();
+
     ParticleContactResolver(unsigned int iterations)
     {
         m_iterations = iterations;
     }
-
-public:
 
     void setIterations(unsigned it)
     {

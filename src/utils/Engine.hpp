@@ -3,22 +3,48 @@
 #include "integrator.hpp"
 #include "particle.hpp"
 #include "./forces/ParticleForceRegistry.hpp"
+#include "utils/contacts/ParticleContactGenerator.hpp"
+#include "utils/contacts/ParticleContactResolver.hpp"
+
 #include <vector>
 
 class Engine
 {
 public:
+    /// Definitions ///
+    using ParticleList = vector<particle *>;
+    using ContactGenerators = vector<ParticleContactGenerator *>;
+
     integrator integr;
 
     using ParticleList = vector<particle *>;
     ParticleList particles;
 
     ParticleForceRegistry registry;
+    ParticleContactResolver resolver;
+
+    unsigned int maxContacts;
+
+    ParticleForceRegistry registry;
+
+    ParticleContactResolver resolver;
+
+    ContactGenerators contactGenerators;
+
+    ParticleContact *contacts;
 
     Engine()
     {
         integr = integrator();
         registry = ParticleForceRegistry();
+    }
+
+    Engine(unsigned int newMaxContacts, unsigned int iterations)
+    {
+        maxContacts = newMaxContacts;
+        registry = ParticleForceRegistry();
+        resolver = ParticleContactResolver(iterations);
+        contactGenerators = ContactGenerators();
     }
 
     ~Engine()
@@ -53,5 +79,42 @@ public:
             integr.update(**i, dt);
             (*i)->totalForce = 0;
         }
+
+        unsigned usedContacts = generateContacts();
+
+        if (usedContacts)
+        {
+            resolver.setIterations(usedContacts * 2);
+            resolver.resolveContacts(contacts, usedContacts, dt);
+        }
     }
+
+    unsigned generateContacts()
+    {
+        unsigned limit = maxContacts;
+        ParticleContact *nextContact = contacts;
+
+        for (ContactGenerators::iterator g = contactGenerators.begin(); g != contactGenerators.end(); g++)
+        {
+            unsigned used = (*g)->addContact(nextContact, limit);
+            limit -= used;
+            nextContact += used;
+
+            if (limit <= 0)
+                break;
+        }
+
+        return maxContacts - limit;
+    }
+
+    /*
+    void startFrame()
+    {
+        vec3 zero = (0, 0, 0);
+        for (ParticleList::iterator p = particles.begin(); p != particles.end(); p++)
+        {
+            (*p)->totalForce = zero;
+        }
+    }
+    */
 };
