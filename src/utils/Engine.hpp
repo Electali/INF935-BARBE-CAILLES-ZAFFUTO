@@ -3,8 +3,8 @@
 #include "integrator.hpp"
 #include "particle.hpp"
 #include "./forces/ParticleForceRegistry.hpp"
-#include "utils/contacts/ParticleContactGenerator.hpp"
-#include "utils/contacts/ParticleContactResolver.hpp"
+#include "./contacts/ParticleContactGenerator.hpp"
+#include "./contacts/ParticleContactResolver.hpp"
 
 #include <vector>
 
@@ -17,11 +17,7 @@ public:
 
     integrator integr;
 
-    using ParticleList = vector<particle *>;
     ParticleList particles;
-
-    ParticleForceRegistry registry;
-    ParticleContactResolver resolver;
 
     unsigned int maxContacts;
 
@@ -69,6 +65,12 @@ public:
         }
     }
 
+    void addContact(ParticleContactGenerator &cont)
+    {
+        contactGenerators.push_back(&cont);
+    }
+
+
     void Update(float dt)
     {
         registry.UpdateForce(dt);
@@ -77,10 +79,12 @@ public:
         for (; i != particles.end(); i++)
         {
             integr.update(**i, dt);
+            (*i)->show();
             (*i)->totalForce = 0;
         }
 
         unsigned usedContacts = generateContacts();
+        cout << "Le nombre de contacts generer est :" << usedContacts << "\n";
 
         if (usedContacts)
         {
@@ -107,14 +111,4 @@ public:
         return maxContacts - limit;
     }
 
-    /*
-    void startFrame()
-    {
-        vec3 zero = (0, 0, 0);
-        for (ParticleList::iterator p = particles.begin(); p != particles.end(); p++)
-        {
-            (*p)->totalForce = zero;
-        }
-    }
-    */
 };

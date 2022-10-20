@@ -20,6 +20,7 @@
 #include "../utils/contacts/ParticleRod.hpp"
 #include "../utils/contacts/ParticleCable.hpp"
 
+
 using namespace std;
 
 int main(int argc, char **argv)
@@ -32,6 +33,7 @@ int main(int argc, char **argv)
     }
     Engine engine = Engine();
 
+
     // Creation des elements d'OpenGl
     Window window;
     window.setWireFrame(false);
@@ -43,7 +45,6 @@ int main(int argc, char **argv)
 
     Transform trans1;
     Transform trans2;
-    Transform trans3;
 
     Point meshSpring;
 
@@ -72,9 +73,9 @@ int main(int argc, char **argv)
     ParticleSpring PommeSpring = ParticleSpring(&Projectile2, 200, 0.5);
     ParticleSpring PommeSpring2 = ParticleSpring(&Projectile, 200, 0.5);
 
-    // ParticleBuoyancy Buoyancy = ParticleBuoyancy(0.5, 50, 0, 2);
+    //ParticleBuoyancy Buoyancy = ParticleBuoyancy(0.5, 50, 0, 2);
 
-    // transSpring.setPos(springPoint.x, springPoint.y, 0);
+    //transSpring.setPos(springPoint.x, springPoint.y, 0);
     Projectile.show();
 
     engine.addParticle(Projectile);
@@ -88,29 +89,25 @@ int main(int argc, char **argv)
 
     // Creation de particules pour collisions
     vec3 pos1 = vec3(0, 0, 0);
-    vec3 pos2 = vec3(0.5, 0.3, 0);
-    vec3 pos3 = vec3(-0.1, 0.5, 0);
+    vec3 pos2 = vec3(1, 0, 0);
+    vec3 pos3 = vec3(0, 1, 0);
 
-    vec3 vitesse = vec3(0, 0, 0);
+    vec3 vitesse = vec3(1, 0, 0);
     vec3 accel = vec3(0, 0, 0);
 
     particle particule1 = particle(pos1, vitesse, accel, 0.5, 0.999);
     particle particule2 = particle(pos2, vitesse, accel, 0.5, 0.999);
     particle particule3 = particle(pos3, vitesse, accel, 0.5, 0.999);
 
-    engine.addParticle(particule1);
-    engine.addParticle(particule2);
-    engine.addParticle(particule3);
+    ParticleCable cable1 = ParticleCable(2, 3, particule1, particule2);
+    ParticleCable cable2 = ParticleCable(2, 3, particule2, particule3);
+    ParticleCable cable3 = ParticleCable(2, 3, particule3, particule1);
 
-    ParticleCable cable1 = ParticleCable(0.3, 0.5, particule1, particule2);
-    ParticleCable cable2 = ParticleCable(0.3, 0.5, particule2, particule3);
-    ParticleCable cable3 = ParticleCable(0.3, 0.5, particule3, particule1);
+    engine.addContact(cable1);
+    engine.addContact(cable2);
+    engine.addContact(cable3);
 
-    //engine.addContact(cable1);
-    //engine.addContact(cable2);
-    //engine.addContact(cable3);
-
-    // engine.registry.add(Projectile, Buoyancy);
+    //engine.registry.add(Projectile, Buoyancy);
 
     // Delta Time fixe
 
@@ -126,48 +123,36 @@ int main(int argc, char **argv)
         if (window.isKeyDown(ESCAPE))
             window.closeWindow();
 
-        float oldX = particule1.getPosition().getX();
-        float oldY = particule1.getPosition().getY();
-        float oldZ = particule1.getPosition().getZ();
+        float oldX = Projectile.getPosition().getX();
+        float oldY = Projectile.getPosition().getY();
+        float oldZ = Projectile.getPosition().getZ();
 
-        float oldX2 = particule2.getPosition().getX();
-        float oldY2 = particule2.getPosition().getY();
-        float oldZ2 = particule2.getPosition().getZ();
-
-        float oldX3 = particule3.getPosition().getX();
-        float oldY3 = particule3.getPosition().getY();
-        float oldZ3 = particule3.getPosition().getZ();
+        float oldX2 = Projectile2.getPosition().getX();
+        float oldY2 = Projectile2.getPosition().getY();
+        float oldZ2 = Projectile2.getPosition().getZ();
 
         engine.Update(dt);
-      
-      /*  if (Projectile.getPosition().getY() <= Newton.getY())
+        if (Projectile.getPosition().getY() <= Newton.getY())
             // falling = false;
             Projectile.show();
-    */
-        chrono += dt;
+            chrono += dt;
 
-        trans1.moveX(particule1.getPosition().getX() - oldX);
-        trans1.moveY(particule1.getPosition().getY() - oldY);
-        trans1.moveZ(particule1.getPosition().getZ() - oldZ);
+        trans1.moveX(Projectile.getPosition().getX() - oldX);
+        trans1.moveY(Projectile.getPosition().getY() - oldY);
+        trans1.moveZ(Projectile.getPosition().getZ() - oldZ);
 
-        trans2.moveX(particule2.getPosition().getX() - oldX2);
-        trans2.moveY(particule2.getPosition().getY() - oldY2);
-        trans2.moveZ(particule2.getPosition().getZ() - oldZ2);
-
-        trans3.moveX(particule3.getPosition().getX() - oldX2);
-        trans3.moveY(particule3.getPosition().getY() - oldY2);
-        trans3.moveZ(particule3.getPosition().getZ() - oldZ2);
+        trans2.moveX(Projectile2.getPosition().getX() - oldX2);
+        trans2.moveY(Projectile2.getPosition().getY() - oldY2);
+        trans2.moveZ(Projectile2.getPosition().getZ() - oldZ2);
 
         // Affichage
         window.clear();
         shader1.setUniform("color", vec4(1, 0.5, 0, 1));
         window.draw(mesh1, shader1, trans1);
-        //shader1.setUniform("color", vec4(0.5, 1, 0, 1));
-        //window.draw(mesh1, shader1, transSpring);
+        shader1.setUniform("color", vec4(0.5, 1, 0, 1));
+        window.draw(mesh1, shader1, transSpring);
         shader1.setUniform("color", vec4(1, 0.3, 1, 1));
         window.draw(mesh1, shader1, trans2);
-        shader1.setUniform("color", vec4(1, 1, 0.5, 1));
-        window.draw(mesh1, shader1, trans3);
         window.display();
     }
 

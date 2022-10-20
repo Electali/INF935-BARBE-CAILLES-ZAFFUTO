@@ -20,6 +20,11 @@ public:
     vec3 contactNormal;
 
 public:
+    ParticleContact(particle* p1, particle* p2) {
+        particles[0] = p1;
+        particles[1] = p2;
+    }
+
     void resolve(float duration)
     {
         resolveVelocity(duration);

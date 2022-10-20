@@ -24,7 +24,6 @@ public:
 
     void UpdateForce(particle &p, float duration)
     {
-        cout << "la pomme volante est en : " << m_other->getPosition().getX() << endl;
         vec3 force = p.getPosition();
         vec3 vec = m_other->getPosition();
         force -= vec;

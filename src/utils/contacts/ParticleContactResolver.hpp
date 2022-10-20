@@ -11,7 +11,8 @@ protected:
     unsigned int m_iterations;
 
 public:
-    ParticleContactResolver();
+    ParticleContactResolver(){
+    };
 
     ParticleContactResolver(unsigned int iterations)
     {
