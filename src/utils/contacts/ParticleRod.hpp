@@ -36,11 +36,10 @@ public:
         else
         {
             contact->contactNormal = multiplication(normal,-1);
-            contact ->penetration = m_length - currentLen;
+            contact->penetration = m_length - currentLen;
         }
 
         contact->restitution = 0;
-        
         return 1;
     }
 };

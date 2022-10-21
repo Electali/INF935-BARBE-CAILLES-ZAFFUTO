@@ -44,25 +44,26 @@ int main(int argc, char **argv)
     vec3 pos3 = vec3(0, 0.5, 0);
 
     vec3 vitesse = vec3(0, 0, 0);
+    vec3 vitessex = vec3(0.1,0,0);
     vec3 accel = vec3(0, 0, 0);
 
-    particle particule1 = particle(pos1, vitesse, accel, 0.00002, 0.999);
+    particle particule1 = particle(pos1, vitesse, accel, 0.1, 0.99);
     engine.addParticle(particule1);
     trans1.setPos(particule1.getPosition().getX(),particule1.getPosition().getY(),particule1.getPosition().getZ());
 
 
-    particle particule2 = particle(pos2, vitesse, accel, 0.002, 0.999);
+    particle particule2 = particle(pos2, vitessex, accel, 0.2, 0.99);
     engine.addParticle(particule2);
     trans2.setPos(particule2.getPosition().getX(),particule2.getPosition().getY(),particule2.getPosition().getZ());
 
-    particle particule3 = particle(pos3, vitesse, accel, 0.1, 0.999);
+    particle particule3 = particle(pos3, vitesse, accel, 0.1, 0.99);
     engine.addParticle(particule3);
     trans3.setPos(particule3.getPosition().getX(),particule3.getPosition().getY(),particule3.getPosition().getZ());
-   
+    
 
-    ParticleRod cable1 = ParticleRod(0.49, particule1, particule2);
-    ParticleRod cable2 = ParticleRod(5,particule2, particule3);
-    ParticleRod cable3 = ParticleRod(0.5, particule3, particule1);
+    ParticleCable cable1 = ParticleCable(0.6,0,particule1, particule2);
+    ParticleCable cable2 = ParticleCable(0.6,0,particule1, particule3);
+    ParticleCable cable3 = ParticleCable(10,0,particule3, particule2);
 
     engine.addContact(cable1);
     engine.addContact(cable2);
@@ -90,6 +91,7 @@ int main(int argc, char **argv)
         float oldY2 = particule2.getPosition().getY();
         float oldZ2 = particule2.getPosition().getZ();
 
+
         float oldX3 = particule3.getPosition().getX();
         float oldY3 = particule3.getPosition().getY();
         float oldZ3 = particule3.getPosition().getZ();
@@ -99,7 +101,6 @@ int main(int argc, char **argv)
         trans1.moveX(particule1.getPosition().getX() - oldX);
         trans1.moveY(particule1.getPosition().getY() - oldY);
         trans1.moveZ(particule1.getPosition().getZ() - oldZ);
-
         trans2.moveX(particule2.getPosition().getX() - oldX2);
         trans2.moveY(particule2.getPosition().getY() - oldY2);
         trans2.moveZ(particule2.getPosition().getZ() - oldZ2);

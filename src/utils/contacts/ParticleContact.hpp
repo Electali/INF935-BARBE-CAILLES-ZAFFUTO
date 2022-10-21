@@ -3,6 +3,9 @@
 #include "../particle.hpp"
 #include "../OpenGL/Vector3.hpp"
 
+using namespace std;
+
+
 class ParticleContact
 {
 
@@ -47,6 +50,20 @@ public:
             return;
 
         float newSepVelocity = -separatingVelocity * restitution;
+
+        vec3 accCausedVelocity = particles[0]->acceleration;
+        if(particles[1] ) accCausedVelocity -= particles[1]->acceleration;
+        
+        accCausedVelocity*=duration;
+        float  accCausedSepVelocity = prodScalExt(contactNormal,accCausedVelocity);
+
+        if(accCausedSepVelocity < 0)
+        {
+            newSepVelocity += accCausedSepVelocity*=restitution;
+
+            if(newSepVelocity < 0) newSepVelocity = 0;
+        }
+
         float deltaVelocity = newSepVelocity - separatingVelocity;
 
         float totalInverseMass = particles[0]->getInvMass();
@@ -65,7 +82,7 @@ public:
 
         if (particles[1])
         {
-            vect = multiplication(impulsePerMass, particles[1]->getInvMass());
+            vect = multiplication(impulsePerMass, -particles[1]->getInvMass());
             particles[1]->velocity += vect;
         }
     }
@@ -83,18 +100,25 @@ public:
             return; // Masse(s) infinie(s) donc ne fait rien.
 
         vec3 movePerMass = multiplication(contactNormal, (penetration / totalInvMass));
-
         // Calcul des mouvements
         vec3 particleMovement[2];
         particleMovement[0] = multiplication(movePerMass, particles[0]->getInvMass());
+
         if (particles[1])
         {
-            particleMovement[1] = multiplication(movePerMass, particles[1]->getInvMass());
+            particleMovement[1] = multiplication(movePerMass, -particles[1]->getInvMass());
         }
 
         // Application des mouvements
         particles[0]->position += particleMovement[0];
         if (particles[1])
             particles[1]->position += particleMovement[1];
+
+
+        cout << "positions particle apres movements :" << endl;
+        particles[0]->position.show();
+        particles[1]->position.show();
     }
+
+
 };

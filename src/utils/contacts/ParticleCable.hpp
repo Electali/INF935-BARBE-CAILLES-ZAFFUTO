@@ -27,14 +27,12 @@ public:
         {
             return 0;
         }
-
         contact->particles[0] = particles[0];
         contact->particles[1] = particles[1];
 
         vec3 normal = particles[1]->getPosition() - particles[0]->getPosition();
         normal.normalise();
         contact->contactNormal = normal;
-
         contact->penetration = length - maxLength;
         contact->restitution = restitution;
 

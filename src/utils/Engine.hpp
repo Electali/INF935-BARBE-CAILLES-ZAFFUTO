@@ -79,10 +79,10 @@ public:
         for (; i != particles.end(); i++)
         {
             integr.update(**i, dt);
-            (*i)->show();
             (*i)->totalForce = 0;
         }
 
+        cout << "Tout va bien jusqu'à generatecontacts" << endl;
         unsigned usedContacts = generateContacts();
         cout << "Le nombre de contacts generer est :" << usedContacts << "\n";
 
@@ -95,17 +95,20 @@ public:
 
     unsigned generateContacts()
     {
-        unsigned limit = maxContacts;
+        unsigned int limit = maxContacts;
         ParticleContact *nextContact = contacts;
 
+        
         for (ContactGenerators::iterator g = contactGenerators.begin(); g != contactGenerators.end(); g++)
         {
-            unsigned used = (*g)->addContact(nextContact, limit);
+            cout << &g << endl;
+            unsigned int used = (*g)->addContact(nextContact, limit);
             limit -= used;
             nextContact += used;
-
+        
             if (limit <= 0)
                 break;
+             
         }
 
         return maxContacts - limit;
