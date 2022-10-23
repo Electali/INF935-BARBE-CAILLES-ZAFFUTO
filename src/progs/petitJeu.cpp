@@ -14,6 +14,7 @@
 #include "../utils/contacts/ParticleCable.hpp"
 #include "../utils/particle3D.hpp"
 #include "../utils/forces/ParticleGravity.hpp"
+#include "../utils/forces/ParticleAnchoredSpring.hpp"
 
 using namespace std;
 
@@ -24,7 +25,7 @@ int main(int argc, char **argv)
     // Vecteur des particules dans notre Moteur
     Particles3D particles;
 
-    Engine engine = Engine();
+    Engine engine;
 
     // Creation des elements d'OpenGl
     Window window;
@@ -45,8 +46,9 @@ int main(int argc, char **argv)
     vec3 vitesse = vec3(0, 0, 0);
     vec3 accel = vec3(0, 0, 0);
 
-    particle3D particule1 = particle3D(pos1, vitesse, accel, 0.0000001, 0.99);
+    particle3D particule1 = particle3D(pos1, vitesse, accel, 0.001, 0.99);
     engine.addParticle(particule1.part);
+
 
     particle3D particule2 = particle3D(pos2, vitesse, accel, 5, 0.99);
     engine.addParticle(particule2.part);
@@ -60,25 +62,24 @@ int main(int argc, char **argv)
     particle3D particule5 = particle3D(pos5, vitesse, accel, 5, 0.99);
     engine.addParticle(particule5.part);
 
-    /*
     particle3D particule6 = particle3D(pos6, vitesse, accel, 5, 0.99);
     engine.addParticle(particule6.part);
 
-    particle3D particule7 = particle3D(pos7, vitesse, accel, 5, 0.99);
-    engine.addParticle(particule7.part)
+//    particle3D particule7 = particle3D(pos7, vitesse, accel, 5, 0.99);
+//    engine.addParticle(particule7.part);
     
-    */
     
     particles.push_back(&particule1);
     particles.push_back(&particule2);
     particles.push_back(&particule3);
-    particles.push_back(&particule4);
     
+    particles.push_back(&particule4);
     particles.push_back(&particule5);
-    /*
     particles.push_back(&particule6);
-    particles.push_back(&particule7);
-*/
+    
+//    particles.push_back(&particule7);
+
+
 
 
     // Creation des forces
@@ -86,36 +87,31 @@ int main(int argc, char **argv)
     ParticleGravity gravity = ParticleGravity(grav);
     engine.registry.add(particule2.part, gravity);
     engine.registry.add(particule3.part, gravity);
+    
     engine.registry.add(particule4.part, gravity);
     engine.registry.add(particule5.part, gravity);
-   /* engine.registry.add(particule6.part, gravity);
-    engine.registry.add(particule7.part, gravity);
-*/
+    engine.registry.add(particule6.part, gravity);
+  //  engine.registry.add(particule7.part, gravity);
+
 
     // Creation des Contacts generators
-    ParticleCable cable1 = ParticleCable(0.5, 0.5, particule1.part, particule2.part);
+    ParticleCable cable1 = ParticleCable(0.5, 0, particule1.part, particule2.part);
     ParticleCable cable2 = ParticleCable(0.5, 0.5, particule1.part, particule3.part);
-    ParticleRod rod1 = ParticleRod(0.5, particule2.part, particule3.part);
-    ParticleCable cable3 = ParticleCable(0.1, 0.5, particule1.part, particule4.part);
+    ParticleCable cable3 = ParticleCable(0.3, 0.5, particule1.part, particule4.part);
+    ParticleCable cable4 = ParticleCable(0.6, 0.5, particule1.part, particule5.part);
+    ParticleCable cable5 = ParticleCable(0.2, 0.5, particule1.part, particule6.part);
+    //ParticleCable cable6 = ParticleCable(0.8, 0.5, particule1.part, particule7.part);
 
-    ParticleCable cable4 = ParticleCable(0.1, 0.5, particule4.part, particule5.part);
-    /*
-    ParticleCable cable5 = ParticleCable(0.1, 0.5, particule5.part, particule6.part);
-    ParticleCable cable6 = ParticleCable(0.1, 0.5, particule6.part, particule7.part);
-    */
 
     engine.addContact(cable1);
+   
     engine.addContact(cable2);
-    engine.addContact(rod1);
+    //engine.addContact(rod1);
     engine.addContact(cable3);
-    
     engine.addContact(cable4);
-    /*
     engine.addContact(cable5);
-    engine.addContact(cable6);
-    */
+    //engine.addContact(cable6);
     
-
     // ************* Loop Delta Time Fixe ************** //
 
     double duration = 0;
@@ -146,7 +142,6 @@ int main(int argc, char **argv)
 
         // Calcul avancement physique
         engine.Update(dt);
-
         // Affichage
         window.clear();
 
@@ -154,11 +149,11 @@ int main(int argc, char **argv)
 
         for (int i = 0; i < particles.size(); i++)
         {
-            particle3D part = *particles[i];
-
-          //part.UpdateGraphics();
-            //part.setColor(vec4(0, color / (particles.size()), color / (particles.size()), 1));
-            //window.draw(part.mesh, part.shad, part.trans);
+            particle3D& part = *particles[i];
+            part.UpdateGraphics();
+            part.setColor(vec4(0, color / (particles.size()), color / (particles.size()), 1));
+            window.draw(part.mesh, part.shad, part.trans);
+            //part.part.show();
             color++;
         }
         window.display();

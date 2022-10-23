@@ -23,7 +23,7 @@ public:
     ////////////////////////
 
     /**
-     * @brief Construit un nouveau Shader (Hardcoder pour le moment, car flemme de Parse un Txt).
+     * @brief Construit un nouveau Shader.
      */
     Shader()
     {

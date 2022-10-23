@@ -17,29 +17,27 @@ public:
         particles[1] = &p1;
     }
 
-    unsigned int addContact(ParticleContact *contact, unsigned int limit) const
+    unsigned int addContact(vector<ParticleContact*> &contacts, unsigned int limit) const
     {
         float currentLen = currentLength();
         if (currentLen == m_length)
             return 0;
-
-        contact->particles[0] = particles[0];
-        contact->particles[1] = particles[1];
+        contacts.push_back(new ParticleContact(particles[0],particles[1]));
 
         vec3 normal = particles[1]->getPosition() - particles[0]->getPosition();
         normal.normalise();
         if (currentLen > m_length)
         {
-            contact->contactNormal = normal;
-            contact->penetration = currentLen - m_length;
+            contacts.back()->contactNormal = normal;
+            contacts.back()->penetration = currentLen - m_length;
         }
         else
         {
-            contact->contactNormal = multiplication(normal,-1);
-            contact->penetration = m_length - currentLen;
+            contacts.back()->contactNormal = multiplication(normal,-1);
+            contacts.back()->penetration = m_length - currentLen;
         }
 
-        contact->restitution = 0;
+        contacts.back()->restitution = 0;
         return 1;
     }
 };

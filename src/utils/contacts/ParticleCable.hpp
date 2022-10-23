@@ -19,7 +19,7 @@ public:
         particles[1] = &p1;
     }
 
-    unsigned int addContact(ParticleContact *contact, unsigned int limit) const
+    unsigned int addContact(vector<ParticleContact*> &contacts, unsigned int limit) const
     {
         float length = currentLength();
 
@@ -27,14 +27,13 @@ public:
         {
             return 0;
         }
-        contact->particles[0] = particles[0];
-        contact->particles[1] = particles[1];
+        contacts.push_back(new ParticleContact(particles[0],particles[1]));
 
         vec3 normal = particles[1]->getPosition() - particles[0]->getPosition();
         normal.normalise();
-        contact->contactNormal = normal;
-        contact->penetration = length - maxLength;
-        contact->restitution = restitution;
+        contacts.back()->contactNormal = normal;
+        contacts.back()->penetration = length - maxLength;
+        contacts.back()->restitution = restitution;
 
         return 1;
     }

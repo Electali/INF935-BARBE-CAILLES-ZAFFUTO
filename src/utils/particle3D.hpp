@@ -25,10 +25,8 @@ public:
 
     particle3D(vec3 pos, vec3 vit, vec3 accel, float invMass, float damping) {
         part = particle(pos, vit, accel, invMass, damping);
-        shad;
-        mesh;
         trans;
-        trans.setPos(pos.getX(),pos.getY(),pos.getZ());
+        trans.setPos(pos.x,pos.y,pos.z);
         shad.setUniform("color", vec4(1, 1, 1, 1));
     }
 
@@ -37,6 +35,6 @@ public:
     }
 
     void UpdateGraphics(){
-        trans.move(part.position.getX() - trans.getPos().getX(),part.position.getY() - trans.getPos().getY(),part.position.getZ() - trans.getPos().getZ());
+        trans.move(part.position.x - trans.getPos().x,part.position.y - trans.getPos().y, part.position.z - trans.getPos().z);
     }
 };

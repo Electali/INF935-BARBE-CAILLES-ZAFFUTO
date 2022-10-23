@@ -22,6 +22,14 @@ public:
     // vecteur de la normal du contact
     vec3 contactNormal;
 
+~ParticleContact()
+{
+    for (auto* particle: particles)
+        {
+            delete particle;
+        }
+}
+
 public:
     ParticleContact(particle* p1, particle* p2) {
         particles[0] = p1;
@@ -45,7 +53,7 @@ public:
     void resolveVelocity(float duration)
     {
         float separatingVelocity = calculateSeparatingVelocity();
-
+        
         if (separatingVelocity > 0)
             return;
 
@@ -59,7 +67,7 @@ public:
 
         if(accCausedSepVelocity < 0)
         {
-            newSepVelocity += accCausedSepVelocity*=restitution;
+            newSepVelocity += (accCausedSepVelocity*=restitution);
 
             if(newSepVelocity < 0) newSepVelocity = 0;
         }
@@ -67,24 +75,31 @@ public:
         float deltaVelocity = newSepVelocity - separatingVelocity;
 
         float totalInverseMass = particles[0]->getInvMass();
+
+        
         if (particles[1])
             totalInverseMass += particles[1]->getInvMass();
 
+        
         if (totalInverseMass <= 0)
             return; // Les deux ont une masse infinie donc rien ne se passe.
 
-        float impulse = deltaVelocity / totalInverseMass;
-
+        float impulse = deltaVelocity / totalInverseMass;   
+          
         vec3 impulsePerMass = multiplication(contactNormal, impulse);
 
-        vec3 vect = multiplication(impulsePerMass, particles[0]->getInvMass());
-        particles[0]->velocity += (vect);
+        float invmass = particles[0]->getInvMass();
+        vec3 vect = multiplication(impulsePerMass,invmass );
+     
+        particles[0]->velocity += vect;
 
         if (particles[1])
         {
-            vect = multiplication(impulsePerMass, -particles[1]->getInvMass());
+            invmass = particles[1]->getInvMass();
+            vect = multiplication(impulsePerMass, -invmass);
             particles[1]->velocity += vect;
         }
+        
     }
 
     void resolveInterpenetration(float duration)
@@ -114,11 +129,6 @@ public:
         if (particles[1])
             particles[1]->position += particleMovement[1];
 
-/*
-        cout << "positions particle apres movements :" << endl;
-        particles[0]->position.show();
-        particles[1]->position.show();
-*/
     }
 
 

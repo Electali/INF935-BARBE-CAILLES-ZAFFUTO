@@ -14,5 +14,5 @@ public:
         return relativePos.norme();
     }
 
-    unsigned int addContact(ParticleContact* contact, unsigned int limit) const = 0;
+    unsigned int addContact(vector<ParticleContact*> &contact, unsigned int limit) const;
 };
