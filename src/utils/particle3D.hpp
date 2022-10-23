@@ -37,4 +37,10 @@ public:
     void UpdateGraphics(){
         trans.move(part.position.x - trans.getPos().x,part.position.y - trans.getPos().y, part.position.z - trans.getPos().z);
     }
+
+    operator particle&()
+    {
+        return part;
+    }
+
 };

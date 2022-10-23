@@ -54,15 +54,44 @@ Phase 2 :
 
 26 Septembre- 2 Octobre
 
-- creation des forces
+- creation des forces , repartition entre chaque membre du groupe.
 - debut du force registry
 
 3 - 9 octobre :
 - implementation complete du force registry et du force generator
 - creation d'une classe "engine.hpp" qui contient la gestion de l'integrateur, des particules, du force registry et donc des forces. Ainsi, le programme principal (le main) n'a qu'a instancier et appeler un objet de la classe Engine
+- Moteur Graphique
 
 10 - 16 octobre :
+- Moteur Graphique
 - debut d'implementation du gestionnaire de collisions
 
 17 - 23 octobre :
-- 
+- Fin d'écriture des classes de contacts (ParticleContact,ParticleLink,ParticleCable,....) -> repartition dans le groupe
+- Passage en delta time variable
+- ecriture du programme "petitjeu" pour tester l'ensemble des fonctionnalités en même temps :
+    - Gravité
+    - Trainée (commenté)
+    - Ressorts
+    - Cable
+    - Tige (commenté)
+
+Certaines forces et contraintes sont commentés car les distances sont assez rapprochées et les calculs en sont impactés, ce qui entraine des tremblements du systeme. 
+
+
+
+Difficultés rencontrées :
+
+- Fuites mémoires et problèmes allocations des tableaux
+- Problèmes avec classe liées à ParticleContact, par exemple nous ne pouvions pas avoir plus de 3 particules affichées à l'écran sinon le programme plantait.
+
+
+Livres :
+https://ebookcentral.proquest.com/lib/uqac-ebooks/reader.action?docID=4205386
+
+
+Améliorations :
+
+-Moteur graphique : caméra et 3D
+
+

@@ -19,7 +19,7 @@ public:
 
     ParticleList particles;
 
-    unsigned int maxContacts;
+    unsigned int maxContacts = 0;
 
     ParticleForceRegistry registry;
 
@@ -27,7 +27,7 @@ public:
 
     ContactGenerators contactGenerators;
 
-    vector<ParticleContact*> contacts ;
+    vector<ParticleContact *> contacts;
 
     Engine()
     {
@@ -41,12 +41,11 @@ public:
         registry = ParticleForceRegistry();
         resolver = ParticleContactResolver(iterations);
         contactGenerators = ContactGenerators();
-        
     }
 
     ~Engine()
     {
-        for (auto* contact: contacts)
+        for (auto *contact : contacts)
         {
             delete contact;
         }
@@ -75,30 +74,26 @@ public:
         contactGenerators.push_back(&cont);
     }
 
-
     void Update(float dt)
     {
-        
+
         registry.UpdateForce(dt);
 
-        for (int i; i < particles.size(); i++)
+        for (int i=0; i < particles.size(); i++)
         {
             integr.update(*particles[i], dt);
             particles[i]->totalForce = 0;
         }
 
-        cout << "Nb Contacts :" << contacts.size() << endl;
         contacts.clear();
-        cout << "Nb Contacts apres flush :" << contacts.size() << endl;
+
         unsigned int usedContacts = generateContacts();
-        cout << "Le nombre de contacts genere est :" << usedContacts << "\n";
 
         if (usedContacts)
         {
-            resolver.setIterations(usedContacts * 2 );
+            resolver.setIterations(usedContacts * 2);
             resolver.resolveContacts(contacts, usedContacts, dt);
         }
-    
     }
 
     unsigned int generateContacts()
@@ -111,10 +106,8 @@ public:
             limit -= used;
             if (limit <= 0)
                 break;
-             
         }
 
         return maxContacts - limit;
     }
-
 };

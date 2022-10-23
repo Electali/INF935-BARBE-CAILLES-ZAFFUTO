@@ -11,7 +11,7 @@ private:
     float m_restlength;
 
 public:
-    ParticleAnchoredSpring(vec3 &anchor, float k, float restlength)
+    ParticleAnchoredSpring(const vec3 &anchor, float k, float restlength)
     {
         m_anchor = anchor;
         m_k = k;
