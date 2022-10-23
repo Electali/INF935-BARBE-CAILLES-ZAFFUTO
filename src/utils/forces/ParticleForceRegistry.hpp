@@ -53,10 +53,9 @@ public:
 
 	void UpdateForce(float duration)
 	{
-		Registry::iterator i = registry.begin();
-		for (; i != registry.end(); i++)
+		for (int i = 0; i < registry.size(); i++)
 		{
-			(*i->fg).UpdateForce(*i->particle, duration);
+			registry[i].fg->UpdateForce(*(registry[i].particle),duration);
 		}
 	}
 };

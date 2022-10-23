@@ -75,11 +75,11 @@ public:
     {
         registry.UpdateForce(dt);
 
-        ParticleList::iterator i = particles.begin();
-        for (; i != particles.end(); i++)
+       
+        for (int i; i < particles.size(); i++)
         {
-            integr.update(**i, dt);
-            (*i)->totalForce = 0;
+            integr.update(*particles[i], dt);
+            particles[i]->totalForce = 0;
         }
         unsigned usedContacts = generateContacts();
         cout << "Le nombre de contacts generé est :" << usedContacts << "\n";
@@ -97,9 +97,9 @@ public:
         ParticleContact *nextContact = contacts;
 
         
-        for (ContactGenerators::iterator g = contactGenerators.begin(); g != contactGenerators.end(); g++)
+        for (int g = 0; g < contactGenerators.size(); g++)
         {
-            unsigned int used = (*g)->addContact(nextContact, limit);
+            unsigned int used = contactGenerators[g]->addContact(nextContact, limit);
             limit -= used;
             nextContact += used;
         

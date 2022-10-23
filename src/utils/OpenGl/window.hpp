@@ -137,9 +137,9 @@ public:
     }
 
 public:
-    /////////////////////////////////////////
-    //// Fonctions Random du Pif (C FO). ////
-    /////////////////////////////////////////
+    ///////////////////////////
+    //// Fonctions utiles. ////
+    ///////////////////////////
 
     /**
      * @brief Remet TOUT les Pixels de la Fenetre à la Couleur saisie.

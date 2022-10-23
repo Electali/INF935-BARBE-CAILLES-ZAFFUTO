@@ -90,12 +90,12 @@ public:
      * 
      * @param vec Nouvelle Position.
      */
-    constexpr void setPos(const Vector3T<T> &vec) noexcept
+    void setPos(const Vector3T<T> &vec) 
     {
         data[3] = data[0] * vec[0] + data[1] * vec[1] + data[2] * vec[2] + data[3];
     }
 
-    constexpr void setScale(const Vector3T<T> &vec) noexcept
+    void setScale(const Vector3T<T> &vec)
     {
         xx = vec.x;
         yy = vec.y;
