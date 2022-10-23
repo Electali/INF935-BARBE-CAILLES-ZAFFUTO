@@ -33,15 +33,15 @@ int main(int argc, char **argv)
     window.setWireFrame(false);
     window.setBackFaceCulling(false);
 
-    glPointSize(25); // C'est juste pour mieux voir le point*
+    glPointSize(25); // C'est juste pour mieux voir le point
 
     // Creation de particules
-    vec3 pos1 = {0, 0};
+    vec3 pos1 ;
     vec3 pos2 = {0, -0.2};
     vec3 pos3 = {0, -0.3};
     vec3 pos4 = {0, -0.4};
     vec3 pos5 = {0, -0.5};
-    vec3 pos6 = {0.5, 0};
+    vec3 pos6 = {0.5};
     vec3 pos7 = {-0.92};
 
     vec3 vitesse; // De base à 0,0,0
@@ -88,12 +88,13 @@ int main(int argc, char **argv)
     ParticleAnchoredSpring anchoredSpring({0, 0, 0}, 5000, 0.4);
     engine.registry.add(particule1.part, anchoredSpring);
 
-    //ParticleDrag ventviolent(1, 0.5);
+    //ParticleDrag ventviolent(0.5, 0.5);
     //engine.registry.add(particule5, ventviolent);
     //engine.registry.add(particule6, ventviolent);
 
 
     // Creation des Contacts generators
+
     ParticleCable cable1(0.5, 0, particule1, particule2);
     ParticleCable cable2(0.5, 0.5, particule1, particule3);
     ParticleCable cable3(0.3, 0.5, particule1, particule4);
@@ -108,6 +109,9 @@ int main(int argc, char **argv)
     engine.addContact(cable4);
     engine.addContact(cable5);
     //engine.addContact(rod);
+
+
+
 
     // ************* Loop Delta Time Fixe ************** //
 
