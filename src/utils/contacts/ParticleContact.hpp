@@ -114,10 +114,11 @@ public:
         if (particles[1])
             particles[1]->position += particleMovement[1];
 
-
+/*
         cout << "positions particle apres movements :" << endl;
         particles[0]->position.show();
         particles[1]->position.show();
+*/
     }
 
 

@@ -81,19 +81,17 @@ public:
             integr.update(**i, dt);
             (*i)->totalForce = 0;
         }
-
-        cout << "Tout va bien jusqu'à generatecontacts" << endl;
         unsigned usedContacts = generateContacts();
-        cout << "Le nombre de contacts generer est :" << usedContacts << "\n";
+        cout << "Le nombre de contacts generé est :" << usedContacts << "\n";
 
         if (usedContacts)
         {
-            resolver.setIterations(usedContacts * 2);
+            resolver.setIterations(usedContacts * 2 );
             resolver.resolveContacts(contacts, usedContacts, dt);
         }
     }
 
-    unsigned generateContacts()
+    unsigned int generateContacts()
     {
         unsigned int limit = maxContacts;
         ParticleContact *nextContact = contacts;
@@ -101,7 +99,6 @@ public:
         
         for (ContactGenerators::iterator g = contactGenerators.begin(); g != contactGenerators.end(); g++)
         {
-            cout << &g << endl;
             unsigned int used = (*g)->addContact(nextContact, limit);
             limit -= used;
             nextContact += used;

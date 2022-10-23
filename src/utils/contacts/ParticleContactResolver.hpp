@@ -29,7 +29,7 @@ public:
         unsigned int iterations = 0;
         while (iterations < m_iterations)
         {
-            float max = numeric_limits<float>::max();
+            float max = 21474836478413;
             unsigned int maxIndex = nbContacts;
             for(unsigned int i = 0; i < nbContacts; i++)
             {

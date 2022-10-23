@@ -269,7 +269,7 @@ public:
 
     void show()
     {
-        std::cout << "(" << x << "," << y << "," << z << ")\n";
+        std::cout << "(" << x << "," << y << "," << z << ")"<< std::endl;
     }
 };
 

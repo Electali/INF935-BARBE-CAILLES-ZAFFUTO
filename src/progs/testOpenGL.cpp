@@ -9,9 +9,8 @@
 #include "../utils/OpenGl/window.hpp"
 #include "../utils/OpenGl/shader.hpp"
 #include "../utils/OpenGl/transform.hpp"
-#include "../utils/OpenGl/triangle.hpp"
 #include "../utils/OpenGl/point.hpp"
-#include "../utils/OpenGl/cube.hpp"
+
 
 using namespace std;
 
@@ -24,8 +23,8 @@ int main()
     Shader shader1;
     glPointSize(25); // C'est juste pour mieux voir le point
     Point mesh1;
-    Triangle mesh2;
-    Cube mesh3;
+    //Triangle mesh2;
+    //Cube mesh3;
     Transform trans1;
     auto trans2 = Transform()
         .setPos(0.5, 0, 0)

@@ -14,7 +14,6 @@ using namespace std;
 
 /**
  * @brief Classe Shader,
- * Je sais pas quoi dire... c'est un shader et c'est jolie à l'écran.
  */
 class Shader
 {
