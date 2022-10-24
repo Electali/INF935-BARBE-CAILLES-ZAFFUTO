@@ -2,7 +2,7 @@
 
 #include "ParticleForceGenerator.hpp"
 #include "../particle.hpp"
-#include "../OpenGl/vector3.hpp"
+#include "../maths/vector3.hpp"
 
 class ParticleDrag : public ParticleForceGenerator
 {

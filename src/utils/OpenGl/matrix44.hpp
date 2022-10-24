@@ -2,7 +2,7 @@
 #define MATRIX44_HPP
 
 #include "vector4.hpp"
-#include "vector3.hpp"
+#include "../maths/vector3.hpp"
 
 /**
  * @brief Classe Matrice de taille 4 par 4,

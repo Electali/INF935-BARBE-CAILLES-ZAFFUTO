@@ -1,6 +1,6 @@
 #pragma once
 #include "ParticleForceGenerator.hpp"
-#include "../OpenGl/vector3.hpp"
+#include "../maths/vector3.hpp"
 #include "../integrator.hpp"
 
 class ParticleBuoyancy : public ParticleForceGenerator

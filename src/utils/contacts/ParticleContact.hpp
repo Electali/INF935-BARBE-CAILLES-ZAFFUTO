@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../particle.hpp"
-#include "../OpenGL/Vector3.hpp"
+#include "../maths/Vector3.hpp"
 
 using namespace std;
 
