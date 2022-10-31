@@ -65,7 +65,7 @@ public:
      * @brief Accès aux Lignes de la Matrice selon la Colonne.
      *
      * @param index position de la Ligne à récuperer dans la Matrice.
-     * @return 
+     * @return
      */
     Vector4T<T> &operator[](size_t index)
     {
@@ -82,14 +82,14 @@ public:
         return
         {
             xx *other.xx + xy *other.yx + xz *other.zx,
-            xx *other.xy + xy *other.yy + xz *other.zy,
-            xx *other.xz + xy *other.yz + xz *other.zz,
-            yx *other.xx + yy *other.xy + yz *other.zx,
-            yx *other.yx + yy *other.yy + yz *other.zy,
-            yx *other.xz + yy *other.yz + yz *other.zz,
-            zx *other.xx + zy *other.xy + zz *other.zx,
-            zx *other.yx + zy *other.yy + zz *other.zy,
-            zx *other.xz + zy *other.yz + zz *other.zz
+                xx *other.xy + xy *other.yy + xz *other.zy,
+                xx *other.xz + xy *other.yz + xz *other.zz,
+                yx *other.xx + yy *other.xy + yz *other.zx,
+                yx *other.yx + yy *other.yy + yz *other.zy,
+                yx *other.xz + yy *other.yz + yz *other.zz,
+                zx *other.xx + zy *other.xy + zz *other.zx,
+                zx *other.yx + zy *other.yy + zz *other.zy,
+                zx *other.xz + zy *other.yz + zz *other.zz
         }
     }
 
@@ -98,8 +98,8 @@ public:
         return
         {
             xx *vector.x + xy *vector.y + xz *vector.z,
-            yx *vector.x + yy *vector.x + yz *vector.z,
-            zx *vector.x + zy *vector.x + zz *vector.z
+                yx *vector.x + yy *vector.x + yz *vector.z,
+                zx *vector.x + zy *vector.x + zz *vector.z
         }
     }
 
@@ -107,21 +107,31 @@ public:
     {
         return
         {
-            coeff*xx, coeff*xy, coeff*xz,
-            coeff*yx, coeff*yy, coeff*yz,
-            coeff*zx, coeff*zy, coeff*zz
+            coeff *xx, coeff *xy, coeff *xz,
+                coeff *yx, coeff *yy, coeff *yz,
+                coeff *zx, coeff *zy, coeff *zz
         }
     }
 
     Matrix33T inverse()
     {
         float invDet = 1 / (xx * yy * zz + yx * zx * xz + zx * xy * yz - xx * zx * yz - zx * yy * xz - yx * xy * zz);
-        Matrix33T inv = 
+        Matrix33T inv =
+            {
+                yy * zz - yz - zy, xz * yz - xy * zz, xy * yz - xz * yy,
+                yz * zx - yx * zz, xx * zz - xz * zx, xz * yx - xx * yz,
+                xx * zy - yy * zx, xy * zx - xx * zy, xx * yy - xy * xx};
+        return inv * invDet;
+    }
+
+    Matrixx33T transpose()
+    {
+        return
         {
-            
-        };
-        return;
-        
+            xx, yx, zx,
+            xy, yy, zx,
+            xz, yz, zz
+        }
     }
 };
 
