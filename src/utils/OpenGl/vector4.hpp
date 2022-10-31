@@ -14,7 +14,7 @@ public:
     ////////////////////////
 
     /**
-     * @brief Constructeur d'un Vector4 de base.
+     * @brief Constucteur d'un Vector4 de base.
      */
     Vector4T(T newX = 0, T newY = 0, T newZ = 0, T newW = 0):
         x(newX),
@@ -32,6 +32,13 @@ public:
     {
     }
 
+    /**
+     * @brief Constructeur d'un Vector4 par copie d'un vecteur 3.
+     */
+    Vector4T(const Vector3T& oth):
+        data{oth.x, oth.y, oth.z, 0}
+    {
+    }
 public:
     ////////////////////////////
     //// Accès aux données. ////

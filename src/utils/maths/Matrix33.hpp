@@ -4,8 +4,8 @@
 #include "../maths/vector3.hpp"
 
 /**
- * @brief Classe Matrice de taille 4 par 4,
- * regroupe 4 Vecteur4 de meme type de manière contigüe dans la mémoire.
+ * @brief Classe Matrice de taille 3 par 3,
+ * regroupe 3 Vecteur3 de meme type de manière contigüe dans la mémoire.
  */
 template <typename T>
 class Matrix33T
@@ -65,9 +65,9 @@ public:
      * @brief Accès aux Lignes de la Matrice selon la Colonne.
      *
      * @param index position de la Ligne à récuperer dans la Matrice.
-     * @return Element à l'Index saisie.
+     * @return 
      */
-    Vector3T<T> &operator[](size_t index)
+    Vector4T<T> &operator[](size_t index)
     {
         return data[index];
     }
@@ -79,10 +79,49 @@ public:
 
     Matrix33T operator*(const Matrix33T &other) const
     {
-        return {
-            xx*other.xx + xy*other.yx + xz*other.zx +
+        return
+        {
+            xx *other.xx + xy *other.yx + xz *other.zx,
+            xx *other.xy + xy *other.yy + xz *other.zy,
+            xx *other.xz + xy *other.yz + xz *other.zz,
+            yx *other.xx + yy *other.xy + yz *other.zx,
+            yx *other.yx + yy *other.yy + yz *other.zy,
+            yx *other.xz + yy *other.yz + yz *other.zz,
+            zx *other.xx + zy *other.xy + zz *other.zx,
+            zx *other.yx + zy *other.yy + zz *other.zy,
+            zx *other.xz + zy *other.yz + zz *other.zz
+        }
+    }
+
+    Matrix33T operator*(const Vector3T<T> &vector) const
+    {
+        return
+        {
+            xx *vector.x + xy *vector.y + xz *vector.z,
+            yx *vector.x + yy *vector.x + yz *vector.z,
+            zx *vector.x + zy *vector.x + zz *vector.z
+        }
+    }
+
+    Matrix33T operator*(const float &coeff) const
+    {
+        return
+        {
+            coeff*xx, coeff*xy, coeff*xz,
+            coeff*yx, coeff*yy, coeff*yz,
+            coeff*zx, coeff*zy, coeff*zz
+        }
+    }
+
+    Matrix33T inverse()
+    {
+        float invDet = 1 / (xx * yy * zz + yx * zx * xz + zx * xy * yz - xx * zx * yz - zx * yy * xz - yx * xy * zz);
+        Matrix33T inv = 
+        {
             
-            }
+        };
+        return;
+        
     }
 };
 

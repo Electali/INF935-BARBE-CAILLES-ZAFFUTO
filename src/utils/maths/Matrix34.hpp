@@ -1,84 +1,83 @@
-#include "vector4.hpp"
-#include "../maths/vector3.hpp"
+#pragma once
+#include "./maths/vector3.hpp"
+#include "./maths/Quaternion.hpp"
+#include "./maths/Matrix33.hpp"
+
 
 /**
  * @brief Classe Matrice de taille 3 par 4,
- * regroupe 3 Vecteur4 de meme type de manière contigüe dans la mémoire.
  */
 template <typename T>
 class Matrix34T
 {
-
-public:
+    public:
     //////////////////
     //// Membres. ////
     //////////////////
 
     union
     {
-        struct
-        {
-            Vector4T<T> x, y, z;
+        struct {
+            Vector4T<T> x, y, z, w;
         };
-        struct
-        {
+        struct {
             T xx, xy, xz, xw;
             T yx, yy, yz, yw;
             T zx, zy, zz, zw;
+            T wx, wy, wz, ww;
         };
-        Vector4T<T> data[3]; //=> Membres de la Matrice accessible comme des Lignes de Vecteurs.
-        T data34[12];         //=> Membres de la Matrice accessible comme un Tableau.
+        struct {        //=> Representation d'une matrice comprenant une matrice 3*3,un vect3 et une ligne {0,0,0,1};
+            Matrix33T<T> mat;
+            Vector3T<T> vec;
+        };
+        
+        Vector4T<T> data[4]; //=> Membres de la Matrice accessible comme des Lignes de Vecteurs.
+        T data2[16]; //=> Membres de la Matrice accessible comme un Tableau.
     };
 
-public:
-    ////////////////////////
-    //// Constructeurs. ////
-    ////////////////////////
 
     /**
-     * @brief Constructeur d'une Matrice 3x4 de base.
-     */
-    Matrix34T(T val = 1) : data34{
-                               val,0,0,0,
-                               0,val,0,0, 
-                               0,0,val,0
-                           }
-    {
-    }
-
-    /**
-     * @brief Constructeur d'une Matrice 3x4 par copie.
-     */
-    Matrix34T(const Matrix34T &oth) : data{
-                                          oth.data[0],
-                                          oth.data[1],
-                                          oth.data[2],
-                                      }
-    {
-    }
-
-public:
-    ////////////////////////////
-    //// Accès aux données. ////
-    ////////////////////////////
-
-    /**
-     * @brief Accès aux Lignes de la Matrice selon la Colonne.
+     * @brief Récupère une ligne de la Matrice.
      *
      * @param index position de la Ligne à récuperer dans la Matrice.
-     * @return Element à l'Index saisie.
+     * @return ligne numéro index.
      */
-    Vector34T<T> &operator[](size_t index)
+    Vector4T<T> &operator[](size_t index)
     {
         return data[index];
     }
 
-public:
-    
+    /**
+     * @brief Récupère un élément de la Matrice.
+     *
+     * @param index position de l'élément à récuperer dans la Matrice.
+     * @return élément numéro index.
+     */
+    T &operator[](size_t index)
+    {
+        return data2[index];
+    }
+
+
+    public:
+    /////////////////////
+    //// Operations. ////
+    /////////////////////
+
+    Matrix34T operator*(const Matrix34T& oth) const
+    {
+
+    }
+
+    vec4 operator*(const Matrix34T& oth) const
+    {
+
+    }
+
+    Matrix34T inverse();
 
 
 };
 
-// Nouveaux Alias sur des Matrices34.
-using mat34 = Matrix34T<float>;
-using mat34i = Matrix34T<int>;
+using Mat34 = Matrix34T<float>;
+using Mat34i = Matrix34T<int>;
