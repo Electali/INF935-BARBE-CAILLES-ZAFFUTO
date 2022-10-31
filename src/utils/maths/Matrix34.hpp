@@ -157,7 +157,7 @@ class Matrix34T
     }
 
 
-    /// @brief Calcule le changement de position
+    /// @brief Calcule le changement de position avec le changement de base simplifié
     /// @param vect 
     /// @return 
     Vector3T transformPosition(const &Vector3T vect)
