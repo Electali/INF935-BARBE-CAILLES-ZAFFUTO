@@ -33,8 +33,11 @@
 
 # VS Code
 .vscode/
+.vs/
 
 # exe
 Main.exe
 testOpenGL.exe
 Apple.exe
+testMatrices.exe
+PetitJeu.exe

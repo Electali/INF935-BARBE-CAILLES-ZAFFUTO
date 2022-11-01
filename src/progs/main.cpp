@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../utils/OpenGl/vector3.hpp"
+#include "../maths/vector3.hpp"
 #include "../utils/integrator.hpp"
 
 using namespace std;

@@ -6,6 +6,8 @@
 
 class RigidBody
 {
+    private:
+
     // Physique de base comme les particules
     vec3 position;
     vec3 velocity;
@@ -17,5 +19,16 @@ class RigidBody
     vec3 rotationVelocity;
     Mat34 transformMatrix; 
 
+    public:
 
+    void Integrate(float duration)
+    {
+
+    }
+
+    private:
+    void CalculateDerivedData()
+    {
+        
+    }
 };

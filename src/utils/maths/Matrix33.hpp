@@ -1,140 +1,139 @@
 #pragma once
 
 #include "vector3.hpp"
-#include "../maths/vector3.hpp"
 
-/**
- * @brief Classe Matrice de taille 3 par 3,
- * regroupe 3 Vecteur3 de meme type de manière contigüe dans la mémoire.
- */
-template <typename T>
-class Matrix33T
-{
-public:
-    //////////////////
-    //// Membres. ////
-    //////////////////
 
-    union
-    {
-        struct
-        {
-            Vector3T<T> x, y, z;
-        };
-        struct
-        {
-            T xx, xy, xz;
-            T yx, yy, yz;
-            T zx, zy, zz;
-        };
-        Vector3T<T> data[3]; //=> Membres de la Matrice accessible comme des Lignes de Vecteurs.
-        T data2[9];          //=> Membres de la Matrice accessible comme un Tableau.
-    };
 
-public:
-    ////////////////////////
-    //// Constructeurs. ////
-    ////////////////////////
+class Matrix33 {
 
-    /**
-     * @brief Constructeur d'une Matrice 3x3 de base.
-     */
-    Matrix33T(T val = 1) : data2{
-                               val, 0, 0,
-                               0, val, 0,
-                               0, 0, val}
+public :
+    float data[9];
+
+public : 
+    /// Constructeur
+
+    Matrix33()
     {
     }
 
-    /**
-     * @brief Constructeur d'une Matrice 3x3 par copie.
-     */
-    Matrix33T(const Matrix33T &oth) : data{
-                                          oth.data[0],
-                                          oth.data[1],
-                                          oth.data[2]}
+    Matrix33(const vec3& l1, const vec3& l2, const vec3& l3)
     {
+        data[0] = l1.x;
+        data[1] = l1.y;
+        data[2] = l1.z;
+        data[3] = l2.x;
+        data[4] = l2.y;
+        data[5] = l2.z;
+        data[6] = l3.x;
+        data[7] = l3.y;
+        data[8] = l3.z;
     }
 
-public:
-    ////////////////////////////
-    //// Accès aux données. ////
-    ////////////////////////////
+public :
 
-    /**
-     * @brief Accès aux Lignes de la Matrice selon la Colonne.
-     *
-     * @param index position de la Ligne à récuperer dans la Matrice.
-     * @return
-     */
-    Vector4T<T> &operator[](size_t index)
+    /// <summary>
+    /// Sert à récupérer une ligne de la matrice sous forme de vec3, par défaut il renvoit la première.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    float operator[](size_t index) const
     {
         return data[index];
-    }
+    };
 
-public:
-    /////////////////////////////////
-    //// Fonctions. ////
-    /////////////////////////////////
+public : 
 
-    Matrix33T operator*(const Matrix33T &other) const
+    Matrix33 operator*(const Matrix33& other) const
     {
-        return
-        {
-            xx *other.xx + xy *other.yx + xz *other.zx,
-                xx *other.xy + xy *other.yy + xz *other.zy,
-                xx *other.xz + xy *other.yz + xz *other.zz,
-                yx *other.xx + yy *other.xy + yz *other.zx,
-                yx *other.yx + yy *other.yy + yz *other.zy,
-                yx *other.xz + yy *other.yz + yz *other.zz,
-                zx *other.xx + zy *other.xy + zz *other.zx,
-                zx *other.yx + zy *other.yy + zz *other.zy,
-                zx *other.xz + zy *other.yz + zz *other.zz
+        Matrix33 result;
+        result.data[0] = data[0] * other[0] + data[1] * other[3] + data[2] * other[6];
+        result.data[1] = data[0] * other[1] + data[1] * other[4] + data[2] * other[7];
+        result.data[2] = data[0] * other[2] + data[1] * other[5] + data[2] * other[8];
+
+        result.data[3] = data[3] * other[0] + data[4] * other[3] + data[5] * other[6];
+        result.data[4] = data[3] * other[1] + data[4] * other[4] + data[5] * other[7];
+        result.data[5] = data[3] * other[2] + data[4] * other[5] + data[5] * other[8];
+
+        result.data[6] = data[6] * other[0] + data[7] * other[3] + data[8] * other[6];
+        result.data[7] = data[6] * other[1] + data[7] * other[4] + data[8] * other[7];
+        result.data[8] = data[6] * other[2] + data[7] * other[5] + data[8] * other[8];
+        
+        return result;
+       
+    };
+
+    vec3 operator*(const vec3& vector) const
+    {
+        vec3 result = { data[0] * vector.x + data[1] * vector.y + data[2] * vector.z,
+                        data[3] * vector.x + data[4] * vector.y + data[5] * vector.z,
+                        data[6] * vector.x + data[7] * vector.y + data[8] * vector.z
+        };
+        return result;
+    };
+
+    Matrix33 operator*(const float& coeff) const
+    {
+        Matrix33 result;
+        for (int i = 0; i < 9; i++) {
+            result.data[i] = coeff * data[i];
         }
-    }
+        return result;
+    };
 
-    Matrix33T operator*(const Vector3T<T> &vector) const
+    Matrix33 inverse()
     {
-        return
-        {
-            xx *vector.x + xy *vector.y + xz *vector.z,
-                yx *vector.x + yy *vector.x + yz *vector.z,
-                zx *vector.x + zy *vector.x + zz *vector.z
-        }
-    }
+        float Det = data[0] * data[4] * data[8] +
+                    data[2] * data[3] * data[7] +
+                    data[1] * data[5] * data[6] -
+                    data[0] * data[5] * data[7] -
+                    data[2] * data[4] * data[6] -
+                    data[1] * data[3] * data[8];
+        float invDet = 1/ Det;
 
-    Matrix33T operator*(const float &coeff) const
-    {
-        return
-        {
-            coeff *xx, coeff *xy, coeff *xz,
-                coeff *yx, coeff *yy, coeff *yz,
-                coeff *zx, coeff *zy, coeff *zz
-        }
-    }
+        Matrix33 inv;
+        inv.data[0] = data[4] * data[8] - data[5] * data[7];
+        inv.data[1] = data[2] * data[7] - data[1] * data[8];
+        inv.data[2] = data[1] * data[5] - data[2] * data[4];
 
-    Matrix33T inverse()
-    {
-        float invDet = 1 / (xx * yy * zz + yx * zx * xz + zx * xy * yz - xx * zx * yz - zx * yy * xz - yx * xy * zz);
-        Matrix33T inv =
-            {
-                yy * zz - yz - zy, xz * yz - xy * zz, xy * yz - xz * yy,
-                yz * zx - yx * zz, xx * zz - xz * zx, xz * yx - xx * yz,
-                xx * zy - yy * zx, xy * zx - xx * zy, xx * yy - xy * xx};
+        inv.data[3] = data[5] * data[6] - data[3] * data[8];
+        inv.data[4] = data[0] * data[8] - data[2] * data[6];
+        inv.data[5] = data[2] * data[3] - data[5] * data[0];
+
+        inv.data[6] = data[3] * data[7] - data[4] * data[6];
+        inv.data[7] = data[1] * data[6] - data[0] * data[7];
+        inv.data[8] = data[4] * data[0] - data[1] * data[3];
+
+
         return inv * invDet;
-    }
+    };
 
-    Matrixx33T transpose()
+    Matrix33 transpose()
     {
-        return
+        Matrix33 transp;
+
+        transp.data[0] = data[0];
+        transp.data[1] = data[3];
+        transp.data[2] = data[6];
+
+        transp.data[3] = data[1];
+        transp.data[4] = data[4];
+        transp.data[5] = data[7];
+
+        transp.data[6] = data[2];
+        transp.data[7] = data[5];
+        transp.data[8] = data[8];
+
+        return transp;
+    };
+
+    void show()
+    {
+        for (int i = 0; i < 3; i++)
         {
-            xx, yx, zx,
-            xy, yy, zx,
-            xz, yz, zz
+            std::cout << data[0 + 3*i] << " , " << data[1 + 3*i] << " , " << data[2 + 3*i] << std::endl;
         }
     }
+
 };
 
-// Nouveaux Alias sur des Matrices33 spécialisés.
-using mat3 = Matrix33T<float>;
-using mat3i = Matrix33T<int>;
+using mat3 = Matrix33;

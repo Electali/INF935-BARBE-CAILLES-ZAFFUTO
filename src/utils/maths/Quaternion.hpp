@@ -39,7 +39,7 @@ public:
         k = newK;
     }
 
-    ~Quaternion();
+    //~Quaternion();
 
     void Normalize()
     {

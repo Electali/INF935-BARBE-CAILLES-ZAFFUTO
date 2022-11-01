@@ -5,8 +5,6 @@
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
 
-#include <iostream>
-
 #include "../utils/OpenGl/window.hpp"
 #include "../utils/OpenGl/shader.hpp"
 #include "../utils/OpenGl/transform.hpp"
