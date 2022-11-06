@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <cmath>
-
 #include "vector3.hpp"
 
 class Quaternion
@@ -39,7 +38,7 @@ public:
         k = newK;
     }
 
-    //~Quaternion();
+    // ~Quaternion();
 
     void Normalize()
     {

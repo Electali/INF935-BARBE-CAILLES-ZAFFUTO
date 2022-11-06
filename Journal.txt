@@ -104,3 +104,18 @@ Phase 3 :
 
 -Création des matrices et quaternions.
 
+31 Octobre - 6 Novembre :
+
+- Changement dans le code des matrices
+- Implémentation RigidBody et début mise à jour de l'intégrator.
+
+
+
+
+
+Choix d'implémentaion :
+
+- Nous avions commencé par implémenter les matrices de façon généralisées avec l'utilisation de template.
+Cependant,n'étant pas familier avec cette fonctionnalité du C++ et au vu des problèmes de compilations obtenus, nous avons décidé
+d'implémenter des matrices de float uniquement. Idée appuyé par le fait que nous utiliserons les matrices pour gérer des rotations et
+qu'il faut des matrices de float car le choix de rotations représentées pas des entiers est assez limité.
