@@ -14,6 +14,10 @@ public :
 
     Matrix33()
     {
+        for (int i = 0; i < 9, i++)
+        {
+            data[i] = 0;
+        }
     }
 
     Matrix33(const vec3& l1, const vec3& l2, const vec3& l3)

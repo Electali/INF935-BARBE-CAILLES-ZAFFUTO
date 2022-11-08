@@ -148,12 +148,14 @@ class Matrix34
     /// @return 
     vec3 transformPosition(const vec3& vect)
     {
-        vec3 tmp = {-data[3],-data[7],-data[11]};
-        vec3 result = {
-                tmp.x*data[0] + tmp.y*data[4] + tmp.z*data[8],
-                tmp.x*data[1] + tmp.y*data[5] + tmp.z*data[9],
-                tmp.x*data[2] + tmp.y*data[6] + tmp.z*data[10]};
-        return result;
+        vec3 temp = vect;
+        tmp.x -= data[3];
+        tmp.y -= data[7];
+        tmp.z -= data[11];
+        
+        return vec3( temp.x * data[0] + temp.y * data[4] + temp.z * data[8],
+                     temp.x * data[1] + temp.y * data[5] + temp.z * data[9],
+                     temp.x * data[2] + temp.y * data[6] + temp.z * data[10])
     };
 
     /// @brief Calcule la nouvelle direction sans toucher à la partie translation
@@ -169,6 +171,7 @@ class Matrix34
         };
         return result;
     };
+
 
     void show()
     {

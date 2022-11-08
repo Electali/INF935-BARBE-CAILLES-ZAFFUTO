@@ -58,7 +58,7 @@ public:
         k *= d;
     }
 
-    Quaternion operator*(const Quaternion &other);
+    //Quaternion operator*(const Quaternion &other);
 
     void operator*=(const Quaternion &multiplier)
     {

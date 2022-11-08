@@ -84,26 +84,19 @@ class integrator
 
         // 7 Mettre à jour la vélocité angulaire
         updateAngularVelocityRidBody(rb, t);
+       
         // 8 Clear les accumulateurs 
-        rb.torqueAccu = {};
-        rb.forceAccu = {};
+        rb.clearAccumulators();
         
     }
 
     //1 
-    void updatePositionRigidBody(RigidBody& rb, float t, bool approx) 
+    void updatePositionRigidBody(RigidBody& rb, float t) 
     {
         vec3 m1 = multiplication(rb.velocity, t);
 
-        if (approx) rb.position = rb.position + m1;
-
-        else {
-            vec3 m2 = multiplication(rb.acceleration, 0.5 * t * t);
-            vec3 a1 = m1 + m2:
-            rb.position = rb.position + a1;
-        }
+        rb.position = rb.position + m1;
     }
-        
     
     //2
     void updateAngularPositionRigidBody(RigidBody& rb, float t)
@@ -111,16 +104,12 @@ class integrator
         Quaternion old = rb.orientation;
         rb.orientation.RotateByVector(rbrotationVelocity * (t / 2));
         rb.oriention = old * rb.orientation;
-
     }
-
-
-
    
     //5 
     void updateangularaccelerationRigidBody(RigidBody& rb, float t)
     {
-        /// TO DO : Calculer lae changement de base 
+        /// TO DO : Calculer le changement de base 
         rb.rotationAcceleration = rb.invInertiaMatrix * rb.torqueAccu;
     }
 

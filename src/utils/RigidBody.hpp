@@ -34,14 +34,69 @@ class RigidBody
     vec3 torqueAccu;
 
 
+    public:
+    RigidBody(const vec3 p, const vec3 v, const float invm, const Quaternion orient,const vec3 rotv, float cote)
+    {
+        //physique linéaire
+        position = p;
+        velocity = v;
+        acceleration = {};
+        inverseMass = invm;
+        damping = 0.99;  //hardcoder mais on peut le mettre en parametre par la suite;
+        
+        //physique rotationelle
+        orientation = orient;
+        rotationVelocity = rotv;
+        rotationAcceleration = {};
 
-public:
+        transformMatrix.setOrientationAndPosition(orientation, position);
+        
+        angularDammping = 0.99;
+        forceAccu = {};
+        torqueAccu = {};
+
+
+        // Calcul de la matrice inverse d'inertie
+        // pour le moment nous utiliserons des cubes 
+        invInertiaMatrix();
+        float coeff = ((1 / inverseMass) / 6) * cote * cote;
+        invInertiaMatrix[0] = coeff;
+        invInertiaMatrix[4] = coeff;
+        invInertiaMatrix[8] = coeff;
+        invInertiaMatrix.inverse();
+
+    };
+
+
+    public:
+    
     void AddForce(const vec3& force)
     {
         forceAccu += force;
     }
 
+    void AddForceAtPoint(const vec3& force, const vec3& worldPoint)
+    {
+        vec3 pt = worldPoint;
+        pt = pt - position;
 
+        forceAccu += force;
+        torqueAccu += pt / force;
+
+
+    }
+
+
+    void AddForceAtBodyPoint(const vec3& force, const vec3& LocalPoint)
+    {
+
+    }
+
+    void clearAccumulators()
+    {
+        rb.torqueAccu = {};
+        rb.forceAccu = {};
+    }
     private:
 
     void CalculateDerivedData()
