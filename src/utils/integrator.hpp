@@ -70,11 +70,11 @@ class integrator
         // 2 Mettre a jour l'orientation
         updateAngularPositionRigidBody(rb, t);
 
-        // 3 Calculer les valeurs dérivées
+        // 3 Calculer les valeurs derivees
         rb.CalculateDerivedData();
 
         // 4 Calculer l’accélération linéaire
-        rb.acceleration = multiplication(rb.forceAccu, rb.inverseMass);
+        updateAccelerationRigidBody(rb,t);
 
         // 5 Calculer l’accélération angulaire
         updateangularaccelerationRigidBody(rb, t);
@@ -104,6 +104,12 @@ class integrator
         Quaternion old = rb.orientation;
         rb.orientation.RotateByVector(rbrotationVelocity * (t / 2));
         rb.oriention = old * rb.orientation;
+    }
+
+    //4 
+    void updateAccelerationRigidBody(RigidBody& rb, float t)
+    {
+        rb.acceleration = multiplication(rb.forceAccu, rb.inverseMass);
     }
    
     //5 

@@ -172,6 +172,17 @@ class Matrix34
         return result;
     };
 
+    vec3 transformInverseDirection(const vec3 vect)
+    {
+
+        vec3 result = {
+            vect.x * data[0] + vect.y * data[4] + vect.z * data[8],
+            vect.x * data[1] + vect.y * data[5] + vect.z * data[9],
+            vect.x * data[2] + vect.y * data[6] + vect.z * data[10],
+        };
+        return result;
+    };
+
 
     void show()
     {

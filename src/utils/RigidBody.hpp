@@ -7,7 +7,7 @@
 
 class RigidBody
 {
-    private:
+    public:
 
     // Physique de base comme les particules
     vec3 position;
@@ -57,7 +57,7 @@ class RigidBody
 
 
         // Calcul de la matrice inverse d'inertie
-        // pour le moment nous utiliserons des cubes 
+        // pour le moment nous utiliserons des cubes
         invInertiaMatrix();
         float coeff = ((1 / inverseMass) / 6) * cote * cote;
         invInertiaMatrix[0] = coeff;
@@ -81,14 +81,14 @@ class RigidBody
         pt = pt - position;
 
         forceAccu += force;
-        torqueAccu += pt / force;
-
-
+        torqueAccu += prodVectExt(pt, force);
     }
 
 
     void AddForceAtBodyPoint(const vec3& force, const vec3& LocalPoint)
     {
+        vec3 ptInWorld = LocalToWorld(localPoint); 
+        AddForceAtPoint(ptInWorld);
 
     }
 
@@ -97,13 +97,29 @@ class RigidBody
         rb.torqueAccu = {};
         rb.forceAccu = {};
     }
-    private:
+   
+    vec3 WorldToLocal(const vec3& world)
+    {
+        return transformMatrix.transformInverseDirection(wolrd);
+    }
 
+    vec3 LocalToWorld(const vec3& local)
+    {
+        return transformMatrix.transformDirection(local);
+    }
+    
     void CalculateDerivedData()
     {
         orientation.Normalize();
-        transformMatrix.setOrientationAndPosition(orientation,position);
+        transformMatrix.setOrientationAndPosition(orientation, position);
+        // Calcule la matrice de torseur inverse 
+
     }
 
+    
+
+    
+
+    
 
 };
