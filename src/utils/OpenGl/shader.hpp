@@ -8,7 +8,7 @@
 #include <gtc/type_ptr.hpp>
 #include <iostream>
 
-#include "matrix44.hpp"
+#include "../maths/matrix44.hpp"
 
 using namespace std;
 
@@ -30,9 +30,11 @@ public:
         const char *vertexShaderSource = "#version 330 core\n"
                                          "layout (location = 0) in vec3 aPos;\n"
                                          "uniform mat4 model;\n"
+                                         "uniform mat4 view;\n"
+                                         "uniform mat4 projection;\n"
                                          "void main()\n"
                                          "{\n"
-                                         "   gl_Position = model*vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+                                         "   gl_Position = projection * view * model*vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
                                          "}\0";
 
         unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -83,6 +85,18 @@ public:
     {
         glUseProgram(program);
         glUniformMatrix4fv(glGetUniformLocation(program, name.c_str()), 1, GL_FALSE, mat);
+    }
+
+    /**
+     * @brief Envoie d'une Matrice4x4 de type float à l'Uniform correspondant.
+     * 
+     * @param name Nom de l'Uniform sur le Shader.
+     * @param mat Matrice4x4 de type float à envoyer.
+     */
+    void setUniform(const string& name, const glm::mat4 mat) const
+    {
+        glUseProgram(program);
+        glUniformMatrix4fv(glGetUniformLocation(program, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
     }
 
 private:

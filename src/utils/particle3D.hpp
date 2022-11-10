@@ -1,10 +1,11 @@
 #pragma once
 
-#include "particle.hpp"
+#include "./particle.hpp"
 #include "./OpenGl/shader.hpp"
 #include "./OpenGl/transform.hpp"
 #include "./OpenGl/point.hpp"
-#include "./OpenGL/vector4.hpp"
+#include "./OpenGl/cube.hpp"
+#include "./maths/vector4.hpp"
 
 /**
  * @brief Classe regroupant la particule physique et sa representation graphique
@@ -17,20 +18,17 @@ public:
     // Partie Physique
     particle part;
 
-    // Partie Graphique 
-    Shader shad;
-    Point mesh;
+    //Point mesh;
+    Cube mesh;
     Transform trans;
-    
 
-    particle3D(vec3 pos, vec3 vit, vec3 accel, float invMass, float damping) {
+    particle3D(vec3 &pos, vec3 &vit, vec3 &accel, float invMass, float damping) {
         part = particle(pos, vit, accel, invMass, damping);
-        trans;
         trans.setPos(pos.x,pos.y,pos.z);
-        shad.setUniform("color", vec4(1, 1, 1, 1));
+        trans.setScale(0.1, 0.1, 0.1);
     }
 
-    void setColor(vec4 color) {
+    void setColor(const vec4 &color, Shader &shad) {
         shad.setUniform("color", color);
     }
 

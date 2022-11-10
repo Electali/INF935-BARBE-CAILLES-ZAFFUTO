@@ -1,6 +1,8 @@
 #ifndef VECTOR4_HPP
 #define VECTOR4_HPP
 
+#include "vector3.hpp"
+
 /**
  * @brief Classe Vecteur de taille 4,
  * regroupe 4 elements de meme type de manière contigüe dans la mémoire.
@@ -35,7 +37,7 @@ public:
     /**
      * @brief Constructeur d'un Vector4 par copie d'un vecteur 3.
      */
-    Vector4T(const Vector3T& oth):
+    Vector4T(const Vector3T<T>& oth):
         data{oth.x, oth.y, oth.z, 0}
     {
     }

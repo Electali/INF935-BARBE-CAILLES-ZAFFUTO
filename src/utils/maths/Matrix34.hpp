@@ -1,7 +1,7 @@
 #pragma once
-#include "./maths/vector3.hpp"
-#include "./maths/Quaternion.hpp"
-#include "./maths/Matrix33.hpp"
+#include "vector3.hpp"
+#include "Quaternion.hpp"
+#include "Matrix33.hpp"
 
 
 /**
@@ -56,11 +56,11 @@ class Matrix34T
                                           oth.data[0],
                                           oth.data[1],
                                           oth.data[2],
-                                          vec.x
+                                          vec.x,
                                           oth.data[3],
                                           oth.data[4],
                                           oth.data[5],
-                                          vec.y
+                                          vec.y,
                                           oth.data[6],
                                           oth.data[2],
                                           oth.data[2],

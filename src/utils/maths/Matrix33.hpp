@@ -1,7 +1,7 @@
 #pragma once
 
 #include "vector3.hpp"
-#include "../maths/vector3.hpp"
+#include "vector4.hpp"
 
 /**
  * @brief Classe Matrice de taille 3 par 3,
@@ -90,7 +90,7 @@ public:
                 zx *other.xx + zy *other.xy + zz *other.zx,
                 zx *other.yx + zy *other.yy + zz *other.zy,
                 zx *other.xz + zy *other.yz + zz *other.zz
-        }
+        };
     }
 
     Matrix33T operator*(const Vector3T<T> &vector) const
@@ -100,7 +100,7 @@ public:
             xx *vector.x + xy *vector.y + xz *vector.z,
                 yx *vector.x + yy *vector.x + yz *vector.z,
                 zx *vector.x + zy *vector.x + zz *vector.z
-        }
+        };
     }
 
     Matrix33T operator*(const float &coeff) const
@@ -110,7 +110,7 @@ public:
             coeff *xx, coeff *xy, coeff *xz,
                 coeff *yx, coeff *yy, coeff *yz,
                 coeff *zx, coeff *zy, coeff *zz
-        }
+        };
     }
 
     Matrix33T inverse()
@@ -124,14 +124,14 @@ public:
         return inv * invDet;
     }
 
-    Matrixx33T transpose()
+    Matrix33T transpose()
     {
         return
         {
             xx, yx, zx,
             xy, yy, zx,
             xz, yz, zz
-        }
+        };
     }
 };
 
