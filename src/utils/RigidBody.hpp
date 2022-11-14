@@ -37,7 +37,7 @@ class RigidBody
     public:
     RigidBody(const vec3 p, const vec3 v, const float invm, const Quaternion orient,const vec3 rotv, float cote)
     {
-        //physique linéaire
+        //physique linï¿½aire
         position = p;
         velocity = v;
         acceleration = {};
@@ -51,18 +51,18 @@ class RigidBody
 
         transformMatrix.setOrientationAndPosition(orientation, position);
         
-        angularDammping = 0.99;
+        angularDamping = 0.99;
         forceAccu = {};
         torqueAccu = {};
 
 
         // Calcul de la matrice inverse d'inertie
         // pour le moment nous utiliserons des cubes 
-        invInertiaMatrix();
+        invInertiaMatrix = Matrix33();
         float coeff = ((1 / inverseMass) / 6) * cote * cote;
-        invInertiaMatrix[0] = coeff;
-        invInertiaMatrix[4] = coeff;
-        invInertiaMatrix[8] = coeff;
+        invInertiaMatrix.data[0] = coeff;
+        invInertiaMatrix.data[4] = coeff;
+        invInertiaMatrix.data[8] = coeff;
         invInertiaMatrix.inverse();
 
     };
@@ -75,13 +75,13 @@ class RigidBody
         forceAccu += force;
     }
 
-    void AddForceAtPoint(const vec3& force, const vec3& worldPoint)
+    void AddForceAtPoint(vec3& force, const vec3& worldPoint)
     {
         vec3 pt = worldPoint;
         pt = pt - position;
 
         forceAccu += force;
-        torqueAccu += pt / force;
+        torqueAccu += prodVectExt(pt, force);
 
 
     }
@@ -94,8 +94,8 @@ class RigidBody
 
     void clearAccumulators()
     {
-        rb.torqueAccu = {};
-        rb.forceAccu = {};
+        torqueAccu = {};
+        forceAccu = {};
     }
     private:
 

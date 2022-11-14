@@ -14,7 +14,7 @@ public :
 
     Matrix33()
     {
-        for (int i = 0; i < 9, i++)
+        for (int i = 0; i < 9; i++)
         {
             data[i] = 0;
         }
