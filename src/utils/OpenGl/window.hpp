@@ -24,7 +24,14 @@ enum Key
     ARROW_DOWN = GLFW_KEY_DOWN,
     ARROW_UP = GLFW_KEY_UP,
     ARROW_LEFT = GLFW_KEY_LEFT,
-    ARROW_RIGHT = GLFW_KEY_RIGHT
+    ARROW_RIGHT = GLFW_KEY_RIGHT,
+    Z = GLFW_KEY_W,
+    Q = GLFW_KEY_A,
+    S = GLFW_KEY_S,
+    D = GLFW_KEY_D,
+    SHIFT = GLFW_KEY_LEFT_SHIFT,
+    SPACE = GLFW_KEY_SPACE,
+    CTRL = GLFW_KEY_LEFT_CONTROL
 };
 
 /**
@@ -40,42 +47,39 @@ public:
 
     /**
      * @brief C'est un Constructeur de Fenêtre.
-     * 
-     * @param newTitle 
-     * @param newWidth 
-     * @param newHeight 
+     *
+     * @param newTitle
+     * @param newWidth
+     * @param newHeight
      */
-    Window(const string& newTitle, unsigned int newWidth = 1920, unsigned int newHeight = 1080):
-        width(newWidth),
-        height(newHeight),
-        title(newTitle),
-        vsync(true)
+    Window(const string &newTitle, unsigned int newWidth = 1920, unsigned int newHeight = 1080) : width(newWidth),
+                                                                                                  height(newHeight),
+                                                                                                  title(newTitle),
+                                                                                                  vsync(true)
     {
         initContext();
     }
 
     /**
      * @brief C'est un autre Constructeur de Fenêtre.
-     * 
-     * @param newWidth 
-     * @param newHeight 
-     * @param newTitle 
+     *
+     * @param newWidth
+     * @param newHeight
+     * @param newTitle
      */
-    Window(unsigned int newWidth = 1920, unsigned int newHeight = 1080, const string& newTitle = "Default Title"):
-        width(newWidth),
-        height(newHeight),
-        title(newTitle),
-        vsync(true)
+    Window(unsigned int newWidth = 1920, unsigned int newHeight = 1080, const string &newTitle = "Default Title") : width(newWidth),
+                                                                                                                    height(newHeight),
+                                                                                                                    title(newTitle),
+                                                                                                                    vsync(true)
     {
         initContext();
     }
 
-    Window(const Window& oth):
-        width(oth.width),
-        height(oth.height),
-        title(oth.title),
-        vsync(oth.vsync),
-        window(oth.window)
+    Window(const Window &oth) : width(oth.width),
+                                height(oth.height),
+                                title(oth.title),
+                                vsync(oth.vsync),
+                                window(oth.window)
     {
     }
 
@@ -89,16 +93,27 @@ public:
     }
 
 public:
+    unsigned int getWidth()
+    {
+        return width;
+    }
+
+    unsigned int getHeight()
+    {
+        return height;
+    }
+
+public:
     ////////////////////////////
     //// Accès aux données. ////
     ////////////////////////////
 
     /**
      * @brief Operateur de Cast pour utiliser la classe "Window" comme un "GLFWWIndow*".
-     * 
+     *
      * @return GLFWwindow*
      */
-    operator GLFWwindow*() const
+    operator GLFWwindow *() const
     {
         return window;
     }
@@ -110,17 +125,18 @@ public:
 
     /**
      * @brief Active ou non la VSync, peut etre chainer comme une Factorie.
-     * 
-     * @param enable 
-     * @return Window& 
+     *
+     * @param enable
+     * @return Window&
      */
-    Window& setVSync(bool enable)
+    Window &setVSync(bool enable)
     {
         vsync = enable;
         return *this;
     }
 
-    Window& setWireFrame(bool toggle = false) {
+    Window &setWireFrame(bool toggle = false)
+    {
         if (toggle)
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         else
@@ -128,11 +144,21 @@ public:
         return *this;
     }
 
-    Window& setBackFaceCulling(bool toggle = false) {
+    Window &setBackFaceCulling(bool toggle = false)
+    {
         if (toggle)
             glEnable(GL_CULL_FACE);
         else
             glDisable(GL_CULL_FACE);
+        return *this;
+    }
+
+    Window &setDepthTest(bool toggle = false)
+    {
+        if (toggle)
+            glEnable(GL_DEPTH_TEST);
+        else
+            glDisable(GL_DEPTH_TEST);
         return *this;
     }
 
@@ -143,21 +169,21 @@ public:
 
     /**
      * @brief Remet TOUT les Pixels de la Fenetre à la Couleur saisie.
-     * 
-     * @param r 
-     * @param g 
-     * @param b 
-     * @param a 
+     *
+     * @param r
+     * @param g
+     * @param b
+     * @param a
      */
     void clear(float r = 0, float g = 0, float b = 0, float a = 0)
     {
         glClearColor(r, g, b, a);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
     /**
      * @brief Récupération des événements sur la Fenêtre (clavier, souris, bouton fermer...) durant la frame par GLFW.
-     * 
+     *
      */
     void pollEvents() const
     {
@@ -166,10 +192,10 @@ public:
 
     /**
      * @brief Regarde si une Touche du clavier est Pressée durant la Frame.
-     * 
-     * @param key 
-     * @return true 
-     * @return false 
+     *
+     * @param key
+     * @return true
+     * @return false
      */
     bool isKeyDown(Key key) const
     {
@@ -188,9 +214,9 @@ public:
 
     /**
      * @brief Regarde si la Fenêtre est encore Ouverte.
-     * 
-     * @return true 
-     * @return false 
+     *
+     * @return true
+     * @return false
      */
     bool isOpen() const
     {
@@ -205,7 +231,7 @@ public:
         glfwSetWindowShouldClose(window, true);
     }
 
-    void draw(AbstractMesh& mesh, const Shader& shader, Transform& trans)
+    void draw(AbstractMesh &mesh, const Shader &shader, Transform &trans)
     {
         mesh.draw(shader, trans);
     }
@@ -243,11 +269,11 @@ private:
     //// Membres. ////
     //////////////////
 
-    unsigned int width; //=> Largeur de la Fenetre.
+    unsigned int width;  //=> Largeur de la Fenetre.
     unsigned int height; //=> Hauteur de la Fenetre.
-    string title; //=> Titre de la Fenetre.
-    GLFWwindow *window; //=> Pointeur sur la Fenetre (Gerer par GLFW).
-    bool vsync; //=> Flag pour activer ou non la VSync.
+    string title;        //=> Titre de la Fenetre.
+    GLFWwindow *window;  //=> Pointeur sur la Fenetre (Gerer par GLFW).
+    bool vsync;          //=> Flag pour activer ou non la VSync.
 };
 
 #endif // WINDOW_HPP

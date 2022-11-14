@@ -1,7 +1,7 @@
 #pragma once
-#include "./vector3.hpp"
-#include "./Quaternion.hpp"
-#include "./Matrix33.hpp"
+#include "vector3.hpp"
+#include "Quaternion.hpp"
+#include "Matrix33.hpp"
 
 
 /**

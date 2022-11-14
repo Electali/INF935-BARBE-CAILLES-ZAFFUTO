@@ -1,8 +1,8 @@
 #ifndef TRANSFORM_HPP
 #define TRANSFORM_HPP
 
-#include "vector3.hpp"
-#include "matrix44.hpp"
+#include "../maths/vector3.hpp"
+#include "../maths/matrix44.hpp"
 
 class Transform
 {
