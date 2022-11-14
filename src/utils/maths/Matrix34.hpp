@@ -46,9 +46,7 @@ class Matrix34
         data[10] = oth[8];
         data[11] = vect.z;
      }
-        
-  
-
+     
     /**
      * @brief Récupère un élément de la Matrice.
      *
@@ -168,6 +166,17 @@ class Matrix34
             vect.x * data[0] + vect.y * data[1] + vect.z * data[2],
             vect.x * data[4] + vect.y * data[5] + vect.z * data[6], 
             vect.x * data[8] + vect.y * data[9] + vect.z * data[10],   
+        };
+        return result;
+    };
+
+    vec3 transformInverseDirection(const vec3 vect)
+    {
+
+        vec3 result = {
+            vect.x * data[0] + vect.y * data[4] + vect.z * data[8],
+            vect.x * data[1] + vect.y * data[5] + vect.z * data[9],
+            vect.x * data[2] + vect.y * data[6] + vect.z * data[10],
         };
         return result;
     };

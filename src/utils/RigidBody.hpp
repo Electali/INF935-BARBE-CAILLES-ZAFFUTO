@@ -1,13 +1,10 @@
 #pragma once
-#include "./maths/vector3.hpp"
-#include "./maths/Quaternion.hpp"
-#include "./maths/Matrix34.hpp"
-#include "./maths/Matrix33.hpp"
+#include "./maths/Maths.hpp"
 
 
 class RigidBody
 {
-    private:
+    public:
 
     // Physique de base comme les particules
     vec3 position;
@@ -64,7 +61,7 @@ class RigidBody
         invInertiaMatrix.data[4] = coeff;
         invInertiaMatrix.data[8] = coeff;
         invInertiaMatrix.inverse();
-
+        
     };
 
 
@@ -82,13 +79,13 @@ class RigidBody
 
         forceAccu += force;
         torqueAccu += prodVectExt(pt, force);
-
-
     }
 
 
-    void AddForceAtBodyPoint(const vec3& force, const vec3& LocalPoint)
+    void AddForceAtBodyPoint(vec3& force, const vec3& LocalPoint)
     {
+        vec3 ptInWorld = LocalToWorld(LocalPoint); 
+        AddForceAtPoint(force,ptInWorld);
 
     }
 
@@ -97,13 +94,22 @@ class RigidBody
         torqueAccu = {};
         forceAccu = {};
     }
-    private:
+   
+    vec3 WorldToLocal(const vec3& world)
+    {
+        return transformMatrix.transformInverseDirection(world);
+    }
 
+    vec3 LocalToWorld(const vec3& local)
+    {
+        return transformMatrix.transformDirection(local);
+    }
+    
     void CalculateDerivedData()
     {
         orientation.Normalize();
-        transformMatrix.setOrientationAndPosition(orientation,position);
+        transformMatrix.setOrientationAndPosition(orientation, position);
+        // Calcule la matrice de torseur inverse dans les coordonn�es globales.
+
     }
-
-
 };
