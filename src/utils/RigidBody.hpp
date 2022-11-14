@@ -37,7 +37,7 @@ class RigidBody
     public:
     RigidBody(const vec3 p, const vec3 v, const float invm, const Quaternion orient,const vec3 rotv, float cote)
     {
-        //physique linéaire
+        //physique linï¿½aire
         position = p;
         velocity = v;
         acceleration = {};
@@ -51,20 +51,20 @@ class RigidBody
 
         transformMatrix.setOrientationAndPosition(orientation, position);
         
-        angularDammping = 0.99;
+        angularDamping = 0.99;
         forceAccu = {};
         torqueAccu = {};
 
 
         // Calcul de la matrice inverse d'inertie
         // pour le moment nous utiliserons des cubes
-        invInertiaMatrix();
+        invInertiaMatrix =  Matrix33();
         float coeff = ((1 / inverseMass) / 6) * cote * cote;
-        invInertiaMatrix[0] = coeff;
-        invInertiaMatrix[4] = coeff;
-        invInertiaMatrix[8] = coeff;
+        invInertiaMatrix.data[0] = coeff;
+        invInertiaMatrix.data[4] = coeff;
+        invInertiaMatrix.data[8] = coeff;
         invInertiaMatrix.inverse();
-
+        
     };
 
 
@@ -75,7 +75,7 @@ class RigidBody
         forceAccu += force;
     }
 
-    void AddForceAtPoint(const vec3& force, const vec3& worldPoint)
+    void AddForceAtPoint(vec3& force, const vec3& worldPoint)
     {
         vec3 pt = worldPoint;
         pt = pt - position;
@@ -85,22 +85,22 @@ class RigidBody
     }
 
 
-    void AddForceAtBodyPoint(const vec3& force, const vec3& LocalPoint)
+    void AddForceAtBodyPoint(vec3& force, const vec3& LocalPoint)
     {
-        vec3 ptInWorld = LocalToWorld(localPoint); 
-        AddForceAtPoint(ptInWorld);
+        vec3 ptInWorld = LocalToWorld(LocalPoint); 
+        AddForceAtPoint(force,ptInWorld);
 
     }
 
     void clearAccumulators()
     {
-        rb.torqueAccu = {};
-        rb.forceAccu = {};
+        torqueAccu = {};
+        forceAccu = {};
     }
    
     vec3 WorldToLocal(const vec3& world)
     {
-        return transformMatrix.transformInverseDirection(wolrd);
+        return transformMatrix.transformInverseDirection(world);
     }
 
     vec3 LocalToWorld(const vec3& local)
@@ -112,14 +112,7 @@ class RigidBody
     {
         orientation.Normalize();
         transformMatrix.setOrientationAndPosition(orientation, position);
-        // Calcule la matrice de torseur inverse 
+        // Calcule la matrice de torseur inverse dans les coordonnï¿½es globales.
 
     }
-
-    
-
-    
-
-    
-
 };
