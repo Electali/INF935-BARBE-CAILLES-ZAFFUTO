@@ -182,6 +182,30 @@ class Matrix34
         return result;
     };
 
+    vec3 localToWorld(const vec3& vect)
+    {
+        vec3 temp;
+        temp.x = data[3];
+        temp.y = data[7];
+        temp.z = data[11];
+        
+        return vec3( vect.x * data[0] + vect.y * data[1] + vect.z * data[2] + temp.x,
+                     vect.x * data[4] + vect.y * data[5] + vect.z * data[6] + temp.y,
+                     vect.x * data[8] + vect.y * data[9] + vect.z * data[10] + temp.z);
+    };
+
+    vec3 worldToLocal(const vec3& vect)
+    {
+        vec3 temp;
+        temp.x = -data[3];
+        temp.y = -data[7];
+        temp.z = -data[11];
+        
+        return vec3( vect.x * data[0] + vect.y * data[4] + vect.z * data[8] + temp.x,
+                     vect.x * data[1] + vect.y * data[5] + vect.z * data[9] + temp.y,
+                     vect.x * data[2] + vect.y * data[6] + vect.z * data[10] + temp.z);
+    };
+
     void show()
     {
         for (int i = 0; i < 3; i++)

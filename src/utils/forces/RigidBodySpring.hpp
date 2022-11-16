@@ -28,8 +28,15 @@ public :
 	void UpdateForce(RigidBody& rb, float duration)
 	{
 		//Calcul du vecteur de force
+		std::cout << "Les points du ressort en local" << std::endl;
+		ptAttach.show();
+		othPtAttach.show();
+		std::cout << "Les points du ressort en world" << std::endl;
 		vec3 lws = rb.LocalToWorld(ptAttach);
 		vec3 othws = other->LocalToWorld(othPtAttach);
+		lws.show();
+		othws.show();
+		std::cout << "Fin des points du ressort" << std::endl;
 		vec3 force = lws - othws;
 
 		//Calcul la valeur de la force

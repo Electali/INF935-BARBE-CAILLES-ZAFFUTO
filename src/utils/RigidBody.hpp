@@ -90,12 +90,12 @@ public:
 
     vec3 WorldToLocal(const vec3 &world)
     {
-        return transformMatrix.transformInverseDirection(world);
+        return transformMatrix.worldToLocal(world);
     }
 
     vec3 LocalToWorld(const vec3 &local)
     {
-        return transformMatrix.transformDirection(local);
+        return transformMatrix.localToWorld(local);
     }
 
     void CalculateDerivedData()

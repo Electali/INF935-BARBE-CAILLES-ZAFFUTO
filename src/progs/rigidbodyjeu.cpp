@@ -36,12 +36,12 @@ int main(int argc, char** argv)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
-	// Création du moteur et de la liste des corps rigides du jeu.
+	// Crï¿½ation du moteur et de la liste des corps rigides du jeu.
 	Engine engine; 
 	RB3DVect rigidbodies;
 
 	//Creation d'un rigibody 
-	vec3 pos = {};
+	vec3 pos = {0,-0.3,0};
 	vec3 vel = {};
 	Quaternion orient = Quaternion(1, 0, 0, 0);
     vec3 rotvel = { 5,0,0 };
@@ -51,17 +51,17 @@ int main(int argc, char** argv)
 	rigidbodies.push_back(&RB1);
 	engine.addRigidBody(RB1.rb);
     
-	//Creation d'une force de gravité pour les RigidBodies
+	//Creation d'une force de gravitï¿½ pour les RigidBodies
     vec3 gravVect = {0,1,0};
 	RigidBodyGravity gravityRB = RigidBodyGravity(gravVect);
 
-	engine.rigidbodyRegistry.add(RB1.rb, gravityRB);
+	//engine.rigidbodyRegistry.add(RB1.rb, gravityRB);
     
 
-    /*
+    
     //Creation d'un deuxieme rigibody 
     vec3 rotvel2 = { };
-    vec3 pos2 = { 0,5,0 };
+    vec3 pos2 = { 0,0.7,0 };
 
     RigidBody3D RB2 = RigidBody3D(pos2, vel, 0.01, orient, rotvel2, 2);
 
@@ -71,10 +71,10 @@ int main(int argc, char** argv)
 
     //Creation d'un ressort
    
-    RigidBodySpring spring = RigidBodySpring(&(RB2.rb), pos , pos2, 10.f, 4.f);
+    RigidBodySpring spring = RigidBodySpring(&(RB2.rb), {1,1,1} , pos2, 100.f, 0.5f);
     engine.rigidbodyRegistry.add(RB1.rb, spring);
 
-    */
+    
 
     // ************* Loop Delta Time Flexible ************** //
 

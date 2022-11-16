@@ -117,6 +117,7 @@ public:
         for (int i=0; i < rigidbodies.size(); i++)
         {
             integr.integrate(*rigidbodies[i], dt);
+            //(*rigidbodies[i]).velocity.show();
         }
 
         contacts.clear();

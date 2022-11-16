@@ -151,6 +151,15 @@ public:
         result.data2[15] = data2[12] * other.data2[3] + data2[13] * other.data2[7] + data2[14] * other.data2[11] + data2[15] * other.data2[15];
         return result;
     }
+
+
+    void show()
+    {
+        std::cout << "|" << data2[0] << "|" << data2[1] << "|" << data2[2] << "|" << data2[3] << "|" << std::endl;
+        std::cout << "|" << data2[4] << "|" << data2[5] << "|" << data2[6] << "|" << data2[7] << "|" << std::endl;
+        std::cout << "|" << data2[8] << "|" << data2[9] << "|" << data2[10] << "|" << data2[11] << "|" << std::endl;
+        std::cout << "|" << data2[12] << "|" << data2[13] << "|" << data2[14] << "|" << data2[15] << "|" << std::endl;
+    }
 public:
     //////////////////
     //// Membres. ////

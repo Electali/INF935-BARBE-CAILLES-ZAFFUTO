@@ -121,7 +121,11 @@ public:
             model = mat4();
             model.setPos(pos);
             model.setScale(scale);
+            /*std::cout << "Matrice avant rotation" << std::endl;
+            model.show();
             model.setRotation(orientation);
+            std::cout << "Matrice apres rotation" << std::endl;
+            model.show();*/
             isDirty = false;
         }
         return model;
