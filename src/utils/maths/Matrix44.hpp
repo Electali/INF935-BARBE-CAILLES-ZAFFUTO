@@ -4,6 +4,7 @@
 #include "vector4.hpp"
 #include "vector3.hpp"
 #include <cmath>
+#include "Quaternion.hpp"
 
 using namespace std;
 
@@ -105,6 +106,51 @@ public:
         zz = vec.z;
     }
 
+    void setRotation(const Quaternion &quat) {
+        Matrix44T rot = Matrix44T(1);
+        rot.tomat44(quat);
+        *this = (* this) * rot;
+
+    }
+
+    void tomat44(Quaternion q)
+    {
+        data2[0] = 1 - (2 * q.j * q.j + 2 * q.k * q.k);
+        data2[1] = 2 * q.i * q.j + 2 * q.k * q.r;
+        data2[2] = 2 * q.i * q.k - 2 * q.j * q.r;
+        data2[4] = 2 * q.i * q.j - 2 * q.k * q.r;
+        data2[5] = 1 - (2 * q.i * q.i + 2 * q.k * q.k);
+        data2[6] = 2 * q.j * q.k + 2 * q.i * q.r;
+        data2[8] = 2 * q.i * q.k + 2 * q.j * q.r;
+        data2[9] = 2 * q.j * q.k - 2 * q.i * q.r;
+        data2[10] = 1 - (2 * q.i * q.i + 2 * q.j * q.j);
+        return ;
+    }
+
+    Matrix44T<T> operator*(const Matrix44T& other) const
+    {
+        Matrix44T result;
+        result.data2[0] = data2[0] * other.data2[0] + data2[1] * other.data2[4] + data2[2] * other.data2[8] + data2[3] * other.data2[12];
+        result.data2[1] = data2[0] * other.data2[1] + data2[1] * other.data2[5] + data2[2] * other.data2[9] + data2[3] * other.data2[13];
+        result.data2[2] = data2[0] * other.data2[2] + data2[1] * other.data2[6] + data2[2] * other.data2[10] + data2[3] * other.data2[14];
+        result.data2[3] = data2[0] * other.data2[3] + data2[1] * other.data2[7] + data2[2] * other.data2[11] + data2[3] * other.data2[15];
+
+        result.data2[4] = data2[4] * other.data2[0] + data2[5] * other.data2[4] + data2[6] * other.data2[8] + data2[7] * other.data2[12];
+        result.data2[5] = data2[4] * other.data2[1] + data2[5] * other.data2[5] + data2[6] * other.data2[9] + data2[7] * other.data2[13];
+        result.data2[6] = data2[4] * other.data2[2] + data2[5] * other.data2[6] + data2[6] * other.data2[10] + data2[7] * other.data2[14];
+        result.data2[7] = data2[4] * other.data2[3] + data2[5] * other.data2[7] + data2[6] * other.data2[11] + data2[7] * other.data2[15];
+
+        result.data2[8] = data2[8] * other.data2[0] + data2[9] * other.data2[4] + data2[10] * other.data2[8] + data2[11] * other.data2[12];
+        result.data2[9] = data2[8] * other.data2[1] + data2[9] * other.data2[5] + data2[10] * other.data2[9] + data2[11] * other.data2[13];
+        result.data2[10] = data2[8] * other.data2[2] + data2[9] * other.data2[6] + data2[10] * other.data2[10] + data2[11] * other.data2[14];
+        result.data2[11] = data2[8] * other.data2[3] + data2[9] * other.data2[7] + data2[10] * other.data2[11] + data2[11] * other.data2[15];
+
+        result.data2[12] = data2[12] * other.data2[0] + data2[13] * other.data2[4] + data2[14] * other.data2[8] + data2[15] * other.data2[12];
+        result.data2[13] = data2[12] * other.data2[1] + data2[13] * other.data2[5] + data2[14] * other.data2[9] + data2[15] * other.data2[13];
+        result.data2[14] = data2[12] * other.data2[2] + data2[13] * other.data2[6] + data2[14] * other.data2[10] + data2[15] * other.data2[14];
+        result.data2[15] = data2[12] * other.data2[3] + data2[13] * other.data2[7] + data2[14] * other.data2[11] + data2[15] * other.data2[15];
+        return result;
+    }
 public:
     //////////////////
     //// Membres. ////

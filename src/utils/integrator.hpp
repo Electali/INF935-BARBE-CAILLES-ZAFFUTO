@@ -61,28 +61,31 @@ class integrator
     /// RIGIDBODY ///
     /////////////////
     
-    void intigrate(Rigidbody& rb, float t)   // Equivalent au update des particules
+    public:
+
+    void integrate(RigidBody& rb, float t)   // Equivalent au update des particules
     {
 
-        // 1 Mettre à jour la position
-        updatePositionRigidBody(rb, t, false);
+        // 1 Mettre ï¿½ jour la position
+        updatePositionRigidBody(rb, t);
 
         // 2 Mettre a jour l'orientation
         updateAngularPositionRigidBody(rb, t);
 
+
         // 3 Calculer les valeurs derivees
         rb.CalculateDerivedData();
 
-        // 4 Calculer l’accélération linéaire
+        // 4 Calculer lï¿½accï¿½lï¿½ration linï¿½aire
         updateAccelerationRigidBody(rb,t);
 
-        // 5 Calculer l’accélération angulaire
+        // 5 Calculer lï¿½accï¿½lï¿½ration angulaire
         updateangularaccelerationRigidBody(rb, t);
        
-        // 6 Mettre à jour la vélocité linéaire
+        // 6 Mettre ï¿½ jour la vï¿½locitï¿½ linï¿½aire
         updateVelocityRidBody(rb, t);
 
-        // 7 Mettre à jour la vélocité angulaire
+        // 7 Mettre ï¿½ jour la vï¿½locitï¿½ angulaire
         updateAngularVelocityRidBody(rb, t);
        
         // 8 Clear les accumulateurs 
@@ -90,20 +93,20 @@ class integrator
         
     }
 
+    private:
     //1 
     void updatePositionRigidBody(RigidBody& rb, float t) 
     {
         vec3 m1 = multiplication(rb.velocity, t);
 
         rb.position = rb.position + m1;
+        rb.position.show();
     }
     
     //2
     void updateAngularPositionRigidBody(RigidBody& rb, float t)
     {
-        Quaternion old = rb.orientation;
-        rb.orientation.RotateByVector(rbrotationVelocity * (t / 2));
-        rb.oriention = old * rb.orientation;
+        rb.orientation.UpdateByAngularVelocity(rb.rotationVelocity,t);
     }
 
     //4 
@@ -115,7 +118,6 @@ class integrator
     //5 
     void updateangularaccelerationRigidBody(RigidBody& rb, float t)
     {
-        /// TO DO : Calculer le changement de base 
         rb.rotationAcceleration = rb.invInertiaMatrix * rb.torqueAccu;
     }
 
@@ -123,7 +125,7 @@ class integrator
     //6
     void updateVelocityRidBody(RigidBody& rb, float t)
     {
-        vec3 m1 = multiplication(rb.velocity,pow(rb.damping,t));
+        vec3 m1 = multiplication(rb.velocity,rb.damping);
         vec3 m2 = multiplication(rb.acceleration, t);
         rb.velocity = m1 + m2;
     }
@@ -131,12 +133,9 @@ class integrator
     //7
     void updateAngularVelocityRidBody(RigidBody& rb, float t)
     {
-        vec3 m1 = multiplication(rb.rotationVelocity, pow(rb.angularDamping,t));
+        vec3 m1 = multiplication(rb.rotationVelocity, rb.angularDamping);
         vec3 m2 = multiplication(rb.rotationAcceleration, t);
-        rb.velocity = m1 + m2;
+        rb.rotationVelocity = m1 + m2;
     }
-
-    
-    
 
 };

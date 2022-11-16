@@ -8,7 +8,7 @@ private:
     vec3 m_gravity;
 
 public:
-    RigidBodyGravity(vec3& grav)
+    RigidBodyGravity(vec3 grav)
     {
         m_gravity = grav;
     }
@@ -18,7 +18,7 @@ public:
         if (rb.inverseMass == 0)
             return; // Masse infinie
 
-        vec3 vec = multiplication(m_gravity,(1/ rb.inverseMassp));
+        vec3 vec = multiplication(m_gravity,(1/ rb.inverseMass));
         rb.AddForce(vec);
     }
 };

@@ -92,14 +92,14 @@ int main(int argc, char **argv)
     // Creation des forces
     vec3 grav = vec3(0, -10, 0);
     ParticleGravity gravity = ParticleGravity(grav);
-    engine.registry.add(particule2, gravity);
-    engine.registry.add(particule3, gravity);
-    engine.registry.add(particule4, gravity);
-    engine.registry.add(particule5, gravity);
-    engine.registry.add(particule6, gravity);
+    engine.particleRegistry.add(particule2, gravity);
+    engine.particleRegistry.add(particule3, gravity);
+    engine.particleRegistry.add(particule4, gravity);
+    engine.particleRegistry.add(particule5, gravity);
+    engine.particleRegistry.add(particule6, gravity);
 
     ParticleAnchoredSpring anchoredSpring({0, 0, 0}, 5000, 0.4);
-    engine.registry.add(particule1.part, anchoredSpring);
+    engine.particleRegistry.add(particule1.part, anchoredSpring);
 
     // ParticleDrag ventviolent(0.5, 0.5);
     // engine.registry.add(particule5, ventviolent);
@@ -122,7 +122,7 @@ int main(int argc, char **argv)
     engine.addContact(cable5);
     // engine.addContact(rod);
 
-    // ************* Loop Delta Time Fixe ************** //
+    // ************* Loop Delta Time Flexible ************** //
 
     double duration = 0;
     double dt = 1.0 / 60.0;

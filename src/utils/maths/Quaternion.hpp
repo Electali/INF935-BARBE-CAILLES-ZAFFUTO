@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cmath>
 #include "vector3.hpp"
+#include "Matrix44.hpp"
 
 class Quaternion
 {
@@ -86,6 +87,7 @@ public:
         j += q.j * 0.5;
         k += q.k * 0.5;
     }
+
 
     void show()
     {

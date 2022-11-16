@@ -194,6 +194,14 @@ public:
     //// Multiplication ////
     ////////////////////////
 
+    Vector3T operator*(T oth)
+    {
+        return {
+            x * oth,
+            y * oth,
+            z * oth};
+    }
+
     friend Vector3T multiplication(Vector3T &v, float lambda)
     {
         return Vector3T(v.x * lambda, v.y * lambda, v.z * lambda);

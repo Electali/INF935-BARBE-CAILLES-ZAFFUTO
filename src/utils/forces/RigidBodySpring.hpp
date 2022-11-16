@@ -14,7 +14,7 @@ public:
 
 public:
 
-	RigidBodySpring(RigidBody* oth, const vec3 attach, const vec3 othAttach, const sprCnst, const restLen)
+	RigidBodySpring(RigidBody* oth, const vec3 attach, const vec3 othAttach, const float  sprCnst, const float restLen)
 	{
 		other = oth;
 		ptAttach = attach;
@@ -37,7 +37,7 @@ public :
 
 		//Calcul la force finale
 		force.normalise();
-		force *= -valF
+		force *= -valF;
 
 		//Applique la force au point ou le resort est attache.
 		rb.AddForceAtPoint(force,lws);

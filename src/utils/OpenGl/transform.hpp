@@ -1,8 +1,8 @@
 #ifndef TRANSFORM_HPP
 #define TRANSFORM_HPP
 
-#include "../maths/vector3.hpp"
-#include "../maths/matrix44.hpp"
+#include "../maths/Maths.hpp"
+
 
 class Transform
 {
@@ -15,6 +15,7 @@ public:
         model(1),
         pos(0, 0, 0),
         scale(1, 1, 1),
+        orientation(),
         rotAxis(0, 0, 0),
         rotAngle(0),
         isDirty(true) {
@@ -90,6 +91,19 @@ public:
         isDirty = true;
     }
 
+    void rotate(float x, float y, float z, float angle)
+    {
+        rotAxis += {x, y, z};
+        rotAngle += angle;
+        isDirty = true;
+    }
+
+    void setOrientation(Quaternion orient)
+    {
+        orientation = orient;
+        isDirty = true;
+    }
+
 public:
     /////////////////////////////////////////////////
     //// Fonctions de regeneration du Transform. ////
@@ -107,7 +121,7 @@ public:
             model = mat4();
             model.setPos(pos);
             model.setScale(scale);
-            // Mettre un SetRotation(x, y, z, angle) ici.
+            model.setRotation(orientation);
             isDirty = false;
         }
         return model;
@@ -121,6 +135,7 @@ private:
     mat4 model; //=> La Matrice de Transformation de l'Objet à Afficher.
     vec3 pos; //=> La Position de l'Objet.
     vec3 scale; //=> La Taille de l'Objet.
+    Quaternion orientation;
     vec3 rotAxis; //=> L'Axe de Rotation de l'Objet.
     float rotAngle; //=> L'Angle de Rotation de l'Objet.
     bool isDirty; //=> Flag evitant un recalcul permanent de la Matrice de Transformation.

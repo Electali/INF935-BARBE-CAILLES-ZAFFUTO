@@ -2,6 +2,7 @@
 #include "vector3.hpp"
 #include "Quaternion.hpp"
 #include "Matrix33.hpp"
+#include "Matrix44.hpp"
 
 
 /**
@@ -180,7 +181,6 @@ class Matrix34
         };
         return result;
     };
-
 
     void show()
     {

@@ -19,7 +19,7 @@ public:
     particle part;
 
     //Point mesh;
-    Cube mesh;
+    Point mesh;
     Transform trans;
 
     particle3D(vec3 &pos, vec3 &vit, vec3 &accel, float invMass, float damping) {

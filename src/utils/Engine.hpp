@@ -5,6 +5,7 @@
 #include "./forces/ParticleForceRegistry.hpp"
 #include "./contacts/ParticleContactGenerator.hpp"
 #include "./contacts/ParticleContactResolver.hpp"
+#include "./forces/RigidBodyForceRegistry.hpp"
 
 #include <vector>
 
@@ -13,15 +14,21 @@ class Engine
 public:
     /// Definitions ///
     using ParticleList = vector<particle *>;
+    using RigidBodyList = vector<RigidBody *>;
     using ContactGenerators = vector<ParticleContactGenerator *>;
+    
 
     integrator integr;
 
     ParticleList particles;
 
+    RigidBodyList rigidbodies;
+
     unsigned int maxContacts = 0;
 
-    ParticleForceRegistry registry;
+    ParticleForceRegistry particleRegistry;
+
+    RigidBodyForceRegistry rigidbodyRegistry;
 
     ParticleContactResolver resolver;
 
@@ -32,13 +39,13 @@ public:
     Engine()
     {
         integr = integrator();
-        registry = ParticleForceRegistry();
+        particleRegistry = ParticleForceRegistry();
     }
 
     Engine(unsigned int newMaxContacts, unsigned int iterations)
     {
         maxContacts = newMaxContacts;
-        registry = ParticleForceRegistry();
+        particleRegistry = ParticleForceRegistry();
         resolver = ParticleContactResolver(iterations);
         contactGenerators = ContactGenerators();
     }
@@ -56,6 +63,11 @@ public:
         particles.push_back(&p);
     }
 
+    void addRigidBody(RigidBody &rb)
+    {
+        rigidbodies.push_back(&rb);
+    }
+
     void removeParticle(particle &p)
     {
         ParticleList::iterator i = particles.begin();
@@ -69,6 +81,19 @@ public:
         }
     }
 
+    void removeRigidBody(RigidBody &rb)
+    {
+        RigidBodyList::iterator i = rigidbodies.begin();
+
+        for (; i != rigidbodies.end(); i++)
+        {
+            if (*i == &rb)
+            {
+                rigidbodies.erase(i);
+            }
+        }
+    }
+
     void addContact(ParticleContactGenerator &cont)
     {
         contactGenerators.push_back(&cont);
@@ -77,12 +102,21 @@ public:
     void Update(float dt)
     {
 
-        registry.UpdateForce(dt);
+        particleRegistry.UpdateForce(dt);
 
+        rigidbodyRegistry.UpdateForce(dt);
+
+        // Boucle Integration Particules 
         for (int i=0; i < particles.size(); i++)
         {
             integr.update(*particles[i], dt);
             particles[i]->totalForce = 0;
+        }
+
+        // Boucle Integration RigidBodies
+        for (int i=0; i < rigidbodies.size(); i++)
+        {
+            integr.integrate(*rigidbodies[i], dt);
         }
 
         contacts.clear();
