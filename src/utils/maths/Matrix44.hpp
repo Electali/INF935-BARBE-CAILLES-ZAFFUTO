@@ -108,8 +108,39 @@ public:
 
     void setRotation(const Quaternion &quat) {
         Matrix44T rot = Matrix44T(1);
+         
+        //std::cout << "Quaternion en matrice"<< std::endl;
         rot.tomat44(quat);
-        *this = (* this) * rot;
+        
+       // rot.show();
+        *this = rot.inverse() * (* this) ;
+
+    }
+
+    Matrix44T inverse()
+    {
+        Matrix44T res = Matrix44T(0);
+        res.data2[0] = data2[0];
+        res.data2[1] = data2[4];
+        res.data2[2] = data2[8];
+        res.data2[3] = data2[12];
+
+        res.data2[4] = data2[1];
+        res.data2[5] = data2[5];
+        res.data2[6] = data2[9];
+        res.data2[7] = data2[13];
+
+        res.data2[8] = data2[2];
+        res.data2[9] = data2[6];
+        res.data2[10] = data2[10];
+        res.data2[11] = data2[14];
+
+        res.data2[12] = data2[3];
+        res.data2[13] = data2[7];
+        res.data2[14] = data2[11];
+        res.data2[15] = data2[15];
+
+        return res;
 
     }
 

@@ -41,10 +41,10 @@ int main(int argc, char** argv)
 	RB3DVect rigidbodies;
 
 	//Creation d'un rigibody 
-	vec3 pos = {0,-0.3,0};
-	vec3 vel = {};
+	vec3 pos = {0,0,0};
+	vec3 vel = {0,0,0};
 	Quaternion orient = Quaternion(1, 0, 0, 0);
-    vec3 rotvel = { 5,0,0 };
+    vec3 rotvel = {1,1,1};
 	
 	RigidBody3D RB1 = RigidBody3D(pos, vel, 0.01, orient, rotvel, 2);
 
@@ -52,13 +52,13 @@ int main(int argc, char** argv)
 	engine.addRigidBody(RB1.rb);
     
 	//Creation d'une force de gravit� pour les RigidBodies
-    vec3 gravVect = {0,1,0};
+    vec3 gravVect = {0,0,0};
 	RigidBodyGravity gravityRB = RigidBodyGravity(gravVect);
 
 	//engine.rigidbodyRegistry.add(RB1.rb, gravityRB);
     
+/*
 
-    
     //Creation d'un deuxieme rigibody 
     vec3 rotvel2 = { };
     vec3 pos2 = { 0,0.7,0 };
@@ -71,10 +71,10 @@ int main(int argc, char** argv)
 
     //Creation d'un ressort
    
-    RigidBodySpring spring = RigidBodySpring(&(RB2.rb), {1,1,1} , pos2, 100.f, 0.5f);
+    RigidBodySpring spring = RigidBodySpring(&(RB2.rb), {1,1,1} , pos2, 10.f, 0.1f);
     engine.rigidbodyRegistry.add(RB1.rb, spring);
 
-    
+*/ 
 
     // ************* Loop Delta Time Flexible ************** //
 
@@ -148,7 +148,7 @@ int main(int argc, char** argv)
         {
             rb->UpdateGraphics();
             window.draw(rb->mesh, shad, rb->trans);  
-            rb->setColor(vec4(1, 0.5, 1, 1), shad);
+            rb->setColor(vec4(0.0625, 0.01367, 0.4453125, 1), shad);
         }
 
         window.display();
