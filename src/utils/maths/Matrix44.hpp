@@ -113,7 +113,7 @@ public:
         rot.tomat44(quat);
         
        // rot.show();
-        *this = rot.inverse() * (* this) ;
+        *this = rot.inverse() * (*this);
 
     }
 

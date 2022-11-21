@@ -66,26 +66,25 @@ class integrator
     void integrate(RigidBody& rb, float t)   // Equivalent au update des particules
     {
 
-        // 1 Mettre � jour la position
+        // 1 Mettre a jour la position
         updatePositionRigidBody(rb, t);
 
         // 2 Mettre a jour l'orientation
         updateAngularPositionRigidBody(rb, t);
 
-
         // 3 Calculer les valeurs derivees
         rb.CalculateDerivedData();
 
-        // 4 Calculer l�acc�l�ration lin�aire
+        // 4 Calculer l acceleration lineaire
         updateAccelerationRigidBody(rb,t);
 
-        // 5 Calculer l�acc�l�ration angulaire
+        // 5 Calculer l acceleration angulaire
         updateangularaccelerationRigidBody(rb, t);
        
-        // 6 Mettre � jour la v�locit� lin�aire
+        // 6 Mettre a jour la velocite lineaire
         updateVelocityRidBody(rb, t);
 
-        // 7 Mettre � jour la v�locit� angulaire
+        // 7 Mettre a jour la velocite angulaire
         updateAngularVelocityRidBody(rb, t);
        
         // 8 Clear les accumulateurs 
@@ -100,7 +99,6 @@ class integrator
         vec3 m1 = multiplication(rb.velocity, t);
 
         rb.position = rb.position + m1;
-        rb.position.show();
     }
     
     //2
@@ -118,7 +116,8 @@ class integrator
     //5 
     void updateangularaccelerationRigidBody(RigidBody& rb, float t)
     {
-        rb.rotationAcceleration = rb.invInertiaMatrix * rb.torqueAccu;
+        rb.rotationAcceleration = rb.transformInertiaMatrix * rb.torqueAccu ;
+        
     }
 
 

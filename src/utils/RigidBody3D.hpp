@@ -43,7 +43,6 @@ z = qz / sqrt(1-qw*qw)
     void UpdateGraphics(){
         trans.move(rb.position.x - trans.getPos().x,rb.position.y - trans.getPos().y, rb.position.z - trans.getPos().z);
         trans.setOrientation(rb.orientation);
-        rb.orientation.show();
     }
 
     operator RigidBody&()

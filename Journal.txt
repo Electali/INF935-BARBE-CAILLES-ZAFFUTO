@@ -108,14 +108,36 @@ Phase 3 :
 
 - Changement dans le code des matrices
 - Implémentation RigidBody et début mise à jour de l'intégrator.
+- Ajout caméra 3D
 
+7 Novembre - 13 Novembre :
 
+- Fin maj integrator 
+- Création des classes de ForceGenerator (Registry, generator, spring, anchoredspring, gravity)
 
+14 Novembre - 20 Novembre :
+
+- Mise en relation de tout le code dans l'engine
+- Tests et corrections de bugs
+- Création du jeu : 
+    * 2 cubes tournant sur axes différents et non soumis a une force
+    * 1 cube tournant sur tous les axes et non soumis a une force
+    * 1 cube jeté en l'air avec une véloctité et une vitesse rotationelle non nulles, soumis à la gravité.
+    * 1 cube attaché via un ressort
 
 
 Choix d'implémentaion :
 
 - Nous avions commencé par implémenter les matrices de façon généralisées avec l'utilisation de template.
 Cependant,n'étant pas familier avec cette fonctionnalité du C++ et au vu des problèmes de compilations obtenus, nous avons décidé
-d'implémenter des matrices de float uniquement. Idée appuyé par le fait que nous utiliserons les matrices pour gérer des rotations et
+d'implémenter des matrices de float uniquement. Idée appuyée par le fait que nous utiliserons les matrices pour gérer des rotations et
 qu'il faut des matrices de float car le choix de rotations représentées pas des entiers est assez limité.
+
+-Difficultes rencontrées :
+
+- Comme expliqué ci dessus, problème avec les matrices (probleme de c++)
+- Problème avec les rotations qui ne se faisaient pas correctement -> prb corrigé, multiplication matricielle dans le mauvais sens.
+
+
+Livres :
+https://ebookcentral.proquest.com/lib/uqac-ebooks/reader.action?docID=4205386

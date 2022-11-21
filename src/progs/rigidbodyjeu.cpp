@@ -36,45 +36,78 @@ int main(int argc, char** argv)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
-	// Cr�ation du moteur et de la liste des corps rigides du jeu.
+    //****** Partie Physique ******//
+
+	// Creation du moteur et de la liste des corps rigides du jeu.
 	Engine engine; 
 	RB3DVect rigidbodies;
 
-	//Creation d'un rigibody 
-	vec3 pos = {0,0,0};
-	vec3 vel = {0,0,0};
+	//Creation des spinning rigibodies  
+    vec3 vel = {0,0,0};
+    vec3 vel5 = {1,1,0};
 	Quaternion orient = Quaternion(1, 0, 0, 0);
-    vec3 rotvel = {1,1,1};
-	
-	RigidBody3D RB1 = RigidBody3D(pos, vel, 0.01, orient, rotvel, 2);
 
-	rigidbodies.push_back(&RB1);
+
+	vec3 pos = {-1,-1,0};
+    vec3 pos2 = {-1,0,0};
+    vec3 pos3 = {-1,1,0};
+    vec3 pos4 = {0,0,0};
+    vec3 pos5 = {-0.5,0.5,0};
+    vec3 pos6 = {0,-0.5,0};
+
+    vec3 rotvel = {1,0,0};
+    vec3 rotvel2 = {1,1,1};
+    vec3 rotvel3 = {0,0,1};
+    vec3 rotvel4 = {0,1,0};
+    vec3 rotvel5 = {1,1,1};
+    vec3 rotvel6 = {};
+	
+
+    //Spinning RB en X 
+	RigidBody3D RB1 = RigidBody3D(pos, vel, 0.01, orient, rotvel, 2);
+    rigidbodies.push_back(&RB1);
 	engine.addRigidBody(RB1.rb);
-    
-	//Creation d'une force de gravit� pour les RigidBodies
-    vec3 gravVect = {0,0,0};
+
+    //Spinning RB en Y 
+    RigidBody3D RB2 = RigidBody3D(pos2, vel, 0.01, orient, rotvel2, 2);
+    rigidbodies.push_back(&RB2);
+	engine.addRigidBody(RB2.rb);
+
+    //Spinning RB en Z 
+    RigidBody3D RB3 = RigidBody3D(pos3, vel, 0.01, orient, rotvel3, 2);
+    rigidbodies.push_back(&RB3);
+	engine.addRigidBody(RB3.rb);
+
+
+    //Spinning RB en X,Y,Z 
+    RigidBody3D RB4 = RigidBody3D(pos4, vel, 0.01, orient, rotvel4, 2);
+    rigidbodies.push_back(&RB4);
+	engine.addRigidBody(RB4.rb);
+
+
+    //RB tournant en X,Y,Z et jette en l'air
+    RigidBody3D RB5 = RigidBody3D(pos5, vel5, 0.01, orient, rotvel5, 2);
+    rigidbodies.push_back(&RB5);
+	engine.addRigidBody(RB5.rb);
+
+
+    //RB accroché vi un ressort au RB4
+    RigidBody3D RB6 = RigidBody3D(pos6, vel, 0.1, orient, rotvel6, 2);
+    rigidbodies.push_back(&RB6);
+	engine.addRigidBody(RB6.rb);
+
+	//Creation d'une force de gravite pour les RigidBodies
+    vec3 gravVect = {0,-0.5,0};
 	RigidBodyGravity gravityRB = RigidBodyGravity(gravVect);
 
-	//engine.rigidbodyRegistry.add(RB1.rb, gravityRB);
-    
-/*
-
-    //Creation d'un deuxieme rigibody 
-    vec3 rotvel2 = { };
-    vec3 pos2 = { 0,0.7,0 };
-
-    RigidBody3D RB2 = RigidBody3D(pos2, vel, 0.01, orient, rotvel2, 2);
-
-    rigidbodies.push_back(&RB2);
-    engine.addRigidBody(RB2.rb);
+	engine.rigidbodyRegistry.add(RB5.rb, gravityRB);
 
 
     //Creation d'un ressort
    
-    RigidBodySpring spring = RigidBodySpring(&(RB2.rb), {1,1,1} , pos2, 10.f, 0.1f);
-    engine.rigidbodyRegistry.add(RB1.rb, spring);
-
-*/ 
+    RigidBodySpring spring = RigidBodySpring(&(RB4.rb), {0,0.5,0} , {0.2,0,0}, 100.f, 1.0f);
+    engine.rigidbodyRegistry.add(RB6.rb, spring);
+ 
 
     // ************* Loop Delta Time Flexible ************** //
 
@@ -84,7 +117,7 @@ int main(int argc, char** argv)
 
     Shader shad;
 
-    Camera cam(45, { 0, 0, 3 });
+    Camera cam(45, { 0, 0, 5 });
 
     while (window.isOpen())
     {
@@ -143,12 +176,19 @@ int main(int argc, char** argv)
         // Affichage
         window.clear();
 
-
+        int col = 0;
         for (auto* rb : rigidbodies)
         {
             rb->UpdateGraphics();
-            window.draw(rb->mesh, shad, rb->trans);  
             rb->setColor(vec4(0.0625, 0.01367, 0.4453125, 1), shad);
+            if (col<=2) rb->setColor(vec4(0.0625, 0.01367, 0.4453125, 1), shad);
+            else if (col == 3) rb->setColor(vec4(150,255,0, 1), shad);
+            else if (col == 4) rb->setColor(vec4(150,0,255, 1), shad);
+            else if (col == 5) rb->setColor(vec4(255,150,0, 1), shad);
+
+            window.draw(rb->mesh, shad, rb->trans);
+
+            col++;
         }
 
         window.display();
