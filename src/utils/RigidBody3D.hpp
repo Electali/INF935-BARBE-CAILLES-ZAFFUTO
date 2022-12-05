@@ -5,7 +5,7 @@
 #include "./OpenGl/transform.hpp"
 #include "./OpenGl/point.hpp"
 #include "./OpenGl/cube.hpp"
-#include "./maths/vector4.hpp"
+#include "./maths/Maths.hpp"
 
 /**
  * @brief Classe regroupant la particule physique et sa representation graphique
