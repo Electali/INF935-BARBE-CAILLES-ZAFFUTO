@@ -1,14 +1,14 @@
 #pragma once
 #include "RigidBodyPrimitive.hpp"
 
-class Sphere : public Primitive
+class Box : public Primitive
 {
 
 public:
-   Sphere(RigidBody3D &_body, mat4 _offset, vec3 &_halfsize)
+   Box(RigidBody3D &_body, float _boundingBox, vec3 &_halfsize)
    {
       body = _body;
-      offset = _offset;
+      boundingBox = _boundingBox;
       halfSize = _halfsize;
    }
 

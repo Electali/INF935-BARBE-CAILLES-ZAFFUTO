@@ -11,43 +11,49 @@
  * @brief Classe regroupant la particule physique et sa representation graphique
  */
 
-class RigidBody3D{
+class RigidBody3D
+{
 
 public:
-
     // Partie Physique
     RigidBody rb;
 
-    //Point mesh;
+    // Point mesh;
     Cube mesh;
     Transform trans;
 
-    RigidBody3D(vec3 &p,  vec3 &v, float invm, Quaternion &orient, vec3 &rotv, float cote) {
+    RigidBody3D()
+    {
+    }
+
+    RigidBody3D(vec3 &p, vec3 &v, float invm, Quaternion &orient, vec3 &rotv, float cote)
+    {
         rb = RigidBody(p, v, invm, orient, rotv, cote);
-        trans.setPos(p.x,p.y,p.z);
+        trans.setPos(p.x, p.y, p.z);
         trans.setScale(0.1, 0.1, 0.1);
     }
 
-    void setColor(const vec4 &color, Shader &shad) {
+    void setColor(const vec4 &color, Shader &shad)
+    {
         shad.setUniform("color", color);
     }
 
-/*
-Equations
+    /*
+    Equations
 
-angle = 2 * acos(qw)
-x = qx / sqrt(1-qw*qw)
-y = qy / sqrt(1-qw*qw)
-z = qz / sqrt(1-qw*qw)
-*/
-    void UpdateGraphics(){
-        trans.move(rb.position.x - trans.getPos().x,rb.position.y - trans.getPos().y, rb.position.z - trans.getPos().z);
+    angle = 2 * acos(qw)
+    x = qx / sqrt(1-qw*qw)
+    y = qy / sqrt(1-qw*qw)
+    z = qz / sqrt(1-qw*qw)
+    */
+    void UpdateGraphics()
+    {
+        trans.move(rb.position.x - trans.getPos().x, rb.position.y - trans.getPos().y, rb.position.z - trans.getPos().z);
         trans.setOrientation(rb.orientation);
     }
 
-    operator RigidBody&()
+    operator RigidBody &()
     {
         return rb;
     }
-
 };

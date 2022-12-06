@@ -5,6 +5,10 @@
 class Primitive
 {
 public:
+    Primitive()
+    {
+    }
+
     RigidBody3D body;
-    mat4 offset;
+    float boundingBox;
 };
