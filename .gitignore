@@ -1,3 +1,5 @@
+build/
+
 # Prerequisites
 *.d
 
@@ -41,3 +43,5 @@ testOpenGL.exe
 Apple.exe
 testMatrices.exe
 PetitJeu.exe
+TestsOctree.exe
+
