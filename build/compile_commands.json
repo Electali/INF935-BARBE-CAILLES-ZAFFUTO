@@ -1,0 +1,432 @@
+[
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\context.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\context.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/context.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\init.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\init.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/init.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\input.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\input.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/input.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\monitor.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\monitor.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/monitor.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\vulkan.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\vulkan.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/vulkan.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\window.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\window.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/window.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\win32_init.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\win32_init.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/win32_init.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\win32_joystick.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\win32_joystick.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/win32_joystick.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\win32_monitor.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\win32_monitor.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/win32_monitor.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\win32_time.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\win32_time.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/win32_time.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\win32_thread.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\win32_thread.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/win32_thread.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\win32_window.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\win32_window.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/win32_window.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\wgl_context.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\wgl_context.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/wgl_context.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\egl_context.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\egl_context.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/egl_context.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/src",
+  "command": "C:\\mingw64\\bin\\gcc.exe -DUNICODE -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_UNICODE @CMakeFiles/glfw.dir/includes_C.rsp -g -Wall -std=gnu99 -Wdeclaration-after-statement -o CMakeFiles\\glfw.dir\\osmesa_context.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\src\\osmesa_context.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/src/osmesa_context.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/boing.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\boing.dir\\boing.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\examples\\boing.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/examples/boing.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/boing.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\boing.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/simple.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\simple.dir\\simple.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\examples\\simple.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/examples/simple.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/simple.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\simple.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/gears.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\gears.dir\\gears.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\examples\\gears.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/examples/gears.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/gears.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\gears.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/particles.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\particles.dir\\particles.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\examples\\particles.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/examples/particles.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/particles.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\particles.dir\\__\\deps\\tinycthread.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\tinycthread.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/tinycthread.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/particles.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\particles.dir\\__\\deps\\getopt.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\getopt.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/getopt.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/particles.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\particles.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/heightmap.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\heightmap.dir\\heightmap.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\examples\\heightmap.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/examples/heightmap.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/heightmap.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\heightmap.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/splitview.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\splitview.dir\\splitview.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\examples\\splitview.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/examples/splitview.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/splitview.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\splitview.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/offscreen.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\offscreen.dir\\offscreen.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\examples\\offscreen.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/examples/offscreen.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/offscreen.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\offscreen.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/sharing.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\sharing.dir\\sharing.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\examples\\sharing.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/examples/sharing.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/sharing.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\sharing.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/wave.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\wave.dir\\wave.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\examples\\wave.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/examples/wave.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/examples",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/wave.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\wave.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/clipboard.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\clipboard.dir\\clipboard.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\clipboard.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/clipboard.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/clipboard.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\clipboard.dir\\__\\deps\\getopt.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\getopt.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/getopt.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/clipboard.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\clipboard.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/events.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\events.dir\\events.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\events.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/events.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/events.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\events.dir\\__\\deps\\getopt.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\getopt.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/getopt.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/events.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\events.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/msaa.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\msaa.dir\\msaa.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\msaa.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/msaa.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/msaa.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\msaa.dir\\__\\deps\\getopt.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\getopt.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/getopt.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/msaa.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\msaa.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfwinfo.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\glfwinfo.dir\\glfwinfo.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\glfwinfo.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/glfwinfo.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfwinfo.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\glfwinfo.dir\\__\\deps\\getopt.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\getopt.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/getopt.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfwinfo.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\glfwinfo.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/glfwinfo.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\glfwinfo.dir\\__\\deps\\glad_vulkan.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_vulkan.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_vulkan.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/iconify.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\iconify.dir\\iconify.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\iconify.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/iconify.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/iconify.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\iconify.dir\\__\\deps\\getopt.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\getopt.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/getopt.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/iconify.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\iconify.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/monitors.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\monitors.dir\\monitors.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\monitors.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/monitors.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/monitors.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\monitors.dir\\__\\deps\\getopt.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\getopt.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/getopt.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/monitors.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\monitors.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/reopen.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\reopen.dir\\reopen.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\reopen.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/reopen.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/reopen.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\reopen.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/cursor.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\cursor.dir\\cursor.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\cursor.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/cursor.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/cursor.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\cursor.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/empty.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\empty.dir\\empty.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\empty.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/empty.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/empty.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\empty.dir\\__\\deps\\tinycthread.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\tinycthread.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/tinycthread.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/empty.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\empty.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/gamma.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\gamma.dir\\gamma.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\gamma.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/gamma.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/gamma.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\gamma.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/icon.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\icon.dir\\icon.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\icon.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/icon.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/icon.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\icon.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/inputlag.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\inputlag.dir\\inputlag.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\inputlag.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/inputlag.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/inputlag.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\inputlag.dir\\__\\deps\\getopt.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\getopt.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/getopt.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/inputlag.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\inputlag.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/joysticks.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\joysticks.dir\\joysticks.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\joysticks.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/joysticks.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/joysticks.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\joysticks.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/threads.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\threads.dir\\threads.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\threads.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/threads.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/threads.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\threads.dir\\__\\deps\\tinycthread.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\tinycthread.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/tinycthread.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/threads.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\threads.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/opacity.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\opacity.dir\\opacity.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\opacity.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/opacity.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/opacity.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\opacity.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/tearing.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\tearing.dir\\tearing.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\tearing.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/tearing.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/tearing.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\tearing.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/timeout.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\timeout.dir\\timeout.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\timeout.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/timeout.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/timeout.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\timeout.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/title.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\title.dir\\title.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\title.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/title.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/title.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\title.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/triangle-vulkan.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\triangle-vulkan.dir\\triangle-vulkan.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\triangle-vulkan.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/triangle-vulkan.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/triangle-vulkan.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\triangle-vulkan.dir\\__\\deps\\glad_vulkan.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_vulkan.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_vulkan.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/windows.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\windows.dir\\windows.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\tests\\windows.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/tests/windows.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/windows.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\windows.dir\\__\\deps\\getopt.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\getopt.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/getopt.c"
+},
+{
+  "directory": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/build/tests",
+  "command": "C:\\mingw64\\bin\\gcc.exe  @CMakeFiles/windows.dir/includes_C.rsp -g -std=gnu99 -o CMakeFiles\\windows.dir\\__\\deps\\glad_gl.c.obj -c \"C:\\Users\\Maxime\\Documents\\UQAC\\Maths Appli\\INF935-BARBE-CAILLES-ZAFFUTO\\lib\\glfw-3.3.6\\deps\\glad_gl.c\"",
+  "file": "C:/Users/Maxime/Documents/UQAC/Maths Appli/INF935-BARBE-CAILLES-ZAFFUTO/lib/glfw-3.3.6/deps/glad_gl.c"
+}
+]
