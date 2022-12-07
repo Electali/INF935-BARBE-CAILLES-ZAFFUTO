@@ -14,7 +14,6 @@ using namespace std;
 
     int main(int argc, char **argv)
 {
-    cout << "JAJ"<< endl;
     vec3 nul = {};
     vec3 p1 = {-6,6};
     vec3 p2 = {7,7};
