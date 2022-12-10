@@ -11,7 +11,7 @@ class Octree
 
 private:
     int level;
-    int maxLevel;
+    int maxLevel = 1;
     int maxPrimitives;
     vec3 point;
     float distance;
@@ -32,13 +32,18 @@ public:
         point = p;
         distance = dist;
         whosThere = vP;
+        cout << "je suis bébé lilly" << endl;
     }
 
     void Build()
     {
         // if (level >= maxLevel)
         if ((whosThere.size() < maxPrimitives) || (level >= maxLevel))
+        {
+            cout << "SO LONG J'ME TIRE" << endl;
             return;
+        }
+            
 
         vector<vec3> childPoints(8);
 
@@ -48,6 +53,7 @@ public:
             childPoints[i].x = (i & 1) ? point.x + offset : point.x - offset; // On alterne un coup sur 2
             childPoints[i].y = (i & 2) ? point.y + offset : point.y - offset; // On alterne tous les 2 coups
             childPoints[i].z = (i & 4) ? point.z + offset : point.z - offset; // On alterne tous les 4 coups
+            childPoints[i].show();
         }
 
         vector<vector<Primitive>> lesprimitivesdesenfantsdansunvecteurdevecteurs(8);
@@ -88,22 +94,21 @@ public:
 
     bool EstContenu(vec3 centre, float dist, Primitive prim)
     {
-        return centre.x - dist < prim.body.rb.position.x + prim.boundingBox || centre.x + dist > prim.body.rb.position.x - prim.boundingBox && centre.y - dist < prim.body.rb.position.y + prim.boundingBox || centre.y + dist > prim.body.rb.position.y - prim.boundingBox && centre.z - dist < prim.body.rb.position.z + prim.boundingBox || centre.z + dist > prim.body.rb.position.z - prim.boundingBox;
+        return (centre.x - dist <= prim.body.rb.position.x + prim.boundingBox || centre.x + dist >= prim.body.rb.position.x - prim.boundingBox)
+        && (centre.y - dist <= prim.body.rb.position.y + prim.boundingBox || centre.y + dist >= prim.body.rb.position.y - prim.boundingBox)
+        && (centre.z - dist <= prim.body.rb.position.z + prim.boundingBox || centre.z + dist >= prim.body.rb.position.z - prim.boundingBox);
     }
 
     void AfficherEtat()
     {
-        bool feuille = children.size() == 0;
-        if (whosThere.size() > 0)
-        {
+        bool feuille = !children.size();
             cout << (feuille ? "La feuille" : "le noeud")
                  << " de profondeur " << level << " a " << whosThere.size() << " primitives." << endl;
-        }
-        if (feuille)
-            return;
+            cout << "nombre d'enfants :" << children.size() << endl;
         for (Octree child : children)
         {
             child.AfficherEtat();
+            cout << endl;
         }
     }
 
@@ -121,7 +126,18 @@ public:
 
         return finale;
     }
+    
+    
 };
+
+bool intersect(vec3 centre, float dist, Primitive prim)
+    {
+    return (centre.x - dist <= prim.body.rb.position.x + prim.boundingBox || centre.x + dist >= prim.body.rb.position.x - prim.boundingBox)
+        && (centre.y - dist <= prim.body.rb.position.y + prim.boundingBox || centre.y + dist >= prim.body.rb.position.y - prim.boundingBox)
+        && (centre.z - dist <= prim.body.rb.position.z + prim.boundingBox || centre.z + dist >= prim.body.rb.position.z - prim.boundingBox);
+};
+
+
 
 using Pool = vector<Primitive>;
 using Children = vector<Octree>;
