@@ -2,7 +2,6 @@
 #include <limits>
 
 #include "ParticleContact.hpp"
-#include <cfloat>
 
 using namespace std;
 

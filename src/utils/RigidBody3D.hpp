@@ -28,11 +28,9 @@ public:
 
     RigidBody3D(vec3 &p, vec3 &v, float invm, Quaternion &orient, vec3 &rotv, float cote)
     {
-        cout << "ça commence ici" << endl;
         rb = RigidBody(p, v, invm, orient, rotv, cote);
         trans.setPos(p.x, p.y, p.z);
         trans.setScale(0.1, 0.1, 0.1);
-        cout << "y'a des bambous là" << endl;
     }
 
     void setColor(const vec4 &color, Shader &shad)

@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include "math.h"
-#include "maths/vector3.hpp"
 
 using namespace std;
 
