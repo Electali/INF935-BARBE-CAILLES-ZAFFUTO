@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "../contacts/RigidBodyPrimitive.hpp"
+#include "../contacts/RigidBodyContactPotentiel.hpp"
 #include "Maths.hpp"
 
 using namespace std;
@@ -34,11 +35,22 @@ public:
         whosThere = vP;
     }
 
-    void Build()
+    void Build(Potentiels &vexit)
     {
         // if (level >= maxLevel)
         if ((whosThere.size() <= maxPrimitives) || (level >= maxLevel))
         {
+            if (whosThere.size() <= 1) return;
+
+            
+            for(int i = 0; i < whosThere.size() - 1; i++)
+            {
+                for(int j = i + 1; j < whosThere.size(); j++)
+                {  
+                    vexit.push_back(ContactPotentiel(whosThere[i], whosThere[j]));
+                }
+            }
+            
             return;
         }
             
@@ -69,7 +81,7 @@ public:
         for (int i = 0; i < 8; i++)
         {
             children.push_back(Octree(level + 1, maxPrimitives, childPoints[i], distance / 2, lesprimitivesdesenfantsdansunvecteurdevecteurs[i]));
-            children[i].Build();
+            children[i].Build(vexit);
         }
     }
 
@@ -127,6 +139,7 @@ public:
     }
     
     
+    
 };
 
 /*    
@@ -145,3 +158,4 @@ bool intersect(vec3 centre, float dist, Primitive prim)
 
 using Pool = vector<Primitive>;
 using Children = vector<Octree>;
+using Potentiels = vector<ContactPotentiel>;

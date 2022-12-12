@@ -15,3 +15,7 @@ private:
     Primitive Prim1;
     Primitive Prim2;
 };
+
+
+
+using Potentiels = vector<ContactPotentiel>;
