@@ -15,13 +15,13 @@ using namespace std;
 
     int main(int argc, char **argv)
 {
-    Window window;
+     Window window;
 
     vec3 nul = {};
-    vec3 p1 = {-6,6,2.2};
+    vec3 p1 = {-6.5,6,2.2};
     vec3 p2 = {7,7,2.2};
-    vec3 p3 = {6.8,7.1,2.2};
-    vec3 p4  = {-7,7,2.2};
+    vec3 p3 = {2,7.1,2.2};
+    vec3 p4  = {-7,-7,2.2};
     Quaternion q = Quaternion(1,0,0,0);
     
 
@@ -45,11 +45,7 @@ using namespace std;
     primitives.push_back(prim4);
 
     Octree octree = Octree(0, 1, nul, 8, primitives);
-
-    vec3 pprog = {4,4,4};
-    if(intersect(pprog,2,prim4))
-        cout<<"jaj"<<endl;
-    //octree.Build();
-    //cout << "La profondeur de l'octree est " << octree.Profondeur() << endl;
-    //octree.AfficherEtat();
+    octree.Build();
+    cout << "La profondeur de l'octree est " << octree.Profondeur() << endl;
+    octree.AfficherEtat();
 }

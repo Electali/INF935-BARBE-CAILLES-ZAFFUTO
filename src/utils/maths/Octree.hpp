@@ -11,7 +11,7 @@ class Octree
 
 private:
     int level;
-    int maxLevel = 1;
+    int maxLevel = 2;
     int maxPrimitives;
     vec3 point;
     float distance;
@@ -32,15 +32,13 @@ public:
         point = p;
         distance = dist;
         whosThere = vP;
-        cout << "je suis bébé lilly" << endl;
     }
 
     void Build()
     {
         // if (level >= maxLevel)
-        if ((whosThere.size() < maxPrimitives) || (level >= maxLevel))
+        if ((whosThere.size() <= maxPrimitives) || (level >= maxLevel))
         {
-            cout << "SO LONG J'ME TIRE" << endl;
             return;
         }
             
@@ -94,9 +92,10 @@ public:
 
     bool EstContenu(vec3 centre, float dist, Primitive prim)
     {
-        return (centre.x - dist <= prim.body.rb.position.x + prim.boundingBox || centre.x + dist >= prim.body.rb.position.x - prim.boundingBox)
-        && (centre.y - dist <= prim.body.rb.position.y + prim.boundingBox || centre.y + dist >= prim.body.rb.position.y - prim.boundingBox)
-        && (centre.z - dist <= prim.body.rb.position.z + prim.boundingBox || centre.z + dist >= prim.body.rb.position.z - prim.boundingBox);
+        float distance = dist + prim.boundingBox;
+    return (abs(centre.x-prim.body.rb.position.x) <= distance)
+        && (abs(centre.y-prim.body.rb.position.y) <= distance)
+        && (abs(centre.z-prim.body.rb.position.z) <= distance);
     }
 
     void AfficherEtat()
@@ -130,13 +129,18 @@ public:
     
 };
 
+/*    
+
+Fonction test plus utile
+
 bool intersect(vec3 centre, float dist, Primitive prim)
     {
-    return (centre.x - dist <= prim.body.rb.position.x + prim.boundingBox || centre.x + dist >= prim.body.rb.position.x - prim.boundingBox)
-        && (centre.y - dist <= prim.body.rb.position.y + prim.boundingBox || centre.y + dist >= prim.body.rb.position.y - prim.boundingBox)
-        && (centre.z - dist <= prim.body.rb.position.z + prim.boundingBox || centre.z + dist >= prim.body.rb.position.z - prim.boundingBox);
+        float distance = dist + prim.boundingBox;
+    return (abs(centre.x-prim.body.rb.position.x) <= distance)
+        && (abs(centre.y-prim.body.rb.position.y) <= distance)
+        && (abs(centre.z-prim.body.rb.position.z) <= distance);
 };
-
+*/
 
 
 using Pool = vector<Primitive>;
