@@ -16,17 +16,16 @@ private:
     int maxPrimitives;
     vec3 point;
     float distance;
-    vector<Primitive> whosThere;
+    vector<Primitive*> whosThere;
     vector<Octree> children;
 
 public:
-    // fonctions: Ajout, Retrait, Getter Primitives, subdivision, calcul profondeur,show toi meme tu sais
-
+    
     Octree()
     {
     }
 
-    Octree(int lvl, int maxPri, vec3 &p, float dist, vector<Primitive> &vP)
+    Octree(int lvl, int maxPri, vec3 &p, float dist, vector<Primitive*>&vP)
     {
         level = lvl;
         maxPrimitives = maxPri;
@@ -66,13 +65,13 @@ public:
             childPoints[i].show();
         }
 
-        vector<vector<Primitive>> lesprimitivesdesenfantsdansunvecteurdevecteurs(8);
+        vector<vector<Primitive*>> lesprimitivesdesenfantsdansunvecteurdevecteurs(8);
 
-        for (Primitive prim : whosThere)
+        for (Primitive* prim : whosThere)
         {
             for (int i = 0; i < 8; i++)
             {
-                if (EstContenu(childPoints[i], offset, prim))
+                if (EstContenu(childPoints[i], offset, *prim))
                     lesprimitivesdesenfantsdansunvecteurdevecteurs[i].push_back(prim);
             }
         }
@@ -156,6 +155,6 @@ bool intersect(vec3 centre, float dist, Primitive prim)
 */
 
 
-using Pool = vector<Primitive>;
+using Pool = vector<Primitive*>;
 using Children = vector<Octree>;
 using Potentiels = vector<ContactPotentiel>;

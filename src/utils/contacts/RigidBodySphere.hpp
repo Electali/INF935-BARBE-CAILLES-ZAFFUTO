@@ -12,4 +12,9 @@ public:
         boundingBox = _boundingBox;
         radius = _radius;
     }
+
+    void show()
+   {
+      std::cout << "Sphere" << std::endl;
+   }
 };

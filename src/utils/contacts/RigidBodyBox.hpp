@@ -12,6 +12,11 @@ public:
       halfSize = _halfsize;
    }
 
+
+   void show()
+   {
+      std::cout << "Box" << std::endl;
+   }
 private:
    vec3 halfSize;
 };

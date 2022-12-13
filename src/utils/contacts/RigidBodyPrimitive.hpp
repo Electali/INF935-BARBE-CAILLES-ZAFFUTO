@@ -9,6 +9,9 @@ public:
     {
     }
 
+
+    virtual void show(){};
+
     RigidBody3D body;
     float boundingBox;
 };

@@ -16,4 +16,12 @@ public:
         normal = _normal;
         planeOffset = _planeOffset;
     }
+
+    ~Plane()
+   {}
+
+    void show()
+   {
+      std::cout << "Plan" << std::endl;
+   }
 };

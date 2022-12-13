@@ -24,26 +24,25 @@ using namespace std;
     vec3 nul = {};
     vector<float> randnumb;
     Quaternion q = Quaternion(1,0,0,0);
+    int nb_prim = 10;
 
     
-    for(int n=0; n<300; n++)
+    for(int n=0; n<nb_prim*3; n++)
     {
         randnumb.push_back(rand() % 16 - 8); // generate numbers  
     }
     
 
-    for(int a = 0; a<300; a+=3)
+    for(int a = 0; a<nb_prim*3; a+=3)
     {
         float x = randnumb[a];
         float y = randnumb[a+1];
         float z = randnumb[a+2];
-        cout << x <<","<< y << "," << z << endl;
         vec3 ajout = vec3(x,y,z);
         RigidBody3D rb = RigidBody3D(ajout, nul, 1,q, nul, 1);
-        Sphere prim = Sphere(rb, 1.5f, 1.5f);
+        Sphere * prim = new Sphere(rb, 1.5f, 1.5f);
         primitives.push_back(prim);
     }
-
     cout << "Le nombre de prim générés est de " << primitives.size() << endl;
 
     Potentiels vexit;
@@ -52,6 +51,13 @@ using namespace std;
     octree.Build(vexit);
     cout << "La profondeur de l'octree est " << octree.Profondeur() << endl;
     octree.AfficherEtat();
-
     cout << vexit.size();
+
+    cout <<"Liberation de mémoire" << endl;
+    cout << primitives.size() << endl;
+    for(auto p : vexit)
+    {
+        p.Prim1->show();
+    }
+
 }
