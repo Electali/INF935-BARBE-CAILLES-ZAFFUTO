@@ -11,6 +11,7 @@ public:
         body = _body;
         boundingBox = _boundingBox;
         radius = _radius;
+        typeP = SphereT;
     }
 
     void show()

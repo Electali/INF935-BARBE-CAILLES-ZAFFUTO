@@ -15,6 +15,7 @@ public:
         boundingBox = _boundingBox;
         normal = _normal;
         planeOffset = _planeOffset;
+        typeP = PlaneT;
     }
 
     ~Plane()

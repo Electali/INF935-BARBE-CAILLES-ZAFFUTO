@@ -10,6 +10,7 @@ public:
       body = _body;
       boundingBox = _boundingBox;
       halfSize = _halfsize;
+      typeP = BoxT;
 
       for (int i = 0; i < 8; i++)
         {
