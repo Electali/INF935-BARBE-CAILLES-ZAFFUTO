@@ -1,11 +1,9 @@
 #pragma once
 #include <vector>
 
-#include "RigidBodySphere.hpp"
-#include "RigidBodyBox.hpp"
-#include "RigidBodyPlan.hpp"
 #include "RigidBodyContact.hpp"
 #include "RigidBodyContactPotentiel.hpp"
+#include "RigidBodyPrimitive.hpp"
 
 using namespace std;
 class ContactGenerator
@@ -19,23 +17,24 @@ class ContactGenerator
 
     void Generate(vector<Contact*>& cd, int max)
     {
-        for(ContactPotentiel pot: potentials){  /// SA MERE LES CLASSES ABSTRACTS 
-            auto *p1 = pot.Prim1;
-            auto *p2 = pot.Prim2;
-            p1->show();
-            p2->show();  
-            GenerateContacts(p1,p2,cd,max);
+        for(ContactPotentiel pot: potentials){ 
+            if (dynamic_cast<Sphere *>(pot.Prim2)){
+                Sphere * s2 = dynamic_cast<Sphere *>(pot.Prim2);
+                pot.Prim1->GenerateContactSphere(s2,cd,max);
+            }
+            else if (dynamic_cast<Box *>(pot.Prim2)){
+                Box * b2 = dynamic_cast<Box *>(pot.Prim2);
+                pot.Prim1->GenerateContactBox(b2,cd,max);
+            }
+            else {
+                Plane * p2 = dynamic_cast<Plane *>(pot.Prim2);
+                pot.Prim1->GenerateContactPlane(p2,cd,max);
+            }
+
         }
     }
-
-    virtual void GenerateContacts(Primitive * p1, Primitive * p2,vector<Contact*>& cd,int maxContacts)
-    {
-        cout << "ENORME" << endl;
-    };
-
-};
-
-void GenerateContacts(Sphere * s1, Sphere * s2,vector<Contact*>& cd,int maxContacts)
+/*
+    void GenerateContacts(Sphere * s1, Sphere * s2,vector<Contact*>& cd,int maxContacts)
     {
         /////Check Place
         if(cd.size() >= maxContacts) return;
@@ -210,3 +209,5 @@ void GenerateContacts(Sphere * s1, Sphere * s2,vector<Contact*>& cd,int maxConta
         }
     }
     */
+};
+

@@ -9,7 +9,7 @@
 #include <cstdlib>
 
 #include "../utils/maths/Octree.hpp"
-#include "../utils/contacts/RigidBodySphere.hpp"
+#include "../utils/contacts/RigidBodyPrimitive.hpp"
 #include "../utils/contacts/RigidBodyContactPotentiel.hpp"
 #include "../utils/contacts/RigidBodyContactGenerator.hpp"
 
@@ -50,12 +50,12 @@ using namespace std;
     cout << "Le nombre de prim générés est de " << primitives.size() << endl;
     */
 
-    vec3 p1 = vec3(0,0,0);
+    vec3 p1 = vec3(2,0,0);
     RigidBody3D rb1 = RigidBody3D(p1, nul, 1,q, nul, 1);
     Sphere * prim1 = new Sphere(rb1, 1.5f, 1.5f);
     primitives.push_back(prim1);
 
-    vec3 p2 = vec3(2,0,0);
+    vec3 p2 = vec3(2,2,0);
     RigidBody3D rb2 = RigidBody3D(p2, nul, 1,q, nul, 1);
     Sphere * prim2 = new Sphere(rb2, 1.5f, 1.5f);
     primitives.push_back(prim2);
@@ -65,8 +65,9 @@ using namespace std;
 
     Octree octree = Octree(0, 1, nul, 8, primitives);
     octree.Build(vexit);
-    cout << "La profondeur de l'octree est " << octree.Profondeur() << endl;
-    octree.AfficherEtat();
+    //cout << "La profondeur de l'octree est " << octree.Profondeur() << endl;
+    //octree.AfficherEtat();
+     cout << vexit.size() << endl;
 
     vector<Contact*> cd;
     int maxContacts = 10;

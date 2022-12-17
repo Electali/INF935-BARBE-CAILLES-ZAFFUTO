@@ -71,7 +71,7 @@ public:
         {
             for (int i = 0; i < 8; i++)
             {
-                if (EstContenu(childPoints[i], offset, *prim))
+                if (EstContenu(childPoints[i], offset, prim))
                     lesprimitivesdesenfantsdansunvecteurdevecteurs[i].push_back(prim);
             }
         }
@@ -101,12 +101,12 @@ public:
             return octoMax(children[0].Profondeur(), children[1].Profondeur(), children[2].Profondeur(), children[3].Profondeur(), children[4].Profondeur(), children[5].Profondeur(), children[6].Profondeur(), children[7].Profondeur());
     }
 
-    bool EstContenu(vec3 centre, float dist, Primitive prim)
+    bool EstContenu(vec3 centre, float dist, Primitive *prim)
     {
-        float distance = dist + prim.boundingBox;
-    return (abs(centre.x-prim.body.rb.position.x) <= distance)
-        && (abs(centre.y-prim.body.rb.position.y) <= distance)
-        && (abs(centre.z-prim.body.rb.position.z) <= distance);
+        float distance = dist + prim->boundingBox;
+    return (abs(centre.x-prim->body.rb.position.x) <= distance)
+        && (abs(centre.y-prim->body.rb.position.y) <= distance)
+        && (abs(centre.z-prim->body.rb.position.z) <= distance);
     }
 
     void AfficherEtat()

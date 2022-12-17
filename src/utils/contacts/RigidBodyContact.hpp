@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RigidBodyPrimitive.hpp"
+#include "../RigidBody.hpp"
 
 enum TypeContact
 {
