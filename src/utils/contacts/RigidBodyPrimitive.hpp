@@ -50,9 +50,13 @@ class Plane : public Primitive
         boundingBox = _boundingBox;
         normal = _normal;
         planeOffset = _planeOffset;
+        body. = Cube();
+        body.trans.setScale(500, 0.001, 500);
     }
 
-    virtual ~Plane();
+    ~Plane(){};
+
+    void show(){};
 
     virtual void GenerateContactSphere(Sphere *s2, vector<Contact*>& cd,int maxContacts);
 
@@ -73,6 +77,8 @@ public:
         body = _body;
         boundingBox = _boundingBox;
         radius = _radius;
+        body.isCube = false;
+        body.trans.setScale(radius, radius, radius);
     }
 
     ~Sphere(){};
@@ -106,9 +112,12 @@ public:
          int z = (i & 1) ? halfSize.z : -halfSize.z;   // On alterne un coup sur 2
          vertices[i] = vec3(x,y,z);
         }
+        body.trans.setScale(halfSize.x, halfSize.y, halfSize.z);
    }
 
-    virtual ~Box();
+    ~Box() {};
+
+    void show(){};
 
     virtual void GenerateContactSphere(Sphere *s2, vector<Contact*>& cd,int maxContacts);
 

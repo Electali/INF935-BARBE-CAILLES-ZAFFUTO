@@ -7,7 +7,7 @@
 class AbstractMesh
 {
 public:
-    virtual void draw(const Shader &shader, Transform& transform);
+    virtual void draw(const Shader &shader, Transform& transform) {};
 };
 
 #endif

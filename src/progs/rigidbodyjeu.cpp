@@ -186,7 +186,7 @@ int main(int argc, char** argv)
             else if (col == 4) rb->setColor(vec4(150,0,255, 1), shad);
             else if (col == 5) rb->setColor(vec4(255,150,0, 1), shad);
 
-            window.draw(rb->mesh, shad, rb->trans);
+            window.draw(*(rb->mesh()), shad, rb->trans);
 
             col++;
         }
