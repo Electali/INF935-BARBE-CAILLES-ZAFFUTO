@@ -24,7 +24,7 @@ using namespace std;
     Pool primitives;
     vec3 nul = {};
     Quaternion q = Quaternion(1,0,0,0);
-
+   
     /*
     vector<float> randnumb;
     
@@ -60,13 +60,13 @@ using namespace std;
     Sphere * prim2 = new Sphere(rb2, 1.5f, 1.5f);
     //primitives.push_back(prim2);
 
-    vec3 p3 = vec3(1,0,0);
-    RigidBody3D rb3 = RigidBody3D(/*p3, nul, 1,q, nul, 1*/);
-    vec3 normal = vec3(0, 0, 1);
-    Plane * prim3 = new Plane (rb3, 1.5f, normal, 0);
+    vec3 p3 = vec3(0,0,0);
+    RigidBody3D rb3 = RigidBody3D(p3, nul, 1,q, nul, 1);
+    vec3 normal = vec3(0, 1, 0);
+    Plane * prim3 = new Plane (rb3, 10.0f, normal, 0);
     primitives.push_back(prim3);
 
-    vec3 p4 = vec3(0,0,1);
+    vec3 p4 = vec3(2,2,0);
     RigidBody3D rb4 = RigidBody3D(p4, nul, 1,q, nul, 1);
     vec3 halfSize = vec3(1, 1, 1);
     Box * prim4 = new Box (rb4, 1.5f, halfSize);
@@ -79,13 +79,19 @@ using namespace std;
     //cout << "La profondeur de l'octree est " << octree.Profondeur() << endl;
     //octree.AfficherEtat();
      cout << "broad : "<< vexit.size() << endl;
+     
 
     vector<Contact*> cd;
-    int maxContacts = 10;
+    int maxContacts = 100;
     
     ContactGenerator cg = ContactGenerator(vexit);
     cg.Generate(cd,maxContacts);
     cout << "narrow : "<< cd.size() << endl;
+    for(auto* cont : cd)
+    {
+        cout << cont << endl;
+        cont->show();
+    }
     
 
 

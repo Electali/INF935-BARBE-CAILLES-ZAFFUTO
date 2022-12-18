@@ -36,6 +36,15 @@ public:
 
     vector<ParticleContact *> contacts;
 
+    Pool primitives;
+
+    Potentiels vexit;
+    
+    vector<Contact*> cd;
+        
+    int maxRBContacts = 100; 
+
+
     Engine()
     {
         integr = integrator();
@@ -66,6 +75,11 @@ public:
     void addRigidBody(RigidBody &rb)
     {
         rigidbodies.push_back(&rb);
+    }
+
+    void addPrimitive(Primitive * prim)
+    {
+        primitives.push_back(prim);
     }
 
     void removeParticle(particle &p)
@@ -99,7 +113,7 @@ public:
         contactGenerators.push_back(&cont);
     }
 
-    void Update(float dt)
+    bool Update(float dt)
     {
 
         particleRegistry.UpdateForce(dt);
@@ -117,7 +131,7 @@ public:
         for (int i=0; i < rigidbodies.size(); i++)
         {
             integr.integrate(*rigidbodies[i], dt);
-            //(*rigidbodies[i]).velocity.show();
+            (*rigidbodies[i]).position.show();
         }
 
         contacts.clear();
@@ -129,6 +143,21 @@ public:
             resolver.setIterations(usedContacts * 2);
             resolver.resolveContacts(contacts, usedContacts, dt);
         }
+
+
+        //Calculs des collisions RB
+        vec3 nul = {};
+        Octree octree = Octree(0, 1, nul, 8, primitives);
+        octree.Build(vexit);
+        cout << "broad : "<< vexit.size() << endl;
+        octree.AfficherEtat();
+
+        ContactGenerator cg = ContactGenerator(vexit);
+        cg.Generate(cd,maxRBContacts);    
+        vexit.clear();
+
+        return (cd.size() != 0);
+
     }
 
     unsigned int generateContacts()
@@ -144,5 +173,15 @@ public:
         }
 
         return maxContacts - limit;
+    }
+
+
+    void showCollisions()
+    {
+        cout << "narrow : "<< cd.size() << endl;
+        for(auto* cont : cd)
+        {
+            cont->show();
+        }
     }
 };

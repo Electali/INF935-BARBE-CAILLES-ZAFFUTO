@@ -62,13 +62,13 @@ public:
             childPoints[i].x = (i & 1) ? point.x + offset : point.x - offset; // On alterne un coup sur 2
             childPoints[i].y = (i & 2) ? point.y + offset : point.y - offset; // On alterne tous les 2 coups
             childPoints[i].z = (i & 4) ? point.z + offset : point.z - offset; // On alterne tous les 4 coups
-            childPoints[i].show();
         }
 
         vector<vector<Primitive*>> lesprimitivesdesenfantsdansunvecteurdevecteurs(8);
 
         for (Primitive* prim : whosThere)
         {
+
             for (int i = 0; i < 8; i++)
             {
                 if (EstContenu(childPoints[i], offset, prim))
@@ -104,9 +104,9 @@ public:
     bool EstContenu(vec3 centre, float dist, Primitive *prim)
     {
         float distance = dist + prim->boundingBox;
-    return (abs(centre.x-prim->body.rb.position.x) <= distance)
-        && (abs(centre.y-prim->body.rb.position.y) <= distance)
-        && (abs(centre.z-prim->body.rb.position.z) <= distance);
+    return (abs(centre.x-prim->body->rb.position.x) <= distance)
+        && (abs(centre.y-prim->body->rb.position.y) <= distance)
+        && (abs(centre.z-prim->body->rb.position.z) <= distance);
     }
 
     void AfficherEtat()

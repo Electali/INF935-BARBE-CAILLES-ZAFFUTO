@@ -29,7 +29,7 @@ public:
 
     virtual void GenerateContactPlane(Plane *p, vector<Contact*>& cd,int maxContacts) = 0;
 
-    RigidBody3D body;
+    RigidBody3D * body;
     float boundingBox;
 
 };
@@ -44,14 +44,14 @@ class Plane : public Primitive
     vec3 normal;
     float planeOffset;
 
-    Plane(RigidBody3D &_body,float _boundingBox , vec3 _normal, float _planeOffset)
+    Plane(RigidBody3D * _body,float _boundingBox , vec3 _normal, float _planeOffset)
     {
         body = _body;
         boundingBox = _boundingBox;
         normal = _normal;
         planeOffset = _planeOffset;
-        body. = Cube();
-        body.trans.setScale(500, 0.001, 500);
+        body->cube= Cube();
+        body->trans.setScale(500, 0.001, 500);
     }
 
     ~Plane(){};
@@ -72,13 +72,13 @@ class Sphere : public Primitive
 public:
     float radius;
 
-    Sphere(RigidBody3D &_body, float _boundingBox, float _radius)
+    Sphere(RigidBody3D *_body, float _boundingBox, float _radius)
     {
         body = _body;
         boundingBox = _boundingBox;
         radius = _radius;
-        body.isCube = false;
-        body.trans.setScale(radius, radius, radius);
+        body->isCube = false;
+        body->trans.setScale(radius, radius, radius);
     }
 
     ~Sphere(){};
@@ -99,7 +99,7 @@ public:
 
    vec3 halfSize;
    vec3 vertices [8];
-    Box(RigidBody3D &_body, float _boundingBox, vec3 &_halfsize)
+    Box(RigidBody3D *_body, float _boundingBox, vec3 &_halfsize)
    {
       body = _body;
       boundingBox = _boundingBox;
@@ -107,12 +107,12 @@ public:
 
       for (int i = 0; i < 8; i++)
         {
-         int x = (i & 4) ? halfSize.x : -halfSize.x;   // On alterne tous les 4 coups
-         int y = (i & 2) ? halfSize.y : -halfSize.y;   // On alterne tous les 2 coups
-         int z = (i & 1) ? halfSize.z : -halfSize.z;   // On alterne un coup sur 2
-         vertices[i] = vec3(x,y,z);
+         float x = body->rb.position.x + ((i & 4) ? halfSize.x : -halfSize.x);   // On alterne tous les 4 coups
+         float y = body->rb.position.y + ((i & 2) ? halfSize.y : -halfSize.y);   // On alterne tous les 2 coups
+         float z = body->rb.position.z + ((i & 1) ? halfSize.z : -halfSize.z);   // On alterne un coup sur 2
+         vertices[i] =  {x,y,z};
         }
-        body.trans.setScale(halfSize.x, halfSize.y, halfSize.z);
+        body->trans.setScale(halfSize.x, halfSize.y, halfSize.z);
    }
 
     ~Box() {};
@@ -152,9 +152,9 @@ void Sphere::GenerateContactSphere(Sphere *s2, vector<Contact*>& cd,int maxConta
 
         ////Check si collision
         cout << "Début Generate" << endl;
-        vec3 positionOne = body.rb.position;
+        vec3 positionOne = body->rb.position;
         positionOne.show();
-        vec3 positionTwo = s2->body.rb.position;
+        vec3 positionTwo = s2->body->rb.position;
         positionTwo.show();
         vec3 midline = positionOne - positionTwo;
         midline.show();
@@ -179,8 +179,8 @@ void Sphere::GenerateContactSphere(Sphere *s2, vector<Contact*>& cd,int maxConta
             polPot, //Position
             midTown, //Normal
             radius + s2->radius - size, //Interpenetration
-            body.rb, //RigidB1
-            s2->body.rb, //RigidB2;
+            body->rb, //RigidB1
+            s2->body->rb, //RigidB2;
             FaceFace); //TypeContact
         cd.push_back(contact);
     }
@@ -195,7 +195,7 @@ void Sphere::GenerateContactSphere(Sphere *s2, vector<Contact*>& cd,int maxConta
         /////Check Place
         if(cd.size() >= maxContacts) return;
 
-        vec3 centreSphere = body.rb.position;
+        vec3 centreSphere = body->rb.position;
         vec3 normal = p2->normal;
         float dist = prodScalExt(centreSphere, normal) - p2->planeOffset;
         
@@ -208,8 +208,8 @@ void Sphere::GenerateContactSphere(Sphere *s2, vector<Contact*>& cd,int maxConta
             cp, //Position
             normal, //Normal
             -dist, // Interpenetration
-            body.rb, //RigidB1
-            p2->body.rb, //RigidB2
+            body->rb, //RigidB1
+            p2->body->rb, //RigidB2
             FaceFace); //TypeContact
         cd.push_back(contact);
     }
@@ -219,7 +219,7 @@ void Box::GenerateContactSphere(Sphere *s2, vector<Contact*>& cd,int maxContacts
         /////Check Place
         if(cd.size() >= maxContacts) return;
 
-        vec3 spCenterBx = body.rb.WorldToLocal(s2->body.rb.position);
+        vec3 spCenterBx = body->rb.WorldToLocal(s2->body->rb.position);
 
         //Check rapide contact
         if ( abs(spCenterBx.x) - s2->radius > halfSize.x ||
@@ -251,15 +251,15 @@ void Box::GenerateContactSphere(Sphere *s2, vector<Contact*>& cd,int maxContacts
         if (distance > s2->radius * s2->radius) return ;
 
         // SI collision creation contact
-        vec3 closestPtWorld = body.rb.LocalToWorld(closestPt);
-        vec3 normal = (closestPtWorld - s2->body.rb.position);
+        vec3 closestPtWorld = body->rb.LocalToWorld(closestPt);
+        vec3 normal = (closestPtWorld - s2->body->rb.position);
         normal.normalise();
         Contact * contact = new Contact(
             closestPtWorld, // Position
             normal, //Normal
             s2->radius - sqrt(distance), // Interpenetration
-            s2->body.rb, //RigidB1
-            body.rb, //RigidB2
+            s2->body->rb, //RigidB1
+            body->rb, //RigidB2
             PointFace); //TypeContact    //3 types de contact mais d'après livre, pas important donc choix = type le plus prioritaire dans la résolution.            
         cd.push_back(contact);
     }
@@ -282,27 +282,39 @@ void Box::GenerateContactSphere(Sphere *s2, vector<Contact*>& cd,int maxContacts
     
     void Box::GenerateContactPlane(Plane *p2, vector<Contact*>& cd,int maxContacts)
     {
+        body->rb.position.show();
+        //Recalcul des sommets 
+        for (int i = 0; i < 8; i++)
+            {
+                float x = body->rb.position.x + ((i & 4) ? halfSize.x : -halfSize.x);   // On alterne tous les 4 coups
+                float y = body->rb.position.y + ((i & 2) ? halfSize.y : -halfSize.y);   // On alterne tous les 2 coups
+                float z = body->rb.position.z + ((i & 1) ? halfSize.z : -halfSize.z);   // On alterne un coup sur 2
+                vertices[i] = {x,y,z};
+            }
+        
         for(int i =0; i < 8; i++)       // On test chaque sommet de la boite un par un.
         {
             /////Check Place
-            if(cd.size() >= maxContacts) return;
+            if(cd.size() >= maxContacts) return ; // Plus de place pour générer un contact
 
-            vec3 vertice = body.rb.LocalToWorld(vertices[i]) ; //Transformation LocaltoWorld du point
+            
+            
+            vec3 vertice = body->rb.LocalToWorld(vertices[i]) ; //Transformation LocaltoWorld du point
+            //vertice.show();
             float vertDist = prodScalExt(vertice,p2->normal);
-            if (vertDist > p2->planeOffset) return; // Pas d'intersection avec le plan. => Pas de contact
+            if (vertDist < p2->planeOffset) {// Si vrai alors création du contact
 
-            //Creation du contact
-
-            vec3 cp = p2->normal * (vertDist - p2->planeOffset) + body.rb.position;
+            vec3 cp = p2->normal * (vertDist - p2->planeOffset) + body->rb.position;
             float inter = p2->planeOffset - vertDist;
 
             Contact * contact = new Contact(
-            cp, //Position
+            vertice, //Position
             p2->normal, //Normal
             inter, // Interpenetration
-            p2->body.rb, //RigidB1
-            body.rb, //RigidB2
+            p2->body->rb, //RigidB1
+            body->rb, //RigidB2
             PointFace); //TypeContact
             cd.push_back(contact);
+            }
         }
     };
