@@ -141,3 +141,41 @@ qu'il faut des matrices de float car le choix de rotations représentées pas de
 
 Livres :
 https://ebookcentral.proquest.com/lib/uqac-ebooks/reader.action?docID=4205386
+
+
+******************************************************************************************************************************************************************************************************************************************
+
+
+Phase 4 :
+
+28 Novembre - 4 Décembre
+
+Elaboration de l'architecture des classes.
+Début implémentation des octrees.
+
+5 Décembre - 11 décembre
+
+Fin implémentation octrees.
+Début de la narrow phase.
+
+12 Décembre - 18 Décembre
+Fin narrow phase et affichage.
+
+
+
+Choix d'implémentations :
+- Nous avons commencé par implémenter la broad phase. Nous avons choisi d'utiliser des octrees générés dynamiquement à chaque frame
+ainsi que de des bounding boxes alignées sur les axes pour représenter les primitives lors de cette phase.
+
+- Pour la narrow phase, nous avions choisis de passé par une classe abstraite Primitive dont dérivent 3 autres sous classes Sphere,Box et Plane.
+Chaque Primitive implémente 3 fonctions qui servent à générer des collisions avec chaque Primitive.
+
+-Difficultes rencontrées :
+Les octree ont été difficiles à implémenter mais nous avons finalement réussi.
+L'implémentation des différentes primitives comme classes abstraites a posé probleme mais nous avons finalement réussi. Nous avons du utiliser du dynamic_cast pour savoir quelle fonction appeller en foncton de la primitive.
+
+Livres :
+
+https://uqac.on.worldcat.org/oclc/437177069   Pour les octrees.
+
+ https://uqac.on.worldcat.org/oclc/706803531   Pour les algos de generation de contacts
